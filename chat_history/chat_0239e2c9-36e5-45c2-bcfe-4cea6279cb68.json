@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "session_id": "0239e2c9-36e5-45c2-bcfe-4cea6279cb68",
+    "title": "what are the valid p",
+    "date": "2025-06-09T14:56:31.891746"
+  },
+  "messages": [
+    {
+      "query": "what are the valid products for toyota cars for bolag 2",
+      "answer": "The context provided does not explicitly list all valid products for Toyota cars for \"bolag 2.\" However, based on the information, products in the Rally system are determined by different parameters, such as **vehicle type, year model, and specific scenarios** (e.g., passenger car or light truck). Toyota and Lexus vehicles are associated with their respective products flagged as \"Märkesfordon\" in the Bilmärkeskodregistret. \n\nIf you are looking for a specific product list for Toyota cars under \"bolag 2,\" additional details might be required, such as the **product definition tabs in Matris.xls** or the configurations specific to the mentioned bolag. Let me know if there are further details available to narrow down the result!",
+      "timestamp": "2025-06-09T14:56:34.308783",
+      "sources": [
+        {
+          "content": "listan visas de produkter som passar bäst för detta fordon, men för att få tillgång till samtliga produkter \nrnativa produkter som går att välja för produkten.\nTill stöd för att välja rätt produkt visas information om fordonet och övrig viktig information.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 127,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "listan visas de produkter som passar bäst för detta fordon. För att få tillgång till samtliga produkter väljs \nTill stöd för att välja rätt produkt visas information om fordonet och övrig viktig information .\nÖvrig information visas med röd text till höger i rutan .Nedan följer några exempel på den info rmation \nsom kan förekomma(kommer från VTR -Vägtrafikregistret ):\nYrkesmässig trafik\nKarosserikod (för vissa fordon)",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 86,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "11.1\t42780.0\tTobias Wijk\tCR377201 Truck/Terrain vehicle products. Changed in tabs \"Rally manuell\" and \"Sally\". Changes for this CR in red, implement at same time as CR328763!\n12.1\t43241.0\tLena Weingarth\tME02_1 Produktbestämning Rally GUI, manuell \nME02_1 Product determination Rally GUI, manuell \n12.2\t43243.0\tPatrik Kähäri\tUpdated macro to cater for additional columns and the resulting SQL Scripts\n12.3\t43280.0\tPatrik Kähäri\tAdded column for FirmatypKod and updated macro (needed for EnskildFirma)\n12.4\t43363.0\tLena Weingarth\tLagt till produkt Toyota Euro care för lätt lastbil och Lexus Euro Assistance för personbil \n12.5\t43397.0\tPatrik Kähäri\tAdded rows to brand products to control which date the products will be available to users\n13.0\t43507.0\tLena Weingarth\tBaseline LMF\n13.1\t2019--10-14\tVivi Hallman\tLMF Feature 909970 Nya och omdöpta säljkanaler I RAP\n14.0\t43795.0\tLena Weingarth\tBaseline NOV2019\n14.1\t44166.0\tAnita Kar\tNew tab RallyAFapp\n15.0\t44256.0\tCharlotte Bramstedt\tBasline FEB2021\n15.1\t44375.0\tAnita Kar\tChange of upper limit for EV-number to 100 on products 3504 and 3506 in Rallymaskinell\n16.0\t44375.0\tIlkka Rautiainen\tBaseline JUN2021\n16.1\t45295.0\tLena Weingarth\tAdded product 5050, Nissan EuroCare\n16.2\t45302.0\tJohan Frisell\tAdded product 0150, Nissan Eurocare Personbil\n16.3\t45303.0\tAnita Kar\tAdded product 0151, 5051 Carina Eurocare products\n16.4\t45377.0\tAnita Kar\tChanged the brand to Suzuki for Oscar products (5050, 0150)\n16.5\t45477.0\tCarina Rehnqvist\tChanged tab RallyMaskinell, added SZ to invalid value for products 0101, 0102, 5001, 5002 from 2025-01-01\n16.6\t45568.0\tCarina Rehnqvist\tAs above for tab Rallymanuell\n16.7\t45574.0\tCarina Rehnqvist\tAs above for tab RallyAFApp\n16.8\t45616.0\tMulugeta Haile\tChanged tab RallyMaskinell, Changed date GiltigFrom (2019-01-01) respective GiltigTom (2024-12-31) for products 0101, 0102, 5001, 5002 from 2025-01-01. The same date changes is made for tab RallyAFApp. \n17.0\t45665.0\tLena Weingarth\tBaseline OSCAR/CARINA DEC 2024",
+          "metadata": {
+            "filename": "Produktbestämning3_Matris.xls",
+            "chunk_index": 3,
+            "total_chunks": 5
+          }
+        },
+        {
+          "content": "Steg\nStep | Beskrivning\nDescription\n1 | Rally anropas från extern kanal, ÅterförsäljarePartner, som frågar efter alla modeller som tillhör bilfabrikat Toyota eller Lexus och som har en flagga satt i kolumnen ”Märkesfordon” i tabellen Bilmärkeskodregistret, för en viss typ av fordon (Personbil eller Lätt lastbil). Användaren väljer Fabrikat, Modell och Årsmodell.\nRally is invoked from an external channel, ÅterförsäljarePartner,  that inquires after all models that belongs to vehicle brands that have a flag marked in column Märkesfordon in table Bilmärkeskodregistret, for a given type of vehicle brand (passenger car or light truck). User chooses Fabrikat, Model and year model.\nExempelscenario: \nExample scenario:\nÅterförsäljare har från ”ÅF-appen” valt att beräkna pris på en försäkring för en personbil.\nRetailer has chosen, from the “ÅF-app”  to calculate price on an insurance for a passenger car.\nÅterförsäljare har angivit att prisberäkning ska ske utan registreringsnummer.\nThe Retailer has indicated that the price calculation is to take place without registration number.\n2 | Rally returnerar alla modeller som stämmer med med de utsökningsvillkor som anroparen angivit (Fordonstyp, fabrikat, årsmodell och modell). \nRally returns all models that agree with the search conditions that the invoker has indicated (vehicle type, fabrikat, year model and model).\n3 | Användningsfallet avslutas.\nThe use case is terminated.",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "I Rally behöver vi fastställa fordonets årsmodell, då årsmodell är ett grunddata för ett premieargument.\nNär man ska fastställa ett fordons årsmodell ska man i transaktionen från VTR utgå från fälten i nedan \nangivna ordningsföljd:\n1. (HF25 under Fordonsidentifikation)\n2. juli till december såsätts årsmodell till \ntillverkningsår plus1år. (HF25 under Försäkringstekniskadata)\n3. ställt\njuli till december så sätts årsmodell till angivet \når plus 1 år. (HF25 under Försäkringstekniskadata)\n4. (HF25 under \nFörsäkringstekniskadata)",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 118,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "9.2 Trailer\t42632.0\tTobias Wijk\tCR313711, CR313710 Updated dates from when new weight interval should be valid. New fromDate is 2017-02-01 and new toDate is 2017-01-31. Applied for both Rallymanuell and Sally. Changes in yellow.\n9.1 Lastbil\t42395.0\tLena Weingarth\tCR289765 - New tariff Heavy truck. \nÄndring i rött\nChanges in red in tab Rallymanuell and Sally\n9.2 Lastbil\t42396.0\tLena Weingarth\tRensat bort produkterna 5601-5901  som varit stängda sedan 2009\nCleared away products 5601-5901 which have been closed since 2009\n9.3 Lastbil\t42628.0\tJörgen Barkselius\tTab Sally. \nMore or less reverted changes where \"Endast i övr.\" = 1. We cannot \"close\" the old truck products (5201-5501) for at least 3 years because, at least somtimes, today's date is used in product determination instead of Tariff date. There should be no problem to keep \"old\" products \"open\" i product determination as the product itself is \"closed\" and that has precedence over product determination.  Compare to Mc 24+ which seems to have been handled in the same way. \n* Deleted line 52 (which is OK as this has never been in production)\n* Removed GiltigTom in old line 53 (became new 52 after delete of old 52)\n10.0 \t42685.0\tLena Weingarth\tBaseline\n11.0\t42710.0\tJörgen Barkselius\tLOCA 354595 Change start date New tariff Heavy truck (from 2017-04-01 to 2017-11-01).\nChanges in red text. Tab Rallymanuell, rows: 39-41.  Tab Sally, rows 28-34. Only columns GiltigFrom and GiltigTom are changed. (Removed red text)\n11.1\t42780.0\tTobias Wijk\tCR328763 MC products. Changed in tabs \"Rallymanuell\", \"Rallymaskinell\" & \"Sally\" for MC-products. 1301, 1302, 1305, 1306, 1308 value for \"effect\" is deleted and replaced by \"årsmodell\" and introducing a new model year interval. Products 1307, 1309, 1310, 1311 is closed - they have been closed since 2010-04-30 i RAP. Changes in yellow for this CR!",
+          "metadata": {
+            "filename": "Produktbestämning3_Matris.xls",
+            "chunk_index": 2,
+            "total_chunks": 5
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 25\nInformationsklass: K2Premieklassen beräknas med tariffdatum. I och med detta blir priset rätt även i en period från det att \nklassningar ändras till dess att dagens datum är samma datum som klassningarna gäller från om man \nanger ett framtida begynnelsedatum.\nOm fordonet är ett äldre fordon, personbil och lätt lastbil, maxvärde 200000 kr\n(För äldre fordon, se Allmänna Bestämmelser för motorfordonsförsäkring )\nNär ett regnr saknas : . Det blir då en specialklassning vilket ger \nen bilmärkeskod på 8 00808för både personbil och lätt lastbil och en premieklass på 01515för \npersonbil respektive 00811 för lätt lastbil . Specialklassingen syns i prisuppgift/produktfliken när man \nklickat i fältet Vidare.\nNär regnr finns får man inte fram den rätta bilmärkeskoden. I dessa fall får man specialklassa bilen \ngenom att ändra i detaljbilden till bilmärkeskod 800808men får då premieklass 01515för personbil \noch 00811 för lätt lastbil .\nEftersom husbilar är klassade som personbilar klass 2, kan man i vissa lägen behöva fylla i klassning\nsom om det vore en personbil . Välj då vilken klassning som helst, detta har ingen påverkan sen. Detta \när e\nFordonstyp\nAv Länsförsäkringar definierad indelning av fordon , till exempel Personbil och L ätt lastbil. Varje \nprodukt i Länsförsäkringars sortiment tillhör en fordonstyp.\nFordonsålder\nFör flertalet av Motors produkter är fordonets ålder (åldersrabatt) ett premieargument (för vilka \nprodukter detta tillämpas framgår av tabell över Premieargument i Allmänna Bestämmelser).\nBeräkna fordonsålder:\nBeräkning görs genom att ta skillnaden mellan årtalet i offertens begynnelsedatum/försäkringens \naktuella avtalsperiods begynnelsedatum och fordonets årsmodell.\nFordonsålder beräknas för försäkringar där vald produkt har fordonsålder som ett premieargument. \nBeräkningen görs vid offert, alla typer av nyteckning, fordonsbyte och förnyelse.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 47,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 47\nInformationsklass: K2Annan ägare än vår försäkringstagare\nRiskurval: Fordonet är en rallybil (visas bara om det är markerat som en rallybil i VTR, HF25)\nDirektimport\nEfterlyst\nAvställt/avregistrerad\nKörförbud\nHär visas även om det finns ytterligare ett trafikförsäkringsbevis från ett annat försäkringsbolag, \nsamt datum.\nEn förteckning över Motors produkter som innehåller både produktnummer och produk tbenämning \nhittar dupå Länet under Fordon Privat/Instruktioner /Generella instruktioner och allmänna \nbestämmelser .\nProduktbyte\nDet är inte möjligt att göra produktbyten på en försäkring.\nProduktfliken\nI fliken Produkt anges grunddata för den aktuella produkten (premieargument såsom körsträcka, LKF ,\nregistreringsnummer och fabrikat), omfattning, prisjustering samt rabatt/påslag.\nMerparten av informationen hämtas från VTR (Vägtrafikregistret).\nOmfattningen kan väljas via snabbval där du sedan kan komplettera och förändra under moment och \nsjälvrisk.\nPrisjustering kan göras för att rätta till en feloffererad premie\nRabatter och påslag finns för vissa produkter .\nProva på försäkring\nFinns för både fysiska och juridiska personer.\nRespektive länsförsäkringsbolag anmäler till LFAB, Motor Produkt, vilken typ av Prova på man vill ha \n(antal månader och pris)upplagt i Rally.\npå motorsajten Motorförsäkring -Länet (lfnet.se)\nunder Instruktioner/Rally.\nProvision\nLänsförsäkringar betalar ut provision till säljare och ombud när de ny -och merförsäljer \nförsäkringsavtal åt Länsförsäkringar.\nRegistreringsposten skickas till FROP ( FörsäljningsR edovisning och Provision) med det ombud/säljare \nsom står på nyteckningen och betalningsposten (skickas i väg när försäkringen blir betald)innehåller \nsamma värden.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 87,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 69\nInformationsklass: K2du till exempel lägga in annat betalningssätt, ändra körsträcka med mera.\nDu kan ändra omfattning och självrisker och även markera om en kund har lagt till boendeförsäkring så \natt rätt bo enderabatt räknas from nästa förnyelse.\nÄndring vid förnyelse kan göras ett år framåt plusden tid före förfallodagen som vi kör förnyelsen , \nvilket innebär att när förnyelsen är körd för aktuell huvudförfallomånad kan du lägga in bevakning till \nnästa förnyelse.\nFinns redan en Ändring vid förnyelse inlagd, och du vill göra ytterligare en ändring, måste du först \nvälja Ta bort för att sedan på nytt göra Ändring vid förnyelse. \nObs! Tänk då på att först notera vilken den första ändringen är , eftersom det inte loggas , då du måste \nlägga in den på nytt med den nya ändringen.\natt göra bevakning på för just den försäkringen finns med.\nÄndringsdatum\n(visas i periodpanelen)\nÄndringsdatum för försäkringsavtalet.\nÄndrings offert\nSe mer information under avsnittet Offert på befintlig försäkring.\nÖ\nÖverföringsbesked Autogiro\nÖverföringsbesked skickas inför varje dragning till de kunder som begärt detta.\nFör att kunden ska få ett överföringsbesked går du in på Verktygsmenyn -Autogiro. Då öppnas en ny \nDu kan göra detta när som helst under \navtalsåret men det skickas inte ut förrän vid nästa dragning.\nÖverföringsbeskedet visar det faktiska dragningsbeloppet för nästa dragning. Beroende på när \neventuella ändringar genomförts innehåller överföringsbeskedet en eller fler månader. \nÖverföringsbeskedet skickas med B-postoch är kostnadsfritt för kunden.\nÖversikten\nSe mer information under avsnittet Visa Översikt.\nÖvriga Produkter\n(visas i Välj Produkt -bilden)\nEn produkt måste väljas för fordonet. Om det inte redan är förvalt, får du själv välja lämplig produkt. I \nlistan visas de produkter som passar bäst för detta fordon, men för att få tillgång till samtliga produkter \nrnativa produkter som går att välja för produkten.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 126,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 36\nInformationsklass: K2Lokal Märkesförsäkring\nLäs mer om våra samarbeten på Fordon Märkesförsäkring -Länet (lfnet.se) där du även hittar \ninformation om support och kontaktvägar.\nLyftkapacitet (kg)\n(Visas i Produktfliken för produktenMobilkran)\nAvser den högsta tillåtna vikt som fordonet får lyfta. Uppgiften är obligatorisk och ä ndringsbar.\nLänsbonus bolagsindividuellt\nLänsbonus och bonusnivå är ett koncept till privatpersoner där rabatt ges till försäkringar i hushållet. \nAlla underlag för rabatt hämtas från Ett KUND. Mer finns att läsa på Länet.\nHämtning av ny länsbonus vid fordonsbyte\nOm kundens länsbonus har förändrats på ett sätt som ger ett lägre pris, uppdateras avtalet med ny \nlänsbonus i samband med fordonsbytet .\nM\nMarknadsvärde\nEtt fordons försäljningsvärde vid en viss tidpunkt.\nMC ursprungseffektlista\nLista med ursprungseffekter för MC nås från alla Rallybilder (prisuppgift, offert och försäkring) via \nmenyval Verktyg Visa MC-ursprungseffektlista.\nMedförsäkrat fordon\nFordonsb yte kan ske för alla produkter.\nSåld eller avregistrerad inom 14 dagar\nVid ett fordonsbyte är kundens gamla fordon medförsäkrat i 14 dagar utan extra kostnad och med \nsamma försäkringsskydd som tidigare. Man kommer endast att kunna se fordonets försäkringsskydd \ngenom att gå in på det gamla försäkringsavtalet, där den nya bilen finns, och titta på den historiska \nförsäkringsperioden. Fordon som är trafikförsäkringspliktiga och registreringspliktiga kommer även att \nha bevisinformationen kvar kopplat mot det gamla försäkringsavtalet. Man kommer inte att behandla \nav-och påställningar från VTR (Vägtrafikregistret) på det medförsäkrade fordonet.\nIngetnytt försäkringsavtal skapas för denna period och det går heller inte att se det medförsäkrade \nfordonet i Ett KUND. Observera att dessa regler gäller om fordonet är sålteller avregistrerat inom 14 \ndagar.\nOm kunden fortfarande äger fordonet efter 14 dagar",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 66,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        }
+      ]
+    },
+    {
+      "query": "product selected with year 2022, vehicle type as 01",
+      "answer": "To determine the product selected with the year 2022 and vehicle type as 01, let us break it down based on the provided context:\n\n1. **Year (2022):**\n   - The year model plays a key role in Rally for determining the product. If the \"Ibruktagardatum\" (date of first use) is 2022 and the year model is also 2022, this is valid as per checks in the context. \n   - If the \"Ibruktagardatum\" is earlier than the year model, it may indicate the vehicle was imported (referenced in Document 5).\n\n2. **Vehicle Type (01):**\n   - As per the context in Document 8, vehicle types are categorized (e.g., passenger cars and light trucks). The exact match for \"vehicle type 01\" could be a passenger car if aligned with common classification.\n\n3. **Selection Process for Product:**\n   - Products are determined based on parameters such as year, vehicle type, and other defined criteria (Document 7). \n   - Toyota-related products, as mentioned, include “Toyota Euro Care” and Lexus products for passenger cars and light trucks (Document 2).\n\n4. **Approach Using Rally System:**\n   - In Rally, if year (2022) and vehicle type (01) are input, the system will show the most suitable products for the vehicle, considering additional parameters like the manufacturer's guarantees, whether it was sold new in Sweden, and any premiums related to the age of the vehicle.\n\nHence, with the given information:\n- **If your search pertains to a Toyota car under these parameters**, products like **Toyota Euro Care**, **light truck**, or **Lexus Euro Assistance** may be valid choices.\n- However, for an exact match, databases from \"Rally\" or product configuration tabs in Matris.xls would need to be referenced further for bolag-specific product determination.\n\nLet me know if you'd like more specifics or assistance in narrowing this further!",
+      "timestamp": "2025-06-09T14:58:09.386361",
+      "sources": [
+        {
+          "content": "I Rally behöver vi fastställa fordonets årsmodell, då årsmodell är ett grunddata för ett premieargument.\nNär man ska fastställa ett fordons årsmodell ska man i transaktionen från VTR utgå från fälten i nedan \nangivna ordningsföljd:\n1. (HF25 under Fordonsidentifikation)\n2. juli till december såsätts årsmodell till \ntillverkningsår plus1år. (HF25 under Försäkringstekniskadata)\n3. ställt\njuli till december så sätts årsmodell till angivet \når plus 1 år. (HF25 under Försäkringstekniskadata)\n4. (HF25 under \nFörsäkringstekniskadata)",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 118,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "11.1\t42780.0\tTobias Wijk\tCR377201 Truck/Terrain vehicle products. Changed in tabs \"Rally manuell\" and \"Sally\". Changes for this CR in red, implement at same time as CR328763!\n12.1\t43241.0\tLena Weingarth\tME02_1 Produktbestämning Rally GUI, manuell \nME02_1 Product determination Rally GUI, manuell \n12.2\t43243.0\tPatrik Kähäri\tUpdated macro to cater for additional columns and the resulting SQL Scripts\n12.3\t43280.0\tPatrik Kähäri\tAdded column for FirmatypKod and updated macro (needed for EnskildFirma)\n12.4\t43363.0\tLena Weingarth\tLagt till produkt Toyota Euro care för lätt lastbil och Lexus Euro Assistance för personbil \n12.5\t43397.0\tPatrik Kähäri\tAdded rows to brand products to control which date the products will be available to users\n13.0\t43507.0\tLena Weingarth\tBaseline LMF\n13.1\t2019--10-14\tVivi Hallman\tLMF Feature 909970 Nya och omdöpta säljkanaler I RAP\n14.0\t43795.0\tLena Weingarth\tBaseline NOV2019\n14.1\t44166.0\tAnita Kar\tNew tab RallyAFapp\n15.0\t44256.0\tCharlotte Bramstedt\tBasline FEB2021\n15.1\t44375.0\tAnita Kar\tChange of upper limit for EV-number to 100 on products 3504 and 3506 in Rallymaskinell\n16.0\t44375.0\tIlkka Rautiainen\tBaseline JUN2021\n16.1\t45295.0\tLena Weingarth\tAdded product 5050, Nissan EuroCare\n16.2\t45302.0\tJohan Frisell\tAdded product 0150, Nissan Eurocare Personbil\n16.3\t45303.0\tAnita Kar\tAdded product 0151, 5051 Carina Eurocare products\n16.4\t45377.0\tAnita Kar\tChanged the brand to Suzuki for Oscar products (5050, 0150)\n16.5\t45477.0\tCarina Rehnqvist\tChanged tab RallyMaskinell, added SZ to invalid value for products 0101, 0102, 5001, 5002 from 2025-01-01\n16.6\t45568.0\tCarina Rehnqvist\tAs above for tab Rallymanuell\n16.7\t45574.0\tCarina Rehnqvist\tAs above for tab RallyAFApp\n16.8\t45616.0\tMulugeta Haile\tChanged tab RallyMaskinell, Changed date GiltigFrom (2019-01-01) respective GiltigTom (2024-12-31) for products 0101, 0102, 5001, 5002 from 2025-01-01. The same date changes is made for tab RallyAFApp. \n17.0\t45665.0\tLena Weingarth\tBaseline OSCAR/CARINA DEC 2024",
+          "metadata": {
+            "filename": "Produktbestämning3_Matris.xls",
+            "chunk_index": 3,
+            "total_chunks": 5
+          }
+        },
+        {
+          "content": "listan visas de produkter som passar bäst för detta fordon. För att få tillgång till samtliga produkter väljs \nTill stöd för att välja rätt produkt visas information om fordonet och övrig viktig information .\nÖvrig information visas med röd text till höger i rutan .Nedan följer några exempel på den info rmation \nsom kan förekomma(kommer från VTR -Vägtrafikregistret ):\nYrkesmässig trafik\nKarosserikod (för vissa fordon)",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 86,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "listan visas de produkter som passar bäst för detta fordon, men för att få tillgång till samtliga produkter \nrnativa produkter som går att välja för produkten.\nTill stöd för att välja rätt produkt visas information om fordonet och övrig viktig information.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 127,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "en kontroll på att årsmodellen inte får vara lägre än året i \"Ibruktagardatum . Om till exempel\nIbruktagardatum är 2022och årsmodellen är 2021beror årsmodellen på att ursprungligt \nregistreringsdatum är 2021och fordonet kan då vara intaget från utlandet men inte som Direktimport\nutan som Införtpå VTR. Det är en form av Direktimport fast via agent och då blir det inte \nDirektimport på VTR utan Infört,det är därför vi har en kontroll även på årsmodell.\nDet kan till exempel vara flyttgods också .\nTexten som ligger på Rallyförsäkringen om när vagnskadeerbjudandet gått ut tas aldrig bo rt.\nDet är bara fordon som har sålts i Sverige som helt nya som får Vagnskadegaranti.\nVi är inte skyldiga att skicka ut dessa erbjudanden.\nVisa Försäkringslogg\n(Visas i Verktygsmenyn - Visa Försäkringslogg)\nI Försäkringsloggen kan du se alla händelser, både de som ger en ny och de som inte ger en ny \nförsäkringsperiod på det aktuella försäkringsavtalet. Loggen omfattar både manuella och maskinella \nhändelser .Här kan du se händelsen, när den gjordes (datum och klockslag) samt ansvarig för händelsen \n(handläggare eller maskinell).",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 112,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist\n2024-05-02 | PI1 | FEATURE 510767 - Necessary adaptations in Rally for ÅF Tool 1.5 + webbar | Rajasekaran Chandrasekaran\n2024-12-19 | I | Baseline dec 2024 | Caroline Hansson",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 9,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 64\nInformationsklass: K2I varje fråga finns en informationsruta som beskriver vilka uppgifter som ska fyllas i och vilket svar \njust denna fråga ger.\nBeroende på vilken fråga du ställt till VTR kan du själv justera informationen genom att klicka på \nde tillfällen där svaret ger mycket information (mång a rader), till exempel vid stort fordonsinnehav, och \ndu bara vill ha information om ett specifikt fordon klickar du på det utvalda fordonet och får då \ninformation om just det fordonet. Denna funktion gäller även andra frågor än fordonsfrågor.\nY\nÅ\nÅngervecka\nSe vidare under rubrik Annullation och Ångervecka.\nÅrsbrutto (SEK)\nDet tariffenliga pris som beräknats innan några avdrag gjorts.\nÅrsförsäkring -riskförtätning\nPremien fördelas med hänsyn till säsongsvarierad risk, för till exempel en motorcykel blir det dyrare \npris på sommaren och för en terrängskoter blir det dyrare på vintern. Detta är viktigt att informera \nkunden om .OBS! Vid annullationsorsak obetald går det inte att räkna fram en riskanpassad dagpremie \ni Rally utan denna räknas med årspremien som underlag. Dagpremien markeras som betald i samband \nmed att den överförs till Trafikförsäkringsföreningen (TFF), därför kan kunden ibland få pengar \ntillbaka trots at t inget är betalt. Detta inträffar om den obetalda perioden inträffar då det är låg \nriskpremie eftersom det då finns mer betalningsmarkerat än vad riskpremien skulle bli.\nSe även Riskförtätning .\nÅrsmodel l\nDen årsmodell fordonet har enligt VTR (Vägtrafikregistret) eller som uppgivits av kunden.\nÅrsmodell har i branschen försvunnit som ett begrepp för att fastställa ett fordons ålder då förändringar \nav bilmodeller sker kontinuerligt under året. Följden av detta är att vi från VTR inte kommer att få \nårsmodell på alla fordon utan få ranvända oss av annan information för att själva fastställa årsmodell.\nI Rally behöver vi fastställa fordonets årsmodell, då årsmodell är ett grunddata för ett premieargument.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 117,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 25\nInformationsklass: K2Premieklassen beräknas med tariffdatum. I och med detta blir priset rätt även i en period från det att \nklassningar ändras till dess att dagens datum är samma datum som klassningarna gäller från om man \nanger ett framtida begynnelsedatum.\nOm fordonet är ett äldre fordon, personbil och lätt lastbil, maxvärde 200000 kr\n(För äldre fordon, se Allmänna Bestämmelser för motorfordonsförsäkring )\nNär ett regnr saknas : . Det blir då en specialklassning vilket ger \nen bilmärkeskod på 8 00808för både personbil och lätt lastbil och en premieklass på 01515för \npersonbil respektive 00811 för lätt lastbil . Specialklassingen syns i prisuppgift/produktfliken när man \nklickat i fältet Vidare.\nNär regnr finns får man inte fram den rätta bilmärkeskoden. I dessa fall får man specialklassa bilen \ngenom att ändra i detaljbilden till bilmärkeskod 800808men får då premieklass 01515för personbil \noch 00811 för lätt lastbil .\nEftersom husbilar är klassade som personbilar klass 2, kan man i vissa lägen behöva fylla i klassning\nsom om det vore en personbil . Välj då vilken klassning som helst, detta har ingen påverkan sen. Detta \när e\nFordonstyp\nAv Länsförsäkringar definierad indelning av fordon , till exempel Personbil och L ätt lastbil. Varje \nprodukt i Länsförsäkringars sortiment tillhör en fordonstyp.\nFordonsålder\nFör flertalet av Motors produkter är fordonets ålder (åldersrabatt) ett premieargument (för vilka \nprodukter detta tillämpas framgår av tabell över Premieargument i Allmänna Bestämmelser).\nBeräkna fordonsålder:\nBeräkning görs genom att ta skillnaden mellan årtalet i offertens begynnelsedatum/försäkringens \naktuella avtalsperiods begynnelsedatum och fordonets årsmodell.\nFordonsålder beräknas för försäkringar där vald produkt har fordonsålder som ett premieargument. \nBeräkningen görs vid offert, alla typer av nyteckning, fordonsbyte och förnyelse.",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 47,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 61\nInformationsklass: K2V\nVagnskada\nVagnskadeförsäkring tecknas endast i kombination med delkaskoförsäkring.\nVagnskadegarantierbjudande\n(Visas i Försäkringsbilden)\nErbjudande om vagns kadeförsäkring går ut till kund c irka45 dagar innan vagnskadegarantin på \nfordonet upphör .Erbjudande skickas på produkterna personbil privat och företag , taxioch ibland även \npå lätt lastbil privat och företag . Det är 45 Datum för första ibruktagandet \nVTR (Vägtrafikregistret) som styr när vagnskadegarantin skickas ut. Längst ner på försäkringsbilden \nvisasutskriftsdatum för vagnskadegarantierbjudandet och en brev ikon med länk till dokumenttjänst en i \nden aktuella försäkringsbilden (observera att du måste stå i rätt period för att kunna se ikonen) .\nDe kunder som har gjort ett aktivt val om digital distribution får vagnskadeerbjudande på Mina \nsidor. Kunden får även en notifiering via e -post och/eller sms beroende på vilket val de gjort.\nDe kunder som inte gjort ett val om digital distribution får vagnskadeerbjudandet per post och \näven digitalt på Mina sidor. Det kommer att finnas en text på vagnskadeerbjudandet som går ut \nper post om att kunden kan logga in på Mina sidor och besvara erbju dandet.\nVagnskadeerbjudande digitalt blev tillgängligt på kunden s Mina sidor i november 2016.\nErbjudande om Vagnskada när garantitiden gått ut har i vissa fall inte skickats till kunden. Detta har \nberott på att det vid tecknandet\nfordonet har varit för nytt så denna uppgift har inte hunnit registreras .Om det fanns ett \ndatabasen i VTR men visas inte. Komplettering av Ibruktagardatum sker kontinuerligt.\nOm det inte gått ut något vagnskadegarantierbjudande till kunden kan orsaken också vara att detfinns \nen kontroll på att årsmodellen inte får vara lägre än året i \"Ibruktagardatum . Om till exempel\nIbruktagardatum är 2022och årsmodellen är 2021beror årsmodellen på att ursprungligt",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 111,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Uppdaterad 2024-11-13, sida 32\nInformationsklass: K2Huvudförfallodatum\nHuvudförfallodatum sätts alltid till avtalsperiodens begynnelsedatum plus1 år.\nHuvudförfallodatum sätts alltid till den 1:ai månaden .\navvikelser från denna regel gäller.\nDet ska vara möjligt att sätta huvudförfallodatum manuellt, det måste då vara större än \nbegynnelsedatum och mindre än eller lika me d begynnelsedatum plus 12 månader.\nMöjligheten att byta huvudförfallodag på en gällande försäkring är stängd. Detta på grund av att det \nblir många följdfel, bl and annat går det inte att få fram ett nytt försäkringsbrev som stämmer överens \nmed ny faktura. Om byte av huvudförfallodag ska göras måste detta göras via intern annullation och \nnyteckning med kopiering.\nHämta fordon\n(visas i Prisuppgift Verktygsmenyn)\nDetta val använd snär du till exempel lämnat e n offert utan registreringsnummer. Om du sedan vill \nältet \nför registreringsnummer inte är valbart i detta läge. Du fyller sedan i registreringsnumret i \nproduktbestämningsbilden. Korrekta uppgifter om fordonet hämtas då från VTR (Vägtrafikregistret)\noch du kan beräkna priset på nytt. Alla tidigare inmatad e uppgifter finns kvar på offerten . Produktbyte \när inte möjligt.\nHändelse/Händelsetyper\nI Rally märks varje försäkringsperiod upp med en händelsetyp som beskriver vilken händelse som har \nskapat perioden.\nSyftet med händelsetyper är dels att tydliggöra för användarna vilken händelse som har skapat en \nförsäkringsperiod, dels att vara styrande för olika maskinella bearbetningar av en försäkring.\nVid ändring på en befintlig försäkring kan mer än en händelsetyp bli aktuell samtidigt, t ill exempel\nfordonsbyte och påställning. I dessa fall gäller följande prioriteringsregler:\nHändelsetyp Prio\nFordonsbyte 1\nAvställning 2\nPåställning 3\nAdressändring 4\nÄndring 5\nFör vidare information, läs vidare under respektive Händelsetyp.\nHändelsetyp för perioden Händelsetyp för perioden forts.\nNyteckning Ändring pga tilläggsavisering",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 60,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        }
+      ]
+    },
+    {
+      "query": "yes .. more specific",
+      "answer": "To provide a more specific answer regarding the selected product for a Toyota car with **year 2022** and **vehicle type 01**, here is what we can clarify from the documents:\n\n1. **Relevant Products for Toyota Cars:**\n   - Document 4 mentions that **Toyota Euro Care** has been added as a product for **light trucks** and **Lexus Euro Assistance** for **passenger cars**. This indicates that there are specific Toyota products valid for certain vehicle types under specific configurations.\n\n2. **Vehicle Type \"01\":**\n   - Vehicle type 01 would typically correspond to **passenger cars** based on industry standards and classification systems. So, this aligns with products like the **Lexus Euro Assistance**, which may apply to vehicles from Toyota's brand for this type.\n\n3. **Year 2022:**\n   - The mentioned year (2022) plays a critical role in validating the product. Document 4 outlines that the **GiltigFrom** and **GiltigTom** parameters are used to determine whether a product is valid for vehicles of a specific **year model or date of first use**. For example:\n     - Tabs in **Matris.xls** (RallyMaskinell, Rallymanuell, and Sally) manage the applicable validity dates for specific product codes.\n     - If a Toyota car from 2022 is being searched for, the product needs to have a **GiltigFrom** date that includes 2022.\n\n4. **Additional Information Needed:**\n   - For **Bolag 2**, the product requirements might vary based on business-specific criteria. Unfortunately, the documents don't explicitly list \"Bolag 2-specific products\" but detail broader product determination rules under Rally.\n\n### Likely Chosen Product:\nBased on the classification and alignment with Toyota cars, for **vehicle type 01 with year 2022**:\n- **Toyota Euro Care** or **Lexus Euro Assistance** are highly probable matches, given that they are explicitly stated in Document 4 as associated with these brands.\n- The exact product code and settings (like **GiltigFrom**, **GiltigTom**, etc.) would require a look at configuration tabs like **Rallymanuell** and **Rallymaskinell** in the Excel file mentioned.\n\nIf you can share specific bolag settings or additional attributes, I can help refine this further!",
+      "timestamp": "2025-06-09T14:58:42.884437",
+      "sources": [
+        {
+          "content": "2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist\n2024-05-02 | PI1 | FEATURE 510767 - Necessary adaptations in Rally for ÅF Tool 1.5 + webbar | Rajasekaran Chandrasekaran\n2024-12-19 | I | Baseline dec 2024 | Caroline Hansson",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 9,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "<<error description>> = technical description of error\nFellogg Uppdatering av kund i EttKund misslyckas\nUpdate of customer in EttKund unsuccessful\nKunden med identitet <<person- eller organisationnummer>> kunde inte uppdateras  i EttKund. Felet som rapporterades från EttKund var: <<felbeskrivning>>\nFörklaring: \t<<person- eller organisationnummer>> = aktuell kunds identitet\n\t<<felbeskrivning>> = teknisk felbeskrivning från tjänstegränsnitt\nThe customer with identity <<personal or corporate identity number>> could not be updated in EttKund. The error reported from EttKund was: <<error description>>\nExplanation: \t<<personal or corporate identity number>> = identity of the customer in question\n\t<<error description>> = technical error description from service interface\nÖvriga referenser - Other references\nSärskilda Krav - Special requirements\nÖvrigt - Other",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifterdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Inquiry into classification of vehicle comes in to Rally via an external channel. \nThe external channel calling in must have the authority to use this service.\nÖnskat resultat\nDesired result | Klassning av fordon tillhandahålls så att beräkning av pris ska vara möjlig (på en produkt som finns tillgänglig för aktuell extern kanal).\nClassification of vehicle is supplied so that calculation of price is possible (under a product that is available to the external channel in question).\nSärskilda krav\nSpecial requirements | \nInformationsbeskrivning\nInformation description | Detaljerad beskrivning av tjänsten finns i dokument ”Nyteckningservice”.\nDetailed description of the service is found in the  “Nyteckningservice” document.\nRegelverk\nRegulations | Regelverk som endast berör externa kanaler:\nRegulations only affecting external channels:\n”Regelverk Betjäna externa kanaler” (Regulations, Employ external channels) \n”Regelverk Betjäna externa kanaler – Riskurvalsregler” (Regulations, Employ external channels – Risk selection rules) \n”Rally på Internet-Spinloggen” (Rally on the Internet-Spin log)\n”Regelverk Säljarnummer RAFI” (Regulations, Sales person number RAFI) \n”Regelverk RAFI Bolagsinfo mail  tfn” (Regulations, RAFI Company info: mail, telephone)",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "11.1\t42780.0\tTobias Wijk\tCR377201 Truck/Terrain vehicle products. Changed in tabs \"Rally manuell\" and \"Sally\". Changes for this CR in red, implement at same time as CR328763!\n12.1\t43241.0\tLena Weingarth\tME02_1 Produktbestämning Rally GUI, manuell \nME02_1 Product determination Rally GUI, manuell \n12.2\t43243.0\tPatrik Kähäri\tUpdated macro to cater for additional columns and the resulting SQL Scripts\n12.3\t43280.0\tPatrik Kähäri\tAdded column for FirmatypKod and updated macro (needed for EnskildFirma)\n12.4\t43363.0\tLena Weingarth\tLagt till produkt Toyota Euro care för lätt lastbil och Lexus Euro Assistance för personbil \n12.5\t43397.0\tPatrik Kähäri\tAdded rows to brand products to control which date the products will be available to users\n13.0\t43507.0\tLena Weingarth\tBaseline LMF\n13.1\t2019--10-14\tVivi Hallman\tLMF Feature 909970 Nya och omdöpta säljkanaler I RAP\n14.0\t43795.0\tLena Weingarth\tBaseline NOV2019\n14.1\t44166.0\tAnita Kar\tNew tab RallyAFapp\n15.0\t44256.0\tCharlotte Bramstedt\tBasline FEB2021\n15.1\t44375.0\tAnita Kar\tChange of upper limit for EV-number to 100 on products 3504 and 3506 in Rallymaskinell\n16.0\t44375.0\tIlkka Rautiainen\tBaseline JUN2021\n16.1\t45295.0\tLena Weingarth\tAdded product 5050, Nissan EuroCare\n16.2\t45302.0\tJohan Frisell\tAdded product 0150, Nissan Eurocare Personbil\n16.3\t45303.0\tAnita Kar\tAdded product 0151, 5051 Carina Eurocare products\n16.4\t45377.0\tAnita Kar\tChanged the brand to Suzuki for Oscar products (5050, 0150)\n16.5\t45477.0\tCarina Rehnqvist\tChanged tab RallyMaskinell, added SZ to invalid value for products 0101, 0102, 5001, 5002 from 2025-01-01\n16.6\t45568.0\tCarina Rehnqvist\tAs above for tab Rallymanuell\n16.7\t45574.0\tCarina Rehnqvist\tAs above for tab RallyAFApp\n16.8\t45616.0\tMulugeta Haile\tChanged tab RallyMaskinell, Changed date GiltigFrom (2019-01-01) respective GiltigTom (2024-12-31) for products 0101, 0102, 5001, 5002 from 2025-01-01. The same date changes is made for tab RallyAFApp. \n17.0\t45665.0\tLena Weingarth\tBaseline OSCAR/CARINA DEC 2024",
+          "metadata": {
+            "filename": "Produktbestämning3_Matris.xls",
+            "chunk_index": 3,
+            "total_chunks": 5
+          }
+        },
+        {
+          "content": "Referenser - References\nNedanstående dokument gäller allmänt vid skapande av offert. \nThe documents below apply in general in upon creating/saving a quotation.",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Datum | Version | Beskrivning | Författare\n2014-12-12 | pA1 | Översättningsunderlag\nTranslation document | Jörgen Barkselius\n2015-05-25 | pA2 | Infört engelsk översättning\nAdded English translation | Mari Forssberg\n2015-05-25 | A | Flytt till baseline\nSaved to baseline | Mari Forssberg\n2016-03-24 | pB1 | CR287335 Zip Code as rating factor. Nytt regelverk Regelverk Postnummer tillagt i referenser.\nNew business rule Regelverk Postnummer added in reference list. | Carina Rehnqvist\n2016-04-27 | B | Baseline efter release april-2016\nBaseline after release april-2016 | Carina Rehnqvist\n2017-02-21 | pC1 | CR373575 – New rating factors gult\nLagt till nytt regelverk under referenser\nAdded new document to References | Carina Rehnqvist\n2017-11-27 | C | Baseline NOV2017 | Lena Weingarth\n |  | CR467574 New rating factor Boendeform | Carina Rehnqvist\n2019-02-05 | D | Baseline Nov-18 | Carina Rehnqvist\n2018-08-17 | pE1 | Feature 767000:Two valid policies with same registration number | Lena Weingarth\n2018-09-13 | pE2 | Feature 745100 – Price calculate through mobile “ÅF-app” | Tobias wijk\n2019-02-11 | E | Baseline LMF (Dec2018) | Tobias Wijk\n2019-06-25 | pF1 | Feature 861616 New version of Nyteckning service. \nUpdated points 3 example scenario,4 mainflow & 5 alternative flows. | Sara Ernlund\n2019-09-18 | F | Baseline SEP2019 | Lena Weingarth\n2019-09-20 | pG1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP . \n | Vivi Hallman\n2019-11-25 | pG2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP . Changed the text (detailed link )regarding betjäna externa kanaler \n | Vivi Hallman\n2019-11-25 | G | Baseline NOV2019 | Lena Weingarth\n2019-11-27 | G | Removed faulty references to business rules | Patrik Kähäri/Vivi Hallman\n2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Fordonet är inte godkänt vid validering mot appens riskurvalsregler\n(se Rally på Internet – Riskurvalsregler)\nThe vehicle is not approved during validation against app risk selection rules\n(see Rally på Internet – Riskurvalsregler)\n\n\nBilmärkesklassbestämning (manuell fordonsklassning) misslyckas\nVehicle brand class determination (manual classification of vehicle) is unsuccessful\n\n\nDatum | Version | Beskrivning | Författare\n2014-12-12 | pA1 | Översättningsunderlag\nTranslation document | Jörgen Barkselius\n2015-05-28 | pA2 | Infört engelsk översättning\nAdded English translation | Jörgen Barkselius\n2015-05-28 | A | Flytt till baseline\nSaved to baseline | Jörgen Barkselius\n2016-03-24 | pB1 | CR287335 Zip Code as rating factor. Nytt regelverk Regelverk Postnummer tillagt i referenser.\nNew business rule Regelverk Postnummer added in reference list. | Carina Rehnqvist\n2016-04-27 | B | Baseline efter release april-2016\nBaseline after release april-2016 | Carina Rehnqvist\n2017-02-21 | pC1 | CR373575 – New rating factors gult\nLagt till nytt regelverk under referenser\nAdded new document to References | Carina Rehnqvist\n2017-11-27 | C | Baseline NOV2017 | Lena Weingarth\n2018-10-01 | pD1 | Feature 745139 – Price calculate on vehicle model from mobile ÅF-app – Use case is re-opened for external channel ÅterförsäljarePartner | Tobias Wijk\n2019-02-11 | D | Baseline LMF (Dec2018) | Tobias Wijk\n2019-09-26 | pE1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP \n | Vivi Hallman\n2019-11-25 | pE2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP , updated the link to betjäna externa kanaler documents | Vivi Hallman\n2019-11-25 | E | Baseline NOV2019 | Lena Weingarth",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 1,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "listan visas de produkter som passar bäst för detta fordon. För att få tillgång till samtliga produkter väljs \nTill stöd för att välja rätt produkt visas information om fordonet och övrig viktig information .\nÖvrig information visas med röd text till höger i rutan .Nedan följer några exempel på den info rmation \nsom kan förekomma(kommer från VTR -Vägtrafikregistret ):\nYrkesmässig trafik\nKarosserikod (för vissa fordon)",
+          "metadata": {
+            "filename": "Rallyhelp.pdf",
+            "chunk_index": 86,
+            "total_chunks": 129,
+            "title": "A.pdf",
+            "author": "Saarthak Dugar"
+          }
+        },
+        {
+          "content": "Datum | Version | Beskrivning | Författare\n2014-12-15 | pA1 | Översättningsunderlag | Bengt Lindvall\n2015-04-08 | pA2 | Infört engelsk översättning\nAdded english translation | Bengt Lindvall\n2015-04-09 | A | Baseline efter översättning | Bengt Lindvall\n |  |  | \n\n\nRubrik | Text\nSammanfattning\n\n\n\n\nSummary | Användningsfallet verifierar att kunder i Rally Försäkring har en motsvarighet i Kundsystemet EttKund. Eventuella offerter/försäkringar som tillkommit/uppdaterats för dessa kunder replikeras till EttKund efter att kundens existens i EttKund har verifierats.\nThis use case verifies that customers in Rally Försäkring have a counterpart in EttKund, the customer system. Any quotations/insurances that have been added/updated for these customers are sent as a response to EttKund after the customer’s existence in EttKund has been verified.\nSpårbarhet\nTraceability | \nStatus | Utkast, Under arbete, Granskat\nDraft, In progress, Reviewed\nAktörer\nActors | EttKund, Rally Ekonomi\n\nStartvillkor\nStarting conditions | \nÖnskat resultat\n\n\n\n\n\nDesired result | Det är verifierat att kunder som uppkommit i Rally Försäkring  och som har referens till en försäkring även existerar i Kundsystemet EttKund och att eventuella nya/ändrade engagemangsobjekt (som är relaterade till dessa kunder) är replikerade till EttKund samt att nytecknade försäkringar har registrerats i Rally Ekonomi.\nIt has been verified that customers who appeared in Rally Försäkring and have reference to an insurance also exist in the EttKund customer system, that any new/modified customer insurance holdings objects (related to these customers) have been sent as a response to EttKund, and that newly signed insurances have been recorded in Rally Ekonomi.\nSärskilda krav",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifterdocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "9.2 Trailer\t42632.0\tTobias Wijk\tCR313711, CR313710 Updated dates from when new weight interval should be valid. New fromDate is 2017-02-01 and new toDate is 2017-01-31. Applied for both Rallymanuell and Sally. Changes in yellow.\n9.1 Lastbil\t42395.0\tLena Weingarth\tCR289765 - New tariff Heavy truck. \nÄndring i rött\nChanges in red in tab Rallymanuell and Sally\n9.2 Lastbil\t42396.0\tLena Weingarth\tRensat bort produkterna 5601-5901  som varit stängda sedan 2009\nCleared away products 5601-5901 which have been closed since 2009\n9.3 Lastbil\t42628.0\tJörgen Barkselius\tTab Sally. \nMore or less reverted changes where \"Endast i övr.\" = 1. We cannot \"close\" the old truck products (5201-5501) for at least 3 years because, at least somtimes, today's date is used in product determination instead of Tariff date. There should be no problem to keep \"old\" products \"open\" i product determination as the product itself is \"closed\" and that has precedence over product determination.  Compare to Mc 24+ which seems to have been handled in the same way. \n* Deleted line 52 (which is OK as this has never been in production)\n* Removed GiltigTom in old line 53 (became new 52 after delete of old 52)\n10.0 \t42685.0\tLena Weingarth\tBaseline\n11.0\t42710.0\tJörgen Barkselius\tLOCA 354595 Change start date New tariff Heavy truck (from 2017-04-01 to 2017-11-01).\nChanges in red text. Tab Rallymanuell, rows: 39-41.  Tab Sally, rows 28-34. Only columns GiltigFrom and GiltigTom are changed. (Removed red text)\n11.1\t42780.0\tTobias Wijk\tCR328763 MC products. Changed in tabs \"Rallymanuell\", \"Rallymaskinell\" & \"Sally\" for MC-products. 1301, 1302, 1305, 1306, 1308 value for \"effect\" is deleted and replaced by \"årsmodell\" and introducing a new model year interval. Products 1307, 1309, 1310, 1311 is closed - they have been closed since 2010-04-30 i RAP. Changes in yellow for this CR!",
+          "metadata": {
+            "filename": "Produktbestämning3_Matris.xls",
+            "chunk_index": 2,
+            "total_chunks": 5
+          }
+        }
+      ]
+    }
+  ]
+}

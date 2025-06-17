@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "session_id": "4b849d12-aa80-4263-a08c-2863dfe4b6fd",
+    "title": "What is björns favou",
+    "date": "2025-06-08T19:54:52.634075"
+  },
+  "messages": [
+    {
+      "query": "What is björns favourite food?",
+      "answer": "Björns's favorite food is ice cream, according to the [Context] provided in \"blabla.txt.\"",
+      "timestamp": "2025-06-08T19:54:53.675390",
+      "sources": [
+        {
+          "content": "björns favorit mat är glass",
+          "metadata": {
+            "filename": "blabla.txt",
+            "chunk_index": 0,
+            "total_chunks": 1
+          }
+        },
+        {
+          "content": "that\tmillions\tof\tChinese\tpeasants\tcan\tfinally\tenjoy\ta\tsecure\tsupply\tof\tbasic\tcalories,\nthey\twant\tmore\tof\tthem\tto\tcome\tfrom\tpork\tinstead\tof\tjust\tgrain.\tThe\tconvergence\tof\ndesire\tis\teven\tmore\tobvious\tat\tthe\ttop:\tall\toligarchs\thave\tthe\tsame\ttaste\tin\tCristal,\nfrom\tPetersburg\tto\tPyongyang.\nTechnology\tMeans\t\nComplementarity",
+          "metadata": {
+            "filename": "Zero to One book.pdf",
+            "chunk_index": 153,
+            "total_chunks": 209,
+            "title": "Zero to One: Notes on Startups, or How to Build the Future - PDFDrive.com",
+            "author": "Peter Thiel & Blake Masters"
+          }
+        }
+      ]
+    }
+  ]
+}

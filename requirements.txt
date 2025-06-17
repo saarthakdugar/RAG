@@ -1,0 +1,32 @@
+openai
+python-dotenv
+langchain
+langchain-openai
+langchain-community
+python-multipart
+
+# Lightweight document parsing libraries
+python-docx
+PyPDF2
+
+# For SQL database interaction
+sqlalchemy
+pyodbc
+openai
+sqlparse
+
+# For vector store (example: FAISS)
+faiss-cpu
+aiofiles
+
+# For API
+fastapi
+uvicorn
+pydantic
+requests
+
+# For UI
+streamlit
+
+# For XLS
+xlrd

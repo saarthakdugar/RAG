@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "session_id": "2d3e6b2c-d620-446a-8b7d-b35524fd3dab",
+    "title": "give me some persona",
+    "date": "2025-06-09T11:58:20.614018"
+  },
+  "messages": [
+    {
+      "query": "give me some personality traits of my collegues",
+      "answer": "Based on the information provided in the context:\n\n- **Narendra**: Enjoys social activities, as he likes to party. This could indicate an outgoing or sociable personality.  \n- **Sandeep**: Plays football, which suggests he may be active, energetic, or a team player.  \n- **Raj**: Is a dancer, which implies he might be creative, expressive, or artistic.  \n- **Leo**: Loves to sing, indicating he could be creative, passionate, or expressive.  \n\nThese traits are inferred from their interests and activities shared in the context.",
+      "timestamp": "2025-06-09T11:58:23.147029",
+      "sources": [
+        {
+          "content": "Narendra likes to party. Sandeep plAYS football. Raj is a dancer. Leo loves to sing.",
+          "metadata": {
+            "filename": "Collegues.txt",
+            "chunk_index": 0,
+            "total_chunks": 1
+          }
+        }
+      ]
+    }
+  ]
+}

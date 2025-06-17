@@ -1,0 +1,758 @@
+{
+  "metadata": {
+    "session_id": "00ccf676-24d6-4a1c-a002-ed4e0cf84626",
+    "title": "Explain everything d",
+    "date": "2025-06-09T13:55:17.755394"
+  },
+  "messages": [
+    {
+      "query": "Explain everything done in ÄF channel",
+      "answer": "The external channel, referred to as the \"ÅterförsäljarePartner\" (ÅF channel), is a key component within the system for managing interactions related to various insurance operations. Here’s a detailed explanation of the activities and functionality described for the ÅF channel:\n\n---\n\n### **1. Use Cases in the ÅF Channel**\nThe ÅF channel facilitates several core functionalities:\n\n#### a) **‘SkapaOffert’ – Create Quotation**\n   - **Functionality:** This service enables creating an insurance quotation through external channels using the ÅF app.\n   - **Prerequisites:**\n     - Price information on a vehicle insurance policy must already be available.\n     - The external channel (ÅF channel) must have the necessary authorization to utilize this service.\n   - **Output:** Once validation requirements are met, a quotation is saved and sent via email if an address is provided.\n   - **Special Notes:** Technical details of this service are documented in the “NyteckningService” document.\n\n#### b) **‘Ändra försäkring’ – Change Insurance**\n   - **Functionality:** This service manages requests through the ÅF channel for altering existing insurance details. It includes:\n     - Retrieving allowed change options.\n     - Calculating new price data for modifications.\n     - Updating insurance policies with the approved changes.\n     - Modifying repayment information.\n   - **Prerequisites:**\n     - The request for changes must be submitted through the ÅF channel.\n     - The external channel must be authorized to use this service.\n     - The process can initiate at specified steps (e.g., steps 1, 4, 7, or 10).\n   - **Output:** The external channel receives confirmation of allowable change options, updated prices, or applied modifications.\n   - **Logging Requirement:** All requests and responses must be logged in RAFILogInfo.\n\n#### c) **‘Beräkna pris’ – Price Estimation**\n   - **Functionality:** Through the ÅF channel, users can calculate the pricing of a vehicle insurance policy.\n   - **Notable Features:**\n     - Price calculations can be conducted without providing the vehicle’s registration number.\n\n#### d) **‘Teckna försäkring’ – New Insurance**\n   - **Functionality:** This service supports new policy procurement via the ÅF channel.\n   - **Regulations Applicable:** Several rules impact this area, such as business rules for driving license validation, zip code ratings, discounts, and price adjustments.\n\n#### e) **‘Fordonsklassning’ – Vehicle Classification**\n   - **Functionality:** The ÅF app allows users to classify vehicles and calculate prices for models without registration numbers.\n   - **Prerequisite:** The requesting external channel must have proper authorization to use this classification service.\n\n---\n\n### **2. Regulations Affecting the ÅF Channel**\nNumerous regulatory frameworks influence the operations of the ÅF channel. These include:\n\n- **General Regulatory Requirements:**\n  - \"Regelverk Betjäna externa kanaler\" – A key regulatory framework governing external channel operations.\n  - Authorization is mandatory for all external channel activities.\n\n- **Task-Specific Rules:**\n  - Vehicle-specific regulations like \"Vehicle Model Year\" (Regelverk Årsmodell) and \"Driving License\" (Regelverk Körkort).\n  - Rules affecting discounts, adjustments, zip codes (Regelverk Postnummer), event types (Regelverk Händelsetyper), and brand insurance (Märkesförsäkring).\n\n- **Logging Requirements:**\n  - All interactions, responses, and services performed via the ÅF channel must be logged in “RAFILogInfo.”\n\n---\n\n### **3. Development and Historical Features**\n#### Key Development Milestones:\n- The functionality of the ÅF channel has evolved incrementally through projects such as \"Lokal Märkesförsäkring\" and features like \"Allow creating quotes without registration numbers.\"\n- Historical changes include incorporating stricter risk selection rules, improved user access methods, and aligning with \"NyteckningService\" for enhanced documentation.\n\n#### Notable Features Introduced:\n- Phase 2 improvements (e.g., validation and recommendations on the ÅF app).\n- Risk selection rules moved from RAF to RAP, noted in development milestones.\n\n---\n\n### **4. Primary Actors**\n- **ÅterförsäljarePartner (ÅF):** The external channel responsible for triggering operations, primarily through the ÅF app.\n- **Rally Försäkring:** The overarching insurance framework managing services.\n\n---\n\n### **5. Desired Outcomes of the ÅF Channel**\n   - Accurately generated quotes and modifications.\n   - Transparency and traceability through systematic logging.\n   - Compliance with strict regulatory standards.\n   - Enhanced user convenience and system efficiency.\n\nBy managing these processes effectively, the ÅF channel bridges Rally’s insurance services with external users.",
+      "timestamp": "2025-06-09T13:55:28.956372",
+      "sources": [
+        {
+          "content": "Historiserad Revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2018-10-15 | pA1 | Nytt användningsfall (projekt LMF) / New Use case (project LMF) | Tobias Wijk\n2019-02-15 | A | Baseline LMF (Dec2018) | Tobias Wijk\n2019-02-20 | pB1 | Feature 837891:Allow creating quotes from App for vehicles not registered at partner\n | Lena Weingarth\n2019-03-25 | B | Baseline MARS | Lena Weingarth\n2019-04-04 | pC1 | LMF Phase 2: Feature Feature 854435 - IDD deviant recommendation in ÅF-app | Lena Weingarth\n2019-05-23 | C | Baseline MAJ2019 | Lena Weingarth\n2019-06-27 | pD1 | LMF Phase 2: Feature 881422 – LMF Culling of quote after 12 months in “ÅF-app” | Charlotte Bramstedt\n2019-09-18 | D | Baseline SEP2019 | Lena Weingarth\n2019-09-20 | pE1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP \n | Vivi Hallman\n2019-11-25 | pE2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP , changed the link to the document betjäna externa kanaler\n | Vivi Hallman\n2019-11-25 | E | Baseline NOV2019 | Lena Weingarth\n2021-08-17 | pF1 | EN19416 Change ÅF App Create quotation service   | Carina Karlsson",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "External channel requests for change of repayment information.\n11 | Användningsfallet avslutas\nThe use case is concluded | Användningsfallet avslutas\nThe use case is concluded | Användningsfallet avslutas\nThe use case is concluded",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "OBS! Användningsfallet öppnas upp endast för extern kanal ’ÅterförsäljarePartner’ i och med projektet Lokal Märkesförsäkring 2019-01-01. Via externa kanalen ÅterförsäljarePartner kan en användare beräkna pris på en fordonsmodell utan registreringsnummer via en mobil app kallad ”ÅF-appen”.\nNB: This use case is opened up for external channel and invoked by channel ÅterförsäljarePartner due to project Lokal Märkesförsäkring 2019-01-01. Through channel ÅterförsäljarePartner can a user calculate price on a vehicle model without registration number via an mobile app called “ÅF-appen”.\nSpårbarhet\nTraceability | \nStatus | Under arbete, Granskat\nIn progress, Reviewed\nPrimära aktörer\nPrimary actors | Extern kanal, ÅterförsäljarePartner se ”Regelverk Betjäna externa kanaler” \nExternal channels, ÅterförsäljarePartner see “Regelverk Betjäna externa kanaler”\nStartvillkor\nStarting conditions | Förfrågan om klassning av fordon kommer till Rally via en extern kanal. \nAnropande extern kanal måste vara behörig att använda denna tjänst.",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "Rubrik\nHeading | Text\nSammanfattning\nSummary | Användningsfallet beskriver Rally Försäkrings tjänst ’SkapaOffert’ via externa kanalers ”ÅF-app”. \nThis use case describes Rally Försäkring’s service for creating an quotation, ‘SkapaOffert’, in external channels “ÅF-app”.\nStatus | Utkast, Under arbete, Godkänt\nDraft, In progress, Approved\nAktörer \nActor | Extern kanal, ”ÅterförsäljarePartner” se ”Regelverk Betjäna externa kanaler \nExternal channels,  “ÅterförsäljarePartner” see “Regulations, Employ external channels\nStartvillkor\nStarting conditions | Prisuppgift har erhållits på en fordonsförsäkring\nAnropande extern kanal måste vara behörig att använda denna tjänst.\nPrice information on a vehicle insurance has been obtained\nThe external channel calling in must have the authority to use this service.\nÖnskat resultat\nDesired result | Offert har sparats och skickats via e-post om adress finns och valideringar har godkänts.\nQuotation has been saved and sent through email if the address is provided and validation criteras are met. \nSärskilda krav\nSpecial requirements | -\nInformationsbeskrivning | Detaljerad (teknisk) beskrivning av tjänsten finns i dokument NyteckningService.\nDetailed (technical) description of the service is found in the “NyteckningService” document.\nRegelverk | Regelverk som endast berör externa kanaler: \nRegulations only affecting external channels:\n”Regelverk Betjäna externa kanaler” (Regulations, Employ external channels)\n\nRegelverk Betjäna externa kanaler – Riskurvalregler (Regulations Employ external channels – Risc selection rules)\n\n”Rally på Internet-Spinloggen” (Rally on the Internet-Spin log)\n”Regelverk Säljarnummer RAFI” (Regulations, Sales person number RAFI)\n”Regelverk RAFI Bolagsinfo mail  tfn” (Regulations, RAFI Company info: mail, telephone)",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n”Regelverk Boendeform och Fastighetsnyckel ” (Business rule for Type of housing and Property key)\n\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase) tab",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase) tab",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year) \n”Regelverk Ålder” (Regulations, Age) \n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n”Regelverk Boendeform och Fastighetsnyckel” (Business rule for Type of housing and Property key)\n”Regelverk Förnyelsejusteringsfaktor”\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase)",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 11,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Business rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Business rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n-   “Regelverk Körkort” (Business rule for driving license as rating factor)\n\nGemensamma regelverk för Rally:\nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), flik ”Internet-Köp” (tab Internet Purchase)\n |",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "Rubrik | Text\nSammanfattning\nSummary | Användningfallet beskriver Rallys tjänster för att \nHämta tillåtna ändringsalternativ \nBeräkna pris\nUppdatera försäkring med valda ändringar\nÄndra återbetalningsinformation\ntill externa kanaler\nUse case describes Rallys services for\nRetrieve allowed change options\nCalculate price\nAdd changes to insurance policy\nChange of repayment information\nTo external channels\nStatus | Utkast, Under arbete, Granskat\nDraft, In progress, Reviewed\nPrimära Aktörer \nPrimary Actors | Extern kanal, se ”Regelverk Betjäna externa kanaler” avsnitt ”Allmänt” – ”Aktörer”\nExternal channels, see “Regulations, Employ external channels”, section “Allmänt” (General) – “Aktörer” (Actors)\nStartvillkor\nStarting conditions | Förfrågan om  att ändra ett försäkringsavtal kommer till Rally via en extern kanal. Användningsfallet kan starta i något av steget steg 1,4,7 eller 10\nRequest for change insurance policy comes to Rally from an external channel. Use case can start in step 1,4,7 or 10\nAnropande extern kanal måste vara behörig att använda denna tjänst.\nThe external channel calling in must have the authority to use this service.\nÖnskat resultat\nDesired result | Anropande extern kanal har erhållit tillåtna ändringsalternativ, nytt pris eller bekräftelse på genomförda ändringar på ett försäkringsavtal. \nRequesting external channel has received allowed change options, new prices or confirmation of perfomed changes to an insurance policy.\nSärskilda krav\nSpecial requirements | Alla anrop och svar ska loggas i RAFILogInfo\nAll requests and responses are logged in RafiLogInfo\nInformations beskrivning  - Information description | Detaljerad (teknisk) beskrivning av tjänsterna finns i dokument\nAndraForsakring Service\nDetailed (technical) description of the services is found in \nAndraForsakring Service",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 2,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Historiserad Revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2014-12-12 | pA1 | Översättningsunderlag\nTranslation document | Jörgen Barkselius\n2015-05-21 | pA2 | Infört engelsk översättning\nAdded English translation | Mari Forssberg\n2015-05-21 | A | Flytt till baseline\nSaved to baseline | Mari Forssberg\n2016-03-24 | pB1 | CR287335 Zip Code as rating factor. Nytt regelverk Regelverk Postnummer tillagt i referenser.\nNew business rule Regelverk Postnummer added in reference list. | Carina Rehnqvist\n2016-04-27 | B | Baseline efter release april-2016\nBaseline after release april-2016 | Carina Rehnqvist\n2017-02-21 | pC1 | CR373575 – New rating factors gult\nLagt till nytt regelverk under referenser\nAdded new document to References | Carina Rehnqvist\n2017-11-27 | C | Baseline 2017 | Lena Weingarth\n |  | CR467574 New rating factor Boendeform | Carina Rehnqvist\n2019-02-05 | D | Baseline Nov-18 | Carina Rehnqvist\n2018-08-17 | pE1 | Feature 767000:Two valid policies with same registration number | Lena Weingarth\n2019-02-11 | E | Baseline LMF (Dec2018) | Tobias Wijk\n2019-07-02 | pF1 | Uppdaterat hänvsning under punkt 2 - Huvudflöde | Sara Ernlund\n2019-09-18 | F | Baseline SEP2019 | Lena Weingarth\n2019-09-26 | pG1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP \n | Vivi Hallman\n2019-11-25 | pG2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP , changed the detailed links to the document Regelverk betjäna extrana kanaler\n | Vivi Hallman\n2019-11-25 | G | Baseline NOV2019 | Lena Weingarth\n2019-12-11 | H | Ändrat referens RAFI service till nyteckningsservice | Vivi Hallman",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "give some limitation of these services.. ",
+      "answer": "The external channel services, including those provided through the ÅF channel, have certain limitations that can affect their functionality. These limitations are outlined below:\n\n---\n\n### **1. Service Availability Issues**\n- **Dependence on Rally Försäkring:**\n   - If **Rally Försäkring** is unavailable, the requested service (e.g., creating a quotation, modifying insurance) cannot proceed, and the use case is terminated. This limitation impacts overall reliability.  \n   - For example, a notification is generated, and the process is halted if Rally cannot process a request (Step 1a in the process flow).\n\n---\n\n### **2. Authorization Requirements**\n- **Restricted Access:**\n   - Only authorized external channels, like vetted ÅF partners, can utilize these services. Any unauthorized system accounts attempting to access services are denied, and a notification is issued (Step 2a).\n   - This restricts flexibility and access for new or unapproved users.\n\n---\n\n### **3. Specific Data Input Requirements**\n- **Mandatory Information for Processing:**\n   - Certain services require all necessary inputs, such as customer personal identity numbers, registration numbers, or detailed specifications. Missing or incorrect information results in incomplete service or an error message indicating reasons for failure (Step 3a).\n   - For \"Beräkna pris\" (Calculate Price), while registration numbers may not always be mandatory, other key details like excess or annual mileage must be input correctly.\n\n---\n\n### **4. Unsupported Scenarios**\n- **Temporary or Cancelled Insurance Policies:**\n   - If the queried insurance policy is temporary, Rally may provide only limited information, such as policy details without price information (e.g., per business rule No. 6).\n   - Similarly, insurance policies that are outright cancelled cannot have their information retrieved (Step 3f).\n\n---\n\n### **5. Restrictions on Price Calculations**\n- **No Price Calculation Without Registration Numbers:**\n   - Although the \"Fordonsklassning\" service initially allowed calculating prices without a registration number, it is no longer available (decision from 2014). Providing pricing without registration poses a competitive risk, as it could reveal LF’s tariff pricing strategies.\n\n---\n\n### **6. Logging and Compliance Overheads**\n- **Mandatory Logging:**\n   - Every request, response, and interaction via the ÅF channel must be logged in **RAFILogInfo**. While essential for traceability, this adds processing overhead and affects performance for high-traffic services.\n\n---\n\n### **7. Limited Scope of Changes**\n- **Permissible Modifications Only:**\n   - Customers can only make changes allowed by Rally’s business rules (e.g., modifying annual mileage, adding optional coverage). Any prohibited changes result in a notification, and the use case is concluded (e.g., Step 9a1a, when a requested change is not allowed).\n\n---\n\n### **8. Dependency on Specific Rules and Restrictions**\n- **Regulatory and Business Rule Constraints:**\n   - Services are tightly bound by specific business rules, such as those for renewal dates, driving licenses, or regional zip code ratings. This ensures compliance but may limit what external channels can offer.\n\n---\n\n### **9. Legacy Systems and Compatibility**\n- **Older Service Versions:**\n   - If an external channel utilizes an outdated version of the service, Rally may still attempt to process the request but may face compatibility or operational issues. System upgrades are required to avoid disruptions.\n\n---\n\n### **10. Competition-Driven Decisions**\n- **Functional Restrictions for Competitive Reasons:**\n   - Certain functionalities, such as price calculations without registration numbers, were removed for competitive considerations. These decisions limit overall service flexibility despite their strategic intent.\n\n---\n\nBy understanding these limitations, users and system stakeholders can better prepare for contingencies and ensure smooth operation within the boundaries of these external channel services.",
+      "timestamp": "2025-06-09T13:57:16.525361",
+      "sources": [
+        {
+          "content": "Rally\n\n\n\nFörsäkring\nAnvändningsfall\nUse case\n\nF188 – Betjäna externa kanaler – Vagnskadeerbjudande\nF188 – Employ external channels – Vehicle damage offer\nVersion D\n\n\nInnehållsförteckning - Contents\n1. Beskrivning av användningsfallet - Description of the use case\t4\n2. Användningsfallsdiagram - Use case diagram\t5\n3. Aktvitetsdiagram – Activity diagram\t7\n4. Huvudflöde - Main flow\t8\n5. Alternativflöden - Alternative flows\t9\n6. Fel- och varningsflöden - Error and warning flows\t11\n7. Regelverk – Business rules\t12\n8. Historiserad revisionshistorik - Historicised revision history\t12\n Revisionshistorik - Revision history\n\n\nBeskrivning av användningsfallet - Description of the use case\n\n\nAnvändningsfallsdiagram - Use case diagram \n\nExempel på användning av tjänsten - Examples of use of the services\nKund har från Länsförsäkringars inloggade sidor på internet valt att öppna ett vagnskadeerbjudande\nA customer has opened a vehicle damage offer from logged-in pages\nRallys tjänst levererar information om självrisker och pris för vagnskadeförsäkring och tilläggsförsäkringen MER\nThe service retrieves information about excesses and price for vehicle damage insurance and optional coverage MER \nKunden anger en självrisk och datum då vagnskadeförsäkring och eventuell tilläggsförsäkring MER ska börja gälla\nThe customer enter an excess and date for vehicle damage insurance and optional coverage MER to take effect\nRallys tjänst uppdaterar försäkringsavtalet med kundens angivna val\nThe service updatesthe insurance policy with customers specified choices\n\nAktvitetsdiagram – Activity diagram\n\nHuvudflöde - Main flow\n Alternativflöden - Alternative flows\n\nFel- och varningsflöden - Error and warning flows\n\nRegelverk – Business rules\n\n\nHistoriserad revisionshistorik - Historicised revision history",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 0,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning | Beskrivning | Beskrivning\n1a | Rally Försäkring är inte tillgängligt. Ett meddelande skapas om detta och användningsfallet avslutas (Nr 1).\nRally Försäkring is not available. A notification about this is created and the use case is terminated (No. 1). | Rally Försäkring är inte tillgängligt. Ett meddelande skapas om detta och användningsfallet avslutas (Nr 1).\nRally Försäkring is not available. A notification about this is created and the use case is terminated (No. 1). | Rally Försäkring är inte tillgängligt. Ett meddelande skapas om detta och användningsfallet avslutas (Nr 1).\nRally Försäkring is not available. A notification about this is created and the use case is terminated (No. 1).\n2a | Anropande systemkonto är inte behörigt. Rally försäkring skapar ett meddelande om detta. (Nr 10)\nRequesting system account is not authorized. Rally Försäkring creates a notification about this. (No. 10) | Anropande systemkonto är inte behörigt. Rally försäkring skapar ett meddelande om detta. (Nr 10)\nRequesting system account is not authorized. Rally Försäkring creates a notification about this. (No. 10) | Anropande systemkonto är inte behörigt. Rally försäkring skapar ett meddelande om detta. (Nr 10)\nRequesting system account is not authorized. Rally Försäkring creates a notification about this. (No. 10)\n3a | Om någon kontroll inte går igenom levererar Rally information om orsaken utan pris.\nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded | Om någon kontroll inte går igenom levererar Rally information om orsaken utan pris.\nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded | Om någon kontroll inte går igenom levererar Rally information om orsaken utan pris.",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "11a | Rally har anropats via en äldre version av tjänsten.\nRally has been called from a older version of the service.\n | Rally har anropats via en äldre version av tjänsten.\nRally has been called from a older version of the service.\n\n | 11a1 | Rally hämtar möjliga bankval för E-faktura. \nRally retrives information on potential bank selection for electronic invoice.\nSe “Regelverk Betjäna externa kanaler” \nSee ”Regulations Employ external channels”\n | 11a2 | Loggar information om prisberäkningen. \nLogs information on the price calculation. \nSe “Regelverk Betjäna externa kanaler” \nSee ”Regulations Employ external channels” \n | 11a3 | Rally hämtar information om aktuellt fordon omfattas av någon form av garantiförsäkring. \nRally retrives information about the current vehicle is covered by some form of warranty insurance.\nSe ”Regelverk Betjäna externa kanaler”\nSee ”Regulations Employ external channels” \n | 11a4 | Användningsfallet fortsätter i huvudflödet.\nThe usage case continue in the mainflow.\n\n\nDatum | Version | Beskrivning | Författare\n |  |  | \n |  |  | \n |  |  |",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 16,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Special requirements | Användningsfallet bearbetar endast de kunder:\n- som uppkommit i Rally i samband med nyteckning/offert och som saknas i kundsystemet EttKund och som har referens till en försäkring\n- som vid hämtning av kunduppgifter saknar tillräcklig information i kundsystemet EttKund\nAnvändningsfallet ska kunna utföras när som helst under Rally Försäkrings öppettid.\nOfferter och försäkringar som har skapats med VTR som källa för kundens uppgifter, kommer att behålla sina prisgrundande uppgifter (som är relaterade till kunden) oavsett om EttKund har andra uppgifter om kunden än VTR (t ex LKFkod, adress etc).\n\nThis use case manages only those customers:\n- who appeared in Rally in connection with a new insurance policy/quotation, who are missing in the EttKund customer system, and who have references to an insurance\n- who, upon retrieval of customer information, are lacking sufficient information in the EttKund customer system\nThis use case may be carried out at any time during Rally Försäkring working hours.\nQuotations and insurances that have been created with VTR as the source for the customer’s information will retain their price-based information (related to the customer) regardless of whether EttKund has different information about the customer than VTR (for example, LKF code, address, etc). \nÖppna frågor\nOpen questions |",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifterdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Beskrivning av användningsfallet - Description of the use case\n\n\nAnvändningsfallsdiagram - Usage case diagram \n\nExempel på användning av tjänsten - Examples of use of the service\nExempelscenario 1: \nKund har från Länsförsäkringars öppna sidor på internet valt att beräkna pris på en försäkring för en personbil.\nFrom the Länsförsäkringar open pages, a customer has chosen to calculate the price of an insurance for a passenger car.\nKunden har angivit personnummer och registreringsnummer.\nThe customer has indicated personal identity number and registration number.\nRallys tjänst levererar prisuppgift baserad på defaultvärden för produkt och omfattning. \nRally’s service delivers price information based on the default values for product and coverage.\nExempelscenario 2:\nKund har från Länsförsäkringars öppna sidor på internet valt att beräkna pris på en försäkring för en personbil.\nFrom the Länsförsäkringar open pages, a customer has chosen to calculate the price of an insurance for a passenger car.\nKunden har angivit personnummer och registreringsnummer.\nThe customer has indicated personal identity number and registration number.\nKunden har erhållit prisuppgift från Rally\nThe customer has received price information from Rally\nKunden har ändrat någon uppgift, t ex självrisk och körsträcka\nThe customer has modified some information, for example excess and annual mileage\nKunden har begärt ny prisberäkning\nThe customer has requested a new calculation of price\nRallys tjänst levererar prisuppgift baserad på angivna uppgifter för produkt och omfattning.\nRally’s service delivers price information based on the indicated information for product and coverage.",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 1,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rubrik\nHeading | Text\nSammanfattning\nSummary | Användningfallet beskriver Rallys tjänst för hantering av klassning av fordon i externa kanaler. Klassning av fordon måste göras i de fall en prisberäkning ska kunna utföras i externa kanaler utan att registreringsnummer anges för fordonet. Klassning kan göras för personbil och lätt lastbil.\nThis use case describes Rally’s service for managing classification of vehicle in external channels. Classification of vehicles must be done in cases where a calculation of price is to be carried out in external channels without a registration number being indicated for the vehicle. Classification can be done for passenger cars and light trucks.\n\nOBS! Användningsfallet anropas inte för närvarande (2014-07-11) av någon extern kanal. Beslut taget i juni 2014 att det inte ska vara möjligt att beräkna pris på fordon utan registreringsnummer i externa köptjänster. Genom prisberäkning utan registreringsnummer finns möjlighet att ta reda på LF:s tariffprissättning och beslutet är taget av konkurrensskäl.\nNB: This use case is not currently (2014-07-11) invoked by any external channel. The decision made in June 2014 that it shall not be possible to calculate prices on vehicles without registration numbers in external purchase services. There is a possibility of finding out LF’s tariff pricing through calculation of price without registration number, so this decision was made for reasons of competition.",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 2,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "Optional coverage MER has been added\n | 9a1 | Rally kontrollerar ändringen enligt regelverk Ändring via internet - Ändring från huvudförfallodatum \nRally checks the change according to business rule Ändring via internet – Change from renewal date  | Rally kontrollerar ändringen enligt regelverk Ändring via internet - Ändring från huvudförfallodatum \nRally checks the change according to business rule Ändring via internet – Change from renewal date  | Rally kontrollerar ändringen enligt regelverk Ändring via internet - Ändring från huvudförfallodatum \nRally checks the change according to business rule Ändring via internet – Change from renewal date  | Rally kontrollerar ändringen enligt regelverk Ändring via internet - Ändring från huvudförfallodatum \nRally checks the change according to business rule Ändring via internet – Change from renewal date \n |  | 9a1a | 9a1a | Om ändringen inte är tillåten skickar Rally svar om orsak till extern kanal och användningsfallet avslutas\nIf the change is not allowed, Rally responds with information about the cause to external channel and use case is concluded | Om ändringen inte är tillåten skickar Rally svar om orsak till extern kanal och användningsfallet avslutas\nIf the change is not allowed, Rally responds with information about the cause to external channel and use case is concluded\n9b | Körsträcka har ändrats\nAnnual mileage has been changed | Körsträcka har ändrats\nAnnual mileage has been changed | Körsträcka har ändrats\nAnnual mileage has been changed | Körsträcka har ändrats\nAnnual mileage has been changed | Körsträcka har ändrats\nAnnual mileage has been changed\n | 9b1 | Rally kontrollerar ändringen enligt regelverk Ändring via internet - Ändring från huvudförfallodatum \nRally checks the change according to business rule Ändring via internet – Change from renewal date  | Rally kontrollerar ändringen enligt regelverk Ändring via internet - Ändring från huvudförfallodatum",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 20,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If the insurance is incomplete or if there is an unmanaged record, Rally Försäkring creates a notification that the insurance information cannot be delivered owing to the insurance being incomplete. (No. 5)\n3e | Om försäkringen är tillfällig vid tidpunkten för frågan (inparameterdatum) returnerar Rally Försäkring begränsad information enligt gällande regelverk för utskrift av försäkringsbrev (prisinfo saknas t ex), se regelverk Försäkringsdokument.doc. (Nr 6)\nIf the insurance is temporary at the point in time of the query (inparameter date), Rally Försäkring returns limited information according to applicable regulations for printout of insurance policy letters (price info missing, for example, business rule Försäkringsdokument.doc). (No. 6)\n3f | Om försäkringen är annullerad vid tidpunkten för frågan (inparameterdatum) skapar Rally Försäkring ett meddelande om att försäkringsinformation inte kan levereras pga att försäkringen är annullerad. (Nr 7)\nDessa försäkringar listas inte i Inloggat möte så detta borde ej kunna hända.\nIf the insurance is cancelled at the point in time of the query (inparameter date), Rally Försäkring creates a notification that the insurance information cannot be delivered owing to the fact that the insurance has been cancelled. (No. 7)\nThese insurances are not listed in the logged-in pages, so this should not happen.\n3g | Om försäkringen är annullerad vid en senare tidpunkt än inparameter datum (dvs annulleringen har inte ännu trätt i kraft) returnerar Rally Försäkring försäkringsinformation, men kompletterar med ett meddelande om att försäkringen upphör att gälla vid annullationsdatum. (Nr 8)\nIf the insurance is cancelled at a later point in time than the inparameter date (that is, the cancellation has not yet entered into force), Rally Försäkring returns insurance information, but supplements it with a notification that the insurance will cease to be valid on the cancellation date. (No. 8)",
+          "metadata": {
+            "filename": "F187 Betjäna externa kanaler - Hämta försäkringsinformationdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally\n\n\n\nFörsäkring\nAnvändningsfall\nUse case\n\nF189 – Betjäna externa kanaler – Ändra försäkring\nF189 – Employ external channels – Change insurance policy\nVersion C\n\n\nInnehållsförteckning - Contents\n1. Beskrivning av användningsfallet - Description of the use case\t4\n2. Användningsfallsdiagram - Use case diagram\t6\n3. Exempel på användning av tjänsten - Examples of use of the services\t7\n4. Aktvitetsdiagram – Activity diagram\t8\n5. Huvudflöde – Main flow\t9\n6. Alternativflöden - Alternative flows\t10\n7. Fel- och varningsflöden - Error and warning flows\t15\n8. Regelverk – Business rules\t15\n9. Historiserad revisionshistorik - Historicised revision history\t16\n Revisionshistorik - Revision history\n\n\nBeskrivning av användningsfallet - Description of the use case\n\nAnvändningsfallsdiagram - Use case diagram \n\n\nExempel på användning av tjänsten - Examples of use of the services\nKund har från Länsförsäkringars inloggade sidor på internet valt att ändra ett försäkringsavtal\nA customer has chosen to change an insurance policy from logged-in pages\nRallys tjänst levererar information om vilka ändringsalternativ som är tillåtna samt uppgift om nuvarande omfattning och priser\nThe service retrieves information about allowed change options and information about existing coverage and prices \nKunden ändrar t ex körsträcka. \nFor example, customer changes annual milage. \nNya priser hämtas från Rally\nNew prices are received from Rally\nKunden bekräftar sina ändnringar\nThe customer confirmes the changes\nRallys tjänst uppdaterar försäkringsavtalet med kundens valda ändringar\nThe service updates the insurance policy with customer’s chosen changes\n\nAktvitetsdiagram – Activity diagram\n\nHuvudflöde – Main flow\n Alternativflöden - Alternative flows\n\nFel- och varningsflöden - Error and warning flows\n\nRegelverk – Business rules\n\n\nHistoriserad revisionshistorik - Historicised revision history",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 0,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist\n2024-05-02 | PI1 | FEATURE 510767 - Necessary adaptations in Rally for ÅF Tool 1.5 + webbar | Rajasekaran Chandrasekaran\n2024-12-19 | I | Baseline dec 2024 | Caroline Hansson",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 9,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "can we create a offert for a regnr for which we have an existing policy from ÄF channel or other channels.. ",
+      "answer": "Yes, it is possible to create a quotation (offert) for a registration number (regnr) even if there is an existing policy associated with it, whether it originates from the ÅF channel or other channels, subject to certain conditions and validations:\n\n---\n\n### **1. Conditions for Creating a Quotation**\n   - The external channel must have the necessary **authorization** to access and use the 'SkapaOffert' service.\n   - **Validation Requirements:**\n     - The user's access must be validated through the GEMI-ticket presented in the service call.\n     - The external channel must comply with applicable **business rules** and the specific regulations governing the creation of quotations, such as those found in **“Regelverk Betjäna externa kanaler”**.\n\n### **2. Relevant Scenarios**\n   - **Existing Policy from the Same Channel (ÅF Channel):**\n     - If there is an active policy for the same registration number created via the ÅF channel, users can create a quotation as long as all input data is valid and matches the service requirements.\n     - The system logs and evaluates the new request independently of the existing policy.\n\n   - **Existing Policy from Other Channels:**\n     - Policies created through other channels (e.g., direct sales) do not inherently block the creation of a quotation via the ÅF channel. However, adherence to validation and regulatory criteria remains mandatory.\n\n### **3. Key Limitations**\n   - **Duplication of Coverage:**\n     - The user must be cautious not to create overlapping or redundant coverage, as this could result in regulatory or operational issues.\n   - **Regulation Compliance:**\n     - Certain use cases, such as mandatory coverage validations or risk selection criteria, might restrict the creation of a quotation for specific cases (e.g., if the recommended coverage differs from the requested coverage).\n\n### **4. Logging and Traceability**\n   - **Mandatory Logging:**\n     - Any quotation created via the ÅF channel must be logged in Rally's **‘offerttabell’** with an assigned \"Last Response Date\" as per the **Date Regulations**.\n   - Existing policies' details and interactions are also traceable through Rally’s logs, ensuring transparency.\n\n---\n\nIn summary, as long as the service prerequisites are met and there are no conflicts with the applicable business regulations, a quotation can be created for a registration number, regardless of whether it has an existing policy from the ÅF channel or other channels.",
+      "timestamp": "2025-06-09T14:00:05.706536",
+      "sources": [
+        {
+          "content": "Rubrik\nHeading | Text\nSammanfattning\nSummary | Användningsfallet beskriver Rally Försäkrings tjänst ’SkapaOffert’ via externa kanalers ”ÅF-app”. \nThis use case describes Rally Försäkring’s service for creating an quotation, ‘SkapaOffert’, in external channels “ÅF-app”.\nStatus | Utkast, Under arbete, Godkänt\nDraft, In progress, Approved\nAktörer \nActor | Extern kanal, ”ÅterförsäljarePartner” se ”Regelverk Betjäna externa kanaler \nExternal channels,  “ÅterförsäljarePartner” see “Regulations, Employ external channels\nStartvillkor\nStarting conditions | Prisuppgift har erhållits på en fordonsförsäkring\nAnropande extern kanal måste vara behörig att använda denna tjänst.\nPrice information on a vehicle insurance has been obtained\nThe external channel calling in must have the authority to use this service.\nÖnskat resultat\nDesired result | Offert har sparats och skickats via e-post om adress finns och valideringar har godkänts.\nQuotation has been saved and sent through email if the address is provided and validation criteras are met. \nSärskilda krav\nSpecial requirements | -\nInformationsbeskrivning | Detaljerad (teknisk) beskrivning av tjänsten finns i dokument NyteckningService.\nDetailed (technical) description of the service is found in the “NyteckningService” document.\nRegelverk | Regelverk som endast berör externa kanaler: \nRegulations only affecting external channels:\n”Regelverk Betjäna externa kanaler” (Regulations, Employ external channels)\n\nRegelverk Betjäna externa kanaler – Riskurvalregler (Regulations Employ external channels – Risc selection rules)\n\n”Rally på Internet-Spinloggen” (Rally on the Internet-Spin log)\n”Regelverk Säljarnummer RAFI” (Regulations, Sales person number RAFI)\n”Regelverk RAFI Bolagsinfo mail  tfn” (Regulations, RAFI Company info: mail, telephone)",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Se ”Regelverk Betjäna externa kanaler” \nSee “Regulations, Employ external channels”\nSe t ex ”F004 Offerera och nyteckna försäkring” för information om vidare hantering av försäkringen i Rally (förutom eventuella undantag som specificerats i ”Regelverk Betjäna externa kanaler” hanteras försäkringar som registrerats via extern kanal enligt samma principer som övriga försäkringar i Rally)\nSee, for example, “F004 Offerera och nyteckna försäkring” (F004 – Quote and sign new insurance policy) for information on further management of the insurance in Rally (apart from any exceptions specified in “Regelverk Betjäna externa kanaler”, insurances are handled as if registered via external channel according to the same principles as the other insurances in Rally)\n4 | Rally levererar resutatet till anropande kanal.\nRally delivers the results to the channel calling in.\nSe ”Regelverk Betjäna externa kanaler”, \nSee “Regulations, Employ external channels” \n5 | Användningsfallet avslutas\nThe use case is concluded\n\n\n”Regelverk Delmarknad” (Regulations, Market segment)\n”Regelverk_Provision_Rally” (Regulations, Commission)\n”Regelverk Trafikbonus” (Regulations, MTPL discount)\n”Datumregler” (Date regulations)\n”Verksamhetsregel registrering och trafikförsäkringsplikt” (Operating rule, Registration and mandatory MTPL insurance)\n”Verksamhetsregel Försäkringslogg” (Operating rule, Insurance log)\n”Verksamhetsregel Boendeförsäkringstyp och boenderabatt” (Operating rule, Home insurance type and home insurance discount)\n\n\nDatum\nDate | Version\nVersion | Beskrivning\nDescription | Författare\nAuthor\n |  |  | \n |  |  | \n |  |  | \n |  |  | \n |  |  |",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 7,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg\nStep | Beskrivning\nDescription\n1 | Rally anropas från extern kanal, ÅterförsäljarePartner, för att prisberäkna en fordonsförsäkring. Anropet innehåller person- eller organisationsnummer, uppgift om fordon baserat på reg-nummer eller modell, produkt och omfattningsval. \nRally is called on from an external channel, ÅterförsäljarePartner (retailer partner) in order to price calculate a vehicle. The call contains a personal or corporate identity number, as well as information on vehicles based on reg-number or model and any product and coverage selection.\nSe ”Regelverk Betjäna externa kanaler”\n See “Regulations, Employ External Channel”\n2 | Rally utför prisberäkning och kontrollerar att angivna uppgifter är valida, enligt flödet i användningsfall ”F184 Betjäna externa kanaler - Beräkna pris” sektion 4 Huvudflödet. \nRally carries out a price calculation and checks that the indicated information is valid according to the flow in use case “F184 – Betjäna externa kanaler - Beräkna pris” (F184 – Employ external channels – Calculate price), section 4 Mainflow.\n3 | Om det rekommenderade valet av omfattning skiljer sig från den omfattning som kunden har valt meddelas en särskild text om detta. Se regelverk Betjäna externa kanaler.\nIf the recommended coverage not is the same as the coverage that the customer has choosen, information about that  (a special text  ) is delivered. See business rule Betjäna externa kanaler.\n4 | Är användaren en registrerad användare i Rallys ’Partnerregister’ tillåts användaren att skapa/spara en offert. Validering sker i den GEMI-ticket som skickas med i anropet.\nVal av produkt i appen styr regler för skapande/sparande av offert och/eller prisberäkning.\nNär kanal är = ÅterförsäljarePartner (kanal_id 4) sparar Rally en offert i Rally´s offerttabell med ett tilldelat ”Sista svarsdatum”, se regelverk ”Datumregler”",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 7,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase) tab",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "OBS! Användningsfallet öppnas upp endast för extern kanal ’ÅterförsäljarePartner’ i och med projektet Lokal Märkesförsäkring 2019-01-01. Via externa kanalen ÅterförsäljarePartner kan en användare beräkna pris på en fordonsmodell utan registreringsnummer via en mobil app kallad ”ÅF-appen”.\nNB: This use case is opened up for external channel and invoked by channel ÅterförsäljarePartner due to project Lokal Märkesförsäkring 2019-01-01. Through channel ÅterförsäljarePartner can a user calculate price on a vehicle model without registration number via an mobile app called “ÅF-appen”.\nSpårbarhet\nTraceability | \nStatus | Under arbete, Granskat\nIn progress, Reviewed\nPrimära aktörer\nPrimary actors | Extern kanal, ÅterförsäljarePartner se ”Regelverk Betjäna externa kanaler” \nExternal channels, ÅterförsäljarePartner see “Regelverk Betjäna externa kanaler”\nStartvillkor\nStarting conditions | Förfrågan om klassning av fordon kommer till Rally via en extern kanal. \nAnropande extern kanal måste vara behörig att använda denna tjänst.",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "Rubrik\nHeading | Text\nSammanfattning\nSummary | Användningsfallet beskriver Rally Försäkrings tjänst för tecknade av försäkring i externa kanaler. \nThis use case describes Rally Försäkring’s service for signing insurance in external channels.\nStatus | Utkast, Under arbete, Godkänt\nDraft, In progress, Approved\nAktörer \nActor | Extern kanal, se ”Regelverk Betjäna externa kanaler” \nExternal channels, see “Regulations, Employ external channels”, \nStartvillkor\nStarting conditions | Prisuppgift har erhållits på en fordonsförsäkring\nAnropande extern kanal måste vara behörig att använda denna tjänst.\nPrice information on a vehicle insurance has been obtained\nThe external channel calling in must have the authority to use this service.\nÖnskat resultat\nDesired result | Försäkring har tecknats och om produkten är bevispliktig har bevis anmälts till VTR via G-VTR.\nInsurance has been signed and, if the product is liable for mandatory registration of certificate of MTPL insurance, the certificate of MTPL insurance has been registered in VTR via G-VTR.\nSärskilda krav\nSpecial requirements | -\nInformationsbeskrivning | Detaljerad (teknisk) beskrivning av tjänsten finns i dokument ”Nyteckning Service”\nDetailed (technical) description of the service is found in the “Nyteckning  Service” document\nRegelverk | Regelverk som endast berör externa kanaler: \nRegulations only affecting external channels:\n”Regelverk Betjäna externa kanaler” (Regulations, Employ external channels)\n”Regelverk Betjäna externa kanaler  – Riskurvalsregler” (Regulations Employ external channels – Risk selection rules)\n”Rally på Internet-Spinloggen” (Rally on the Internet-Spin log)\n”Regelverk Säljarnummer RAFI” (Regulations, Sales person number RAFI)\n”Regelverk RAFI Bolagsinfo mail  tfn” (Regulations, RAFI Company info: mail, telephone)",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If user is a registred user in Rally´s ‘Partnerregister’ then user is allowed to create an quotation. Validation against the GEMI-ticket presented in the call to the service.\nChoice of products wihin app regulates rules for creation/saving of quotation and/or price calculation.\nWhen channel is set to ÅterförsäljarePartner, channel_id =4 then Rally saves the quotation with an assigned “Last response date“, see business rule “Date regulations” \n\nSe ”Regelverk Betjäna externa kanaler” \nSee “Regulations, Employ external channels\nSe t ex ”F004 Offerera och nyteckna försäkring” för information om vidare hantering av försäkringen i Rally (förutom eventuella undantag som specificerats i ”Regelverk Betjäna externa kanaler” hanteras försäkringar som registrerats via extern kanal enligt samma principer som övriga försäkringar i Rally) \nSee, for example, “F004 Offerera och nyteckna försäkring” (F004 – Quote and sign new insurance policy) for information on further management of the insurance in Rally (apart from any exceptions specified in “Regelverk Betjäna externa kanaler”, insurances are handled as if registered via external channel according to the same principles as the other insurances in Rally)\n4 | Rally levererar resutatet till anropande kanal.\nRally delivers the results to the channel calling in.\nSe ”Regelverk Betjäna externa kanaler”, \nSee “Regulations, Employ external channels” \n6 | Användningsfallet avslutas\nThe use case is concluded\n\n\n”Regelverk Betjäna externa kanaler” \n”Regelverk Betjäna externa kanaler - Riskurvalsregler” \n”Regelverk F184 Betjäna Externa kanaler – Beräkna pris”\n”Datumregler” (Date regulations)\n\n\n\n\nDatum\nDate | Version\nVersion | Beskrivning\nDescription | Författare\nAuthor\n |  |  | \n |  |  | \n |  |  | \n |  |  | \n |  |  |",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n”Regelverk Boendeform och Fastighetsnyckel ” (Business rule for Type of housing and Property key)\n\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase) tab",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Business rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Business rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n-   “Regelverk Körkort” (Business rule for driving license as rating factor)\n\nGemensamma regelverk för Rally:\nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), flik ”Internet-Köp” (tab Internet Purchase)\n |",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year) \n”Regelverk Ålder” (Regulations, Age) \n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n”Regelverk Boendeform och Fastighetsnyckel” (Business rule for Type of housing and Property key)\n”Regelverk Förnyelsejusteringsfaktor”\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase)",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 11,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "will i be able to create offert for 10 days back in time?",
+      "answer": "Yes, it is possible to create an **offert (quotation)** for up to **10 days back in time**, but this depends on certain conditions outlined in the process documentation and business rules:\n\n---\n\n### **1. Key Conditions for Creating an Offert in the Past:**\n   - **Specified Start Date:**\n     - If a specific start date is provided in the request and the start date is **less than today’s date** (i.e., in the past), the prices will be based on the tariff that was valid from **today’s date**, not the backdated date. Additionally, the **modification date** will also be set to today’s date.\n     - *Example from Context*: \n       > \"If start date for vehicle damage offer exists in the request, the prices are based on the tariff that is valid for the specified date. If the specified date is less than today’s date, the prices are based on the tariff that is valid from today’s date (modification date is also set to today’s date).\"\n\n   - **Request Without a Start Date:**\n     - If no start date is provided in the request, the system will use the latest tariff valid for the current insurance policy as a basis for the quotation.\n\n---\n\n### **2. Business Rule Constraints:**\n   - Creating an offert for a date earlier than **10 days back** may not be allowed, as the business rules and system processes prioritize tariffs that are valid from the current date or within a specific permissible range.\n   - Special system validations or restrictions may apply for scenarios involving significant backdating.\n\n---\n\n### **3. Practical Implications:**\n   - The **tariff and pricing calculations** will not be based on the exact backdated date but rather on the validity of tariffs as of today.\n   - Backdated offerts may require additional validations or approvals to ensure compliance with regulations and avoid conflicts with existing policies.\n\n---\n\n### **4. Actions When Creating Backdated Offerts:**\n   - Ensure that the requested backdated period falls within the permissible range (e.g., within 10 days).\n   - Verify that the existing policies or coverage do not conflict with the requested quotation for the backdated date.\n   - Log all actions and changes in line with **logging requirements** for traceability.\n\n---\n\nIn conclusion, while you can request an offert for a date up to 10 days in the past, the pricing and other components will align with the current date’s tariff based on the system rules. For dates beyond that range, it may require special handling or may not be permitted within the standard process.",
+      "timestamp": "2025-06-09T14:02:10.635828",
+      "sources": [
+        {
+          "content": "If start date for vehicle damage offer exists in  the request the prices are based on the tariff that is valid for the specified date. If the specified date is less than todays date, the prices are based on the tariff that is valid from todays date (modification date is also set to todays date). | Om datum finns angivet i anropet baseras priserna på den tariff som gäller för det inmatade datumet. Om det inmatade datumet är mindre än dagens datum ska priserna baseras på den tariff som gäller från dagens datum (ändringsdatum sätts också till dagens datum).\nIf start date for vehicle damage offer exists in  the request the prices are based on the tariff that is valid for the specified date. If the specified date is less than todays date, the prices are based on the tariff that is valid from todays date (modification date is also set to todays date). | Om datum finns angivet i anropet baseras priserna på den tariff som gäller för det inmatade datumet. Om det inmatade datumet är mindre än dagens datum ska priserna baseras på den tariff som gäller från dagens datum (ändringsdatum sätts också till dagens datum).\nIf start date for vehicle damage offer exists in  the request the prices are based on the tariff that is valid for the specified date. If the specified date is less than todays date, the prices are based on the tariff that is valid from todays date (modification date is also set to todays date).\n | 3c1 | Om datum som finns angivet är större än eller lika med utgångsdatum på vagnskadeerbjudandet (utgångsdatum som finns lagrat i Rally) skapar Rally ett meddelande om detta (Nr 2). Användningsfallet fortsätter i steg 3.",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "3h | Om försäkringen är framtida nytecknad (begynnelsedag större än dagens datum) returnerar Rally Försäkring försäkringsinformation, men kompletterar med ett meddelande om att försäkringen inte har börjat gälla ännu (Nr 9).\nOm det finns flera försäkringsperioder på det framtida försäkringsavtalet )ej nollperioder) är det den försäkringsperiod som närmast träffas av inparameterdatum som ska visas.\nIf the insurance is a future new insurance policy (commencement date greater than inparameter date), Rally Försäkring returns insurance information, but supplements it with a notification that the insurance has not become valid yet (No. 9).",
+          "metadata": {
+            "filename": "F187 Betjäna externa kanaler - Hämta försäkringsinformationdocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If there are several insurance periods in the future policy (not zero periods), it is information about the insurance period that is closest to the inparameter date, that should be returned.\n\n\nNr | Beskrivning – Description\n1 | Information om din försäkring kan för närvarande inte lämnas. Försök igen senare.\n2 | Försäkringen har ändringar som ännu inte visas.\n3 | Snart förnyas din försäkring. Information om din förnyade försäkring visas från och med SSÅÅ-MM-DD.  \n5 | Detaljerad information om din försäkring kan inte visas.\n6 | Försäkringen slutar att gälla SSÅÅ-MM-DD.\n7 | Försäkringsavtalet är annullerat.\n8 | Försäkringen slutar att gälla SSÅÅ-MM-DD.\n9 | Försäkringen har ännu inte börjat gälla.\n10 | Systemfel – System error\n\n\nNr | Beskrivning – Description\n1 | Regelverk Läslogg\n2 | Regelverk Betjäna externa kanaler\n3 | Regelverk försäkringslogg\n4 | \n5 | \n | \n | \n\n\nDatum | Version | Beskrivning | Författare\n |  |  | \n |  |  | \n |  |  |",
+          "metadata": {
+            "filename": "F187 Betjäna externa kanaler - Hämta försäkringsinformationdocx.docx",
+            "chunk_index": 7,
+            "total_chunks": 8,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Användningsfallet avslutas\nThe use case is concluded | Om någon kontroll inte går igenom levererar Rally information om orsaken utan pris.\nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded\n3b | Om datum då vagnskadeerbjudande ska börja gälla saknas i anropet baseras alla priser på den senaste tariffen för aktuellt försäkringsavtal. Användningsfallet fortsätter i huvudflödet steg 3\nIf start date for vehicle damage offer is missing in the request all prices are based on the latest tariff for the insurance policy | Om datum då vagnskadeerbjudande ska börja gälla saknas i anropet baseras alla priser på den senaste tariffen för aktuellt försäkringsavtal. Användningsfallet fortsätter i huvudflödet steg 3\nIf start date for vehicle damage offer is missing in the request all prices are based on the latest tariff for the insurance policy | Om datum då vagnskadeerbjudande ska börja gälla saknas i anropet baseras alla priser på den senaste tariffen för aktuellt försäkringsavtal. Användningsfallet fortsätter i huvudflödet steg 3\nIf start date for vehicle damage offer is missing in the request all prices are based on the latest tariff for the insurance policy\n3c | Om datum finns angivet i anropet baseras priserna på den tariff som gäller för det inmatade datumet. Om det inmatade datumet är mindre än dagens datum ska priserna baseras på den tariff som gäller från dagens datum (ändringsdatum sätts också till dagens datum).",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Historiserad Revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2018-10-15 | pA1 | Nytt användningsfall (projekt LMF) / New Use case (project LMF) | Tobias Wijk\n2019-02-15 | A | Baseline LMF (Dec2018) | Tobias Wijk\n2019-02-20 | pB1 | Feature 837891:Allow creating quotes from App for vehicles not registered at partner\n | Lena Weingarth\n2019-03-25 | B | Baseline MARS | Lena Weingarth\n2019-04-04 | pC1 | LMF Phase 2: Feature Feature 854435 - IDD deviant recommendation in ÅF-app | Lena Weingarth\n2019-05-23 | C | Baseline MAJ2019 | Lena Weingarth\n2019-06-27 | pD1 | LMF Phase 2: Feature 881422 – LMF Culling of quote after 12 months in “ÅF-app” | Charlotte Bramstedt\n2019-09-18 | D | Baseline SEP2019 | Lena Weingarth\n2019-09-20 | pE1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP \n | Vivi Hallman\n2019-11-25 | pE2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP , changed the link to the document betjäna externa kanaler\n | Vivi Hallman\n2019-11-25 | E | Baseline NOV2019 | Lena Weingarth\n2021-08-17 | pF1 | EN19416 Change ÅF App Create quotation service   | Carina Karlsson",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Special requirements | Användningsfallet bearbetar endast de kunder:\n- som uppkommit i Rally i samband med nyteckning/offert och som saknas i kundsystemet EttKund och som har referens till en försäkring\n- som vid hämtning av kunduppgifter saknar tillräcklig information i kundsystemet EttKund\nAnvändningsfallet ska kunna utföras när som helst under Rally Försäkrings öppettid.\nOfferter och försäkringar som har skapats med VTR som källa för kundens uppgifter, kommer att behålla sina prisgrundande uppgifter (som är relaterade till kunden) oavsett om EttKund har andra uppgifter om kunden än VTR (t ex LKFkod, adress etc).\n\nThis use case manages only those customers:\n- who appeared in Rally in connection with a new insurance policy/quotation, who are missing in the EttKund customer system, and who have references to an insurance\n- who, upon retrieval of customer information, are lacking sufficient information in the EttKund customer system\nThis use case may be carried out at any time during Rally Försäkring working hours.\nQuotations and insurances that have been created with VTR as the source for the customer’s information will retain their price-based information (related to the customer) regardless of whether EttKund has different information about the customer than VTR (for example, LKF code, address, etc). \nÖppna frågor\nOpen questions |",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifterdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If bank account or bank giro is removed, the flow continues in step 10b | Om bankkonto eller BG är borttaget fortsätter flödet i steg 10b\nIf bank account or bank giro is removed, the flow continues in step 10b\n | 10a1 | 10a1 | Rally validerar återbetalningsinformationen\nRally validates the repayment information | Rally validerar återbetalningsinformationen\nRally validates the repayment information | Rally validerar återbetalningsinformationen\nRally validates the repayment information\n |  |  | 10a1a | 10a1a | Om valideringen misslyckas skickar Rally svar om orsak till extern kanal och användningsfallet avslutas\nIf validation fails, Rally responds with information about the cause to external channel and use case is concluded\n10b | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg\n10c | Rally uppdaterar försäkringsavtalet från och med dagens datum\nRally updates the insurance policy from todays date | Rally uppdaterar försäkringsavtalet från och med dagens datum\nRally updates the insurance policy from todays date | Rally uppdaterar försäkringsavtalet från och med dagens datum\nRally updates the insurance policy from todays date | Rally uppdaterar försäkringsavtalet från och med dagens datum\nRally updates the insurance policy from todays date | Rally uppdaterar försäkringsavtalet från och med dagens datum\nRally updates the insurance policy from todays date\n10d | Om det finns en giltig ändringsoffert kopplad till försäkringsavtalet ska den sättas till ogiltig.\nIf there is a valid modification quote linked to the insurance policy, it must be set to invalid. | Om det finns en giltig ändringsoffert kopplad till försäkringsavtalet ska den sättas till ogiltig.",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 29,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Referenser - References\nNedanstående dokument gäller allmänt vid skapande av offert. \nThe documents below apply in general in upon creating/saving a quotation.",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally checks the change according to business rule Ändring via internet – Change from renewal date \n |  | 9d1a | 9d1a | Om ändringen inte är tillåten skickar Rally svar om orsak till extern kanal och användningsfallet avslutas\nIf the change is not allowed, Rally responds with information about the cause to external channel and use case is concluded | Om ändringen inte är tillåten skickar Rally svar om orsak till extern kanal och användningsfallet avslutas\nIf the change is not allowed, Rally responds with information about the cause to external channel and use case is concluded\n9e | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg | Rally uppdaterar försäkringsloggen\nRally updates insurance logg\n9f | Rally Försäkring validerar informationen och genomför prisberäkning via Rally Produkt och Rally Ekonomi.  \nRally Försäkring validates the information and carries out a price calculation via Rally Produkt and Rally Ekonomi.  \nDen aktuella försäkringsperiodens slutdatum sätts lika med angivet ändringsdatum (huvudförfallodatum).\nThe end date of the insurance period in question is set equal to the indicated modification date.\nOm säljarnummer i Tillhör säljare är ogiltigt blankas Tillhör säljare ut i ny försäkringsperiod och aktivitet skickas till Kundsystemet.\nIf sales person number in Belongs to sales person not is valid, Belongs to sales person in new insurance period is deleted and a task is sent to Kundsystemet.\nEn ny försäkringsperiod skapas med startdatum lika med angivet ändringsdatum (huvudförfallodatum) och slutdatum lika med den ändrade periodens slutdatum.",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 23,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "4a | Om någon kontroll inte går igenom levererar Rally information om orsaken. \nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded | Om någon kontroll inte går igenom levererar Rally information om orsaken. \nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded | Om någon kontroll inte går igenom levererar Rally information om orsaken. \nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded\n4b | Om ändringsdatum är mindre än senaste försäkringsperiods startdatum och senaste försäkringsperiod är skapad av en förnyelse.\nIf the modification date is less than the latest insurance period start date and the latest insurance period is created by a renewal. | Om ändringsdatum är mindre än senaste försäkringsperiods startdatum och senaste försäkringsperiod är skapad av en förnyelse.\nIf the modification date is less than the latest insurance period start date and the latest insurance period is created by a renewal. | Om ändringsdatum är mindre än senaste försäkringsperiods startdatum och senaste försäkringsperiod är skapad av en förnyelse.\nIf the modification date is less than the latest insurance period start date and the latest insurance period is created by a renewal.\n | 4b1 | 4b1 | Rally Försäkring genomför prisberäkning och uppdatering av föregående och senaste försäkringsperiod.\nRally Försäkring carries out price calculations and updates of previous and the latest insurance period.\nDen föregående försäkringsperiodens slutdatum sätts lika med ändringsdatum \nThe previous insurance period end date is set to the same as the modification date.",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "can i pick 1st jan as tarriff date",
+      "answer": "No, you cannot directly pick **1st January** (or any arbitrary past date) as the tariff date unless specific conditions are met. The rules governing tariff selection are as follows:\n\n---\n\n### **1. Tariff Selection Rules:**\n   - **Specified Start Date in the Request:**\n     - If a start date for the vehicle damage offer is explicitly mentioned in the request, the tariff used will correspond to the date specified, as long as it meets the following conditions:\n       - The specified date is **greater than or equal to today’s date.**\n       - If the specified date is **less than today’s date**, the tariff will default to the one valid from today’s date, and the **modification date** will also be set to today’s date.\n     - *Example from Context*:  \n       > \"If start date for vehicle damage offer exists in the request, the prices are based on the tariff that is valid for the specified date. If the specified date is less than today’s date, the prices are based on the tariff that is valid from today’s date (modification date is also set to today’s date).\"\n\n   - **No Start Date Provided in the Request:**\n     - When no start date is mentioned, the system will use the **latest tariff** associated with the current insurance policy.\n\n---\n\n### **2. Implication for Picking 1st January as the Tariff Date:**\n   - **If 1st January is Greater Than or Equal to Today’s Date:**\n     - You can specify 1st January as the tariff date, and prices will be calculated based on the tariff valid for that date.\n   - **If 1st January is Less Than Today’s Date:**\n     - The tariff date will **not** be set to 1st January. Instead, the system will default to:\n       - The tariff valid from **today’s date**, and\n       - The modification date will also be set to today’s date.\n\n---\n\n### **3. Limitation on Historical Tariffs:**\n   - You cannot force the tariff date to a past date like 1st January and calculate prices using that past tariff unless the system supports such a backdating operation for specific business use cases. The system prioritizes tariffs valid from the current date, ensuring consistency and accuracy.\n\n---\n\n### **Conclusion:**\nYou can only pick **1st January** as the tariff date if:\n   - It is explicitly specified in the request, AND\n   - It is **greater than or equal to today’s date.**\n\nIf 1st January is in the past, the system will override it and use the tariff valid from **today’s date** instead.",
+      "timestamp": "2025-06-09T14:02:56.900921",
+      "sources": [
+        {
+          "content": "If start date for vehicle damage offer exists in  the request the prices are based on the tariff that is valid for the specified date. If the specified date is less than todays date, the prices are based on the tariff that is valid from todays date (modification date is also set to todays date). | Om datum finns angivet i anropet baseras priserna på den tariff som gäller för det inmatade datumet. Om det inmatade datumet är mindre än dagens datum ska priserna baseras på den tariff som gäller från dagens datum (ändringsdatum sätts också till dagens datum).\nIf start date for vehicle damage offer exists in  the request the prices are based on the tariff that is valid for the specified date. If the specified date is less than todays date, the prices are based on the tariff that is valid from todays date (modification date is also set to todays date). | Om datum finns angivet i anropet baseras priserna på den tariff som gäller för det inmatade datumet. Om det inmatade datumet är mindre än dagens datum ska priserna baseras på den tariff som gäller från dagens datum (ändringsdatum sätts också till dagens datum).\nIf start date for vehicle damage offer exists in  the request the prices are based on the tariff that is valid for the specified date. If the specified date is less than todays date, the prices are based on the tariff that is valid from todays date (modification date is also set to todays date).\n | 3c1 | Om datum som finns angivet är större än eller lika med utgångsdatum på vagnskadeerbjudandet (utgångsdatum som finns lagrat i Rally) skapar Rally ett meddelande om detta (Nr 2). Användningsfallet fortsätter i steg 3.",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Användningsfallet avslutas\nThe use case is concluded | Om någon kontroll inte går igenom levererar Rally information om orsaken utan pris.\nIn case of one control fails, Rally deliveres information about the cause for the failure and no price information is delivered \nAnvändningsfallet avslutas\nThe use case is concluded\n3b | Om datum då vagnskadeerbjudande ska börja gälla saknas i anropet baseras alla priser på den senaste tariffen för aktuellt försäkringsavtal. Användningsfallet fortsätter i huvudflödet steg 3\nIf start date for vehicle damage offer is missing in the request all prices are based on the latest tariff for the insurance policy | Om datum då vagnskadeerbjudande ska börja gälla saknas i anropet baseras alla priser på den senaste tariffen för aktuellt försäkringsavtal. Användningsfallet fortsätter i huvudflödet steg 3\nIf start date for vehicle damage offer is missing in the request all prices are based on the latest tariff for the insurance policy | Om datum då vagnskadeerbjudande ska börja gälla saknas i anropet baseras alla priser på den senaste tariffen för aktuellt försäkringsavtal. Användningsfallet fortsätter i huvudflödet steg 3\nIf start date for vehicle damage offer is missing in the request all prices are based on the latest tariff for the insurance policy\n3c | Om datum finns angivet i anropet baseras priserna på den tariff som gäller för det inmatade datumet. Om det inmatade datumet är mindre än dagens datum ska priserna baseras på den tariff som gäller från dagens datum (ändringsdatum sätts också till dagens datum).",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "3h | Om försäkringen är framtida nytecknad (begynnelsedag större än dagens datum) returnerar Rally Försäkring försäkringsinformation, men kompletterar med ett meddelande om att försäkringen inte har börjat gälla ännu (Nr 9).\nOm det finns flera försäkringsperioder på det framtida försäkringsavtalet )ej nollperioder) är det den försäkringsperiod som närmast träffas av inparameterdatum som ska visas.\nIf the insurance is a future new insurance policy (commencement date greater than inparameter date), Rally Försäkring returns insurance information, but supplements it with a notification that the insurance has not become valid yet (No. 9).",
+          "metadata": {
+            "filename": "F187 Betjäna externa kanaler - Hämta försäkringsinformationdocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist\n2024-05-02 | PI1 | FEATURE 510767 - Necessary adaptations in Rally for ÅF Tool 1.5 + webbar | Rajasekaran Chandrasekaran\n2024-12-19 | I | Baseline dec 2024 | Caroline Hansson",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 9,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Ralle creates change options for payment method and payment term\n3d | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff på huvudförfallodatum\nRally calculates price for current coverage and allowed change options based on tariff for renewal date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff på huvudförfallodatum\nRally calculates price for current coverage and allowed change options based on tariff for renewal date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff på huvudförfallodatum\nRally calculates price for current coverage and allowed change options based on tariff for renewal date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff på huvudförfallodatum\nRally calculates price for current coverage and allowed change options based on tariff for renewal date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff på huvudförfallodatum\nRally calculates price for current coverage and allowed change options based on tariff for renewal date\n3e  | Rally skickar svar till extern kanal och användningsfallet avslutas\nRally responds to external channel and use case is concluded | Rally skickar svar till extern kanal och användningsfallet avslutas\nRally responds to external channel and use case is concluded | Rally skickar svar till extern kanal och användningsfallet avslutas\nRally responds to external channel and use case is concluded | Rally skickar svar till extern kanal och användningsfallet avslutas\nRally responds to external channel and use case is concluded | Rally skickar svar till extern kanal och användningsfallet avslutas\nRally responds to external channel and use case is concluded\n5a | Rally beräknar priser baserat på ändrad körsträcka baserat på tariff för dagens datum",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 10,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Den föregående försäkringsperiodens slutdatum sätts lika med ändringsdatum \nThe previous insurance period end date is set to the same as the modification date.\nEn ny försäkringsperiod skapas med startdatum lika med ändringsdatum och slutdatum lika med föregående periods slutdatum.\nA new insurance period is created with start date equal to modification date and end date equal to the end date of the previous period.\nDen senaste försäkringsperiodens slutdatum sätts lika med startdatum.\nThe latest insurance period end date is set to the same as the start date.\nOm säljarnummer i Tillhör säljare är ogiltigt blankas Tillhör säljare ut i nya försäkringsperioder och aktivitet skickas till Kundsystemet.\nIf sales person number in Belongs to sales person not is valid, Belongs to sales person in new insurance periods is deleted and a task is sent to Kundsystemet.\nEn ny försäkringsperiod skapas med samma start- och slutdatum som den senaste försäkringsperioden.\nA new insurance period created with the same start and end date as the latest insurance period.\n4c | Om det finns en giltig ändringsoffert kopplad till försäkringsavtalet ska den sättas till ogiltig.\nIf there is a valid modification quote linked to the insurance policy, it must be set to invalid. | Om det finns en giltig ändringsoffert kopplad till försäkringsavtalet ska den sättas till ogiltig.\nIf there is a valid modification quote linked to the insurance policy, it must be set to invalid. | Om det finns en giltig ändringsoffert kopplad till försäkringsavtalet ska den sättas till ogiltig.\nIf there is a valid modification quote linked to the insurance policy, it must be set to invalid.\n4d | Om avtalet har omfattning Självriskreducering vagnskadegaranti så ska moment\nSjälvriskreducering vagnskadegaranti tas bort.",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 9,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Datum | Version | Beskrivning | Författare\n2014-12-12 | pA1 | Översättningsunderlag\nTranslation document | Jörgen Barkselius\n2015-05-25 | pA2 | Infört engelsk översättning\nAdded English translation | Mari Forssberg\n2015-05-25 | A | Flytt till baseline\nSaved to baseline | Mari Forssberg\n2016-03-24 | pB1 | CR287335 Zip Code as rating factor. Nytt regelverk Regelverk Postnummer tillagt i referenser.\nNew business rule Regelverk Postnummer added in reference list. | Carina Rehnqvist\n2016-04-27 | B | Baseline efter release april-2016\nBaseline after release april-2016 | Carina Rehnqvist\n2017-02-21 | pC1 | CR373575 – New rating factors gult\nLagt till nytt regelverk under referenser\nAdded new document to References | Carina Rehnqvist\n2017-11-27 | C | Baseline NOV2017 | Lena Weingarth\n |  | CR467574 New rating factor Boendeform | Carina Rehnqvist\n2019-02-05 | D | Baseline Nov-18 | Carina Rehnqvist\n2018-08-17 | pE1 | Feature 767000:Two valid policies with same registration number | Lena Weingarth\n2018-09-13 | pE2 | Feature 745100 – Price calculate through mobile “ÅF-app” | Tobias wijk\n2019-02-11 | E | Baseline LMF (Dec2018) | Tobias Wijk\n2019-06-25 | pF1 | Feature 861616 New version of Nyteckning service. \nUpdated points 3 example scenario,4 mainflow & 5 alternative flows. | Sara Ernlund\n2019-09-18 | F | Baseline SEP2019 | Lena Weingarth\n2019-09-20 | pG1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP . \n | Vivi Hallman\n2019-11-25 | pG2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP . Changed the text (detailed link )regarding betjäna externa kanaler \n | Vivi Hallman\n2019-11-25 | G | Baseline NOV2019 | Lena Weingarth\n2019-11-27 | G | Removed faulty references to business rules | Patrik Kähäri/Vivi Hallman\n2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally creates change option for optional coverage MER | Rally skapar ändringsalternativ för tilläggsförsäkring MER\nRally creates change option for optional coverage MER | Rally skapar ändringsalternativ för tilläggsförsäkring MER\nRally creates change option for optional coverage MER\n2b | Körsträcka är tillåtet att höja\nAnnual mileage is allowed to increase | Körsträcka är tillåtet att höja\nAnnual mileage is allowed to increase | Körsträcka är tillåtet att höja\nAnnual mileage is allowed to increase | Körsträcka är tillåtet att höja\nAnnual mileage is allowed to increase | Körsträcka är tillåtet att höja\nAnnual mileage is allowed to increase\n | 2b1 | Rally skapar ändringsalternativ för körsträcka\nRally creates change option for annual mileage | Rally skapar ändringsalternativ för körsträcka\nRally creates change option for annual mileage | Rally skapar ändringsalternativ för körsträcka\nRally creates change option for annual mileage | Rally skapar ändringsalternativ för körsträcka\nRally creates change option for annual mileage\n2c | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff för dagens datum\nRally calculates price for current coverage and allowed change options based on tariff for todays date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff för dagens datum\nRally calculates price for current coverage and allowed change options based on tariff for todays date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff för dagens datum\nRally calculates price for current coverage and allowed change options based on tariff for todays date | Rallys beräknar pris för nuvarande omfattning och tillåtna ändringsalternativ baserat på tariff för dagens datum",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 7,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If user is a registred user in Rally´s ‘Partnerregister’ then user is allowed to create an quotation. Validation against the GEMI-ticket presented in the call to the service.\nChoice of products wihin app regulates rules for creation/saving of quotation and/or price calculation.\nWhen channel is set to ÅterförsäljarePartner, channel_id =4 then Rally saves the quotation with an assigned “Last response date“, see business rule “Date regulations” \n\nSe ”Regelverk Betjäna externa kanaler” \nSee “Regulations, Employ external channels\nSe t ex ”F004 Offerera och nyteckna försäkring” för information om vidare hantering av försäkringen i Rally (förutom eventuella undantag som specificerats i ”Regelverk Betjäna externa kanaler” hanteras försäkringar som registrerats via extern kanal enligt samma principer som övriga försäkringar i Rally) \nSee, for example, “F004 Offerera och nyteckna försäkring” (F004 – Quote and sign new insurance policy) for information on further management of the insurance in Rally (apart from any exceptions specified in “Regelverk Betjäna externa kanaler”, insurances are handled as if registered via external channel according to the same principles as the other insurances in Rally)\n4 | Rally levererar resutatet till anropande kanal.\nRally delivers the results to the channel calling in.\nSe ”Regelverk Betjäna externa kanaler”, \nSee “Regulations, Employ external channels” \n6 | Användningsfallet avslutas\nThe use case is concluded\n\n\n”Regelverk Betjäna externa kanaler” \n”Regelverk Betjäna externa kanaler - Riskurvalsregler” \n”Regelverk F184 Betjäna Externa kanaler – Beräkna pris”\n”Datumregler” (Date regulations)\n\n\n\n\nDatum\nDate | Version\nVersion | Beskrivning\nDescription | Författare\nAuthor\n |  |  | \n |  |  | \n |  |  | \n |  |  | \n |  |  |",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "En ny försäkringsperiod skapas med startdatum lika med angivet ändringsdatum (huvudförfallodatum) och slutdatum lika med den ändrade periodens slutdatum.\nA new insurance period is created with start date equal to modification date indicated and end date equal to the modified period end date. | Rally Försäkring validerar informationen och genomför prisberäkning via Rally Produkt och Rally Ekonomi.  \nRally Försäkring validates the information and carries out a price calculation via Rally Produkt and Rally Ekonomi.  \nDen aktuella försäkringsperiodens slutdatum sätts lika med angivet ändringsdatum (huvudförfallodatum).\nThe end date of the insurance period in question is set equal to the indicated modification date.\nOm säljarnummer i Tillhör säljare är ogiltigt blankas Tillhör säljare ut i ny försäkringsperiod och aktivitet skickas till Kundsystemet.\nIf sales person number in Belongs to sales person not is valid, Belongs to sales person in new insurance period is deleted and a task is sent to Kundsystemet.\nEn ny försäkringsperiod skapas med startdatum lika med angivet ändringsdatum (huvudförfallodatum) och slutdatum lika med den ändrade periodens slutdatum.\nA new insurance period is created with start date equal to modification date indicated and end date equal to the modified period end date. | Rally Försäkring validerar informationen och genomför prisberäkning via Rally Produkt och Rally Ekonomi.  \nRally Försäkring validates the information and carries out a price calculation via Rally Produkt and Rally Ekonomi.  \nDen aktuella försäkringsperiodens slutdatum sätts lika med angivet ändringsdatum (huvudförfallodatum).\nThe end date of the insurance period in question is set equal to the indicated modification date.\nOm säljarnummer i Tillhör säljare är ogiltigt blankas Tillhör säljare ut i ny försäkringsperiod och aktivitet skickas till Kundsystemet.",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 24,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "i want to change the rule for authentication, and only partner registry can sign polices.. create new test cases for that",
+      "answer": "Changing the authentication rule to only allow users in the **Partner Registry** to sign insurance policies involves modifying the existing business rule and ensuring thorough testing to validate this change. Below is an outline of the test cases to support this new rule:\n\n---\n\n### **1. New Authentication Rule Description:**\n   - **Current Rule:** Users from multiple sources (external channels, ÅF channel, etc.) can sign insurance policies, subject to general validation requirements.\n   - **Updated Rule:** Only users listed in the **Partner Registry** are permitted to sign insurance policies. Any other user attempting to complete this process will be denied.\n\n---\n\n### **2. Key Scenarios for Testing:**\n\n#### **2.1. Positive Test Cases (Allowed Users):**\n   - **Test Case #1: Valid Partner Registry User Signing a Policy**\n     - **Preconditions:**  \n       - The user is registered in the Partner Registry.  \n       - The user provides correct authentication credentials (e.g., GEMI-ticket).  \n       - Policy creation rules are satisfied.\n     - **Steps:**\n       1. User initiates the policy-signing process through an authorized external channel.\n       2. The system validates the user against the Partner Registry.\n       3. If valid, the signing process proceeds as per system rules.\n     - **Expected Result:** The user successfully signs the policy.\n\n   - **Test Case #2: Valid Partner Registry User Modifying an Existing Policy and Signing**\n     - **Preconditions:**  \n       - The user is registered in the Partner Registry.  \n       - The user provides correct authentication credentials.  \n       - The policy being modified allows changes under existing business rules.\n     - **Steps:**  \n       1. User modifies a policy through an external channel.  \n       2. The system validates the user as a valid Partner Registry user.\n       3. The user signs the modified policy.\n     - **Expected Result:** Policy modifications are saved, and the policy is signed.\n\n---\n\n#### **2.2. Negative Test Cases (Disallowed Users):**\n\n   - **Test Case #1: User Not in Partner Registry Attempts to Sign a Policy**\n     - **Preconditions:**  \n       - The user is not listed in the Partner Registry.  \n       - The user provides otherwise valid credentials.  \n     - **Steps:**  \n       1. User initiates the policy-signing process.  \n       2. The system attempts to validate the user against the Partner Registry.  \n       3. User validation fails.  \n     - **Expected Result:**  \n       - The system denies the signing request.  \n       - An error message is displayed: *\"User is not authorized to sign policies. Only users in the Partner Registry are permitted to complete this action.\"*\n\n   - **Test Case #2: Invalid Partner Registry Credentials**\n     - **Preconditions:**  \n       - The user is in the Partner Registry, but input credentials (e.g., GEMI-ticket) are incorrect.  \n     - **Steps:**  \n       1. User submits request with invalid credentials.  \n       2. The system attempts to authenticate the user but fails due to mismatched credentials.  \n     - **Expected Result:**  \n       - The system denies the signing request.  \n       - An error message is displayed: *\"Authentication failed. Please provide valid credentials.\"*\n\n---\n\n### **3. Edge Cases:**\n   - **Test Case #1: Deleted User in Partner Registry**\n     - **Preconditions:**  \n       - The user was previously registered in the Partner Registry but has been removed.  \n     - **Steps:**  \n       1. The user attempts to sign a policy.  \n       2. The system checks the Partner Registry and finds the user is no longer listed.  \n     - **Expected Result:**  \n       - The system denies the request.  \n       - An error message is displayed: *\"User is no longer authorized to sign policies.\"*\n\n   - **Test Case #2: Multiple User Attempts From the Same Device**\n     - **Preconditions:**  \n       - Two users (one listed in the Partner Registry and one not listed) attempt to sign policies from the same device.  \n     - **Steps:**  \n       1. The first user (not in the Partner Registry) attempts to sign a policy and is denied.  \n       2. The second user (in the Partner Registry) attempts to sign a policy with valid credentials.  \n     - **Expected Result:**  \n       - The first user's signing request fails.  \n       - The second user's signing request succeeds.\n\n---\n\n### **4. Regression Test Cases:**\n   To ensure the new rule does not disrupt other processes, perform regression tests on the following:\n   - Policy creation processes.\n   - Other level-based business rules for authorized users.\n   - Logging and traceability of actions in **RAFILogInfo**.\n\n---\n\n### **5. General Test Requirements:**\n   - **Traceability:** Ensure logs capture the authentication result (successful or failed) and link it to the signing process.\n   - **Error Handling:** Verify that all failure scenarios produce clear, user-friendly error messages.\n   - **Performance:** Test the system’s response time when validating large numbers of users against the Partner Registry.\n   - **Security:** Validate the integrity of the Partner Registry and ensure no unauthorized modifications can bypass the authentication check.\n\n---\n\n### **Conclusion:**\nBy implementing these test cases, the new authentication rule can be thoroughly validated. This ensures that only users in the **Partner Registry** can sign insurance policies while maintaining the system's efficiency, security, and compliance with relevant regulations.",
+      "timestamp": "2025-06-09T14:05:02.937452",
+      "sources": [
+        {
+          "content": "2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist\n2024-05-02 | PI1 | FEATURE 510767 - Necessary adaptations in Rally for ÅF Tool 1.5 + webbar | Rajasekaran Chandrasekaran\n2024-12-19 | I | Baseline dec 2024 | Caroline Hansson",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 9,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase) tab",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 6,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n”Regelverk Boendeform och Fastighetsnyckel ” (Business rule for Type of housing and Property key)\n\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase) tab",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year) \n”Regelverk Ålder” (Regulations, Age) \n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Operating rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Operating rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n“Regelverk Körkort” (Business rule for driving license as rating factor)\n”Regelverk Boendeform och Fastighetsnyckel” (Business rule for Type of housing and Property key)\n”Regelverk Förnyelsejusteringsfaktor”\n\nGemensamma regelverk för Rally: \nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), “Internet-Köp” (Internet Purchase)",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 11,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Regelverk tillhörande RAF där även externa kanaler berörs:\nRegulations incident to RAF in which external channels are also affected:\n”Regelverk Årsmodell” (Regulations, Vehicle model year)\n”Regelverk Ålder” (Regulations, Age)\n”Regelverk Länsbonus” (Regulations, LF company individual discount)\n”Regelverk Rabatt-påslag och Prisjustering” (Regulations, Discounts/additional charges and price adjustment)\n”Verksamhetsregel Medgivandestatus” (Business rule, Direct debit approval status)\n”Regelverk Händelsetyper” (Regulations, Event types)\n”Regelverk Mappning VTR-frågor” (Regulations, Mapping VTR requests)\n”Regelverk Tillhör säljare” (Regulations, Belongs to Salesperson)\n”Verksamhetsregel Märkesförsäkring” (Business rule, Brand Insurance)\n“Regelverk Postnummer” (Business rule for Zip Code as basis for rating factor)\n-   “Regelverk Körkort” (Business rule for driving license as rating factor)\n\nGemensamma regelverk för Rally:\nJoint regulations for Rally:\n”Regelverk LKFKoder” (Regulations, LKF codes)\n”Felhantering i GUI” (Error handling in GUI), flik ”Internet-Köp” (tab Internet Purchase)\n |",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "Datum | Version | Beskrivning | Författare\n2014-12-12 | pA1 | Översättningsunderlag\nTranslation document | Jörgen Barkselius\n2015-05-25 | pA2 | Infört engelsk översättning\nAdded English translation | Mari Forssberg\n2015-05-25 | A | Flytt till baseline\nSaved to baseline | Mari Forssberg\n2016-03-24 | pB1 | CR287335 Zip Code as rating factor. Nytt regelverk Regelverk Postnummer tillagt i referenser.\nNew business rule Regelverk Postnummer added in reference list. | Carina Rehnqvist\n2016-04-27 | B | Baseline efter release april-2016\nBaseline after release april-2016 | Carina Rehnqvist\n2017-02-21 | pC1 | CR373575 – New rating factors gult\nLagt till nytt regelverk under referenser\nAdded new document to References | Carina Rehnqvist\n2017-11-27 | C | Baseline NOV2017 | Lena Weingarth\n |  | CR467574 New rating factor Boendeform | Carina Rehnqvist\n2019-02-05 | D | Baseline Nov-18 | Carina Rehnqvist\n2018-08-17 | pE1 | Feature 767000:Two valid policies with same registration number | Lena Weingarth\n2018-09-13 | pE2 | Feature 745100 – Price calculate through mobile “ÅF-app” | Tobias wijk\n2019-02-11 | E | Baseline LMF (Dec2018) | Tobias Wijk\n2019-06-25 | pF1 | Feature 861616 New version of Nyteckning service. \nUpdated points 3 example scenario,4 mainflow & 5 alternative flows. | Sara Ernlund\n2019-09-18 | F | Baseline SEP2019 | Lena Weingarth\n2019-09-20 | pG1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP . \n | Vivi Hallman\n2019-11-25 | pG2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP . Changed the text (detailed link )regarding betjäna externa kanaler \n | Vivi Hallman\n2019-11-25 | G | Baseline NOV2019 | Lena Weingarth\n2019-11-27 | G | Removed faulty references to business rules | Patrik Kähäri/Vivi Hallman\n2020-10-26 | pH1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n |  |  | \n2020-11-26 | H | Baseline NOV2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F184 Betjäna externa kanaler - Beräkna prisdocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 17,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If there is a valid modification quote linked to the insurance policy, it must be set to invalid.\n8f | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 18,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Historiserad Revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2014-12-12 | pA1 | Översättningsunderlag\nTranslation document | Jörgen Barkselius\n2015-05-21 | pA2 | Infört engelsk översättning\nAdded English translation | Mari Forssberg\n2015-05-21 | A | Flytt till baseline\nSaved to baseline | Mari Forssberg\n2016-03-24 | pB1 | CR287335 Zip Code as rating factor. Nytt regelverk Regelverk Postnummer tillagt i referenser.\nNew business rule Regelverk Postnummer added in reference list. | Carina Rehnqvist\n2016-04-27 | B | Baseline efter release april-2016\nBaseline after release april-2016 | Carina Rehnqvist\n2017-02-21 | pC1 | CR373575 – New rating factors gult\nLagt till nytt regelverk under referenser\nAdded new document to References | Carina Rehnqvist\n2017-11-27 | C | Baseline 2017 | Lena Weingarth\n |  | CR467574 New rating factor Boendeform | Carina Rehnqvist\n2019-02-05 | D | Baseline Nov-18 | Carina Rehnqvist\n2018-08-17 | pE1 | Feature 767000:Two valid policies with same registration number | Lena Weingarth\n2019-02-11 | E | Baseline LMF (Dec2018) | Tobias Wijk\n2019-07-02 | pF1 | Uppdaterat hänvsning under punkt 2 - Huvudflöde | Sara Ernlund\n2019-09-18 | F | Baseline SEP2019 | Lena Weingarth\n2019-09-26 | pG1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP \n | Vivi Hallman\n2019-11-25 | pG2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP , changed the detailed links to the document Regelverk betjäna extrana kanaler\n | Vivi Hallman\n2019-11-25 | G | Baseline NOV2019 | Lena Weingarth\n2019-12-11 | H | Ändrat referens RAFI service till nyteckningsservice | Vivi Hallman",
+          "metadata": {
+            "filename": "F186 Betjäna externa kanaler - Teckna försäkringdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 8,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "OBS! Användningsfallet öppnas upp endast för extern kanal ’ÅterförsäljarePartner’ i och med projektet Lokal Märkesförsäkring 2019-01-01. Via externa kanalen ÅterförsäljarePartner kan en användare beräkna pris på en fordonsmodell utan registreringsnummer via en mobil app kallad ”ÅF-appen”.\nNB: This use case is opened up for external channel and invoked by channel ÅterförsäljarePartner due to project Lokal Märkesförsäkring 2019-01-01. Through channel ÅterförsäljarePartner can a user calculate price on a vehicle model without registration number via an mobile app called “ÅF-appen”.\nSpårbarhet\nTraceability | \nStatus | Under arbete, Granskat\nIn progress, Reviewed\nPrimära aktörer\nPrimary actors | Extern kanal, ÅterförsäljarePartner se ”Regelverk Betjäna externa kanaler” \nExternal channels, ÅterförsäljarePartner see “Regelverk Betjäna externa kanaler”\nStartvillkor\nStarting conditions | Förfrågan om klassning av fordon kommer till Rally via en extern kanal. \nAnropande extern kanal måste vara behörig att använda denna tjänst.",
+          "metadata": {
+            "filename": "F185 Betjäna externa kanaler - Fordonsklassningdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 7,
+            "title": "Rally",
+            "author": "Maria Samuelsson"
+          }
+        },
+        {
+          "content": "If user is a registred user in Rally´s ‘Partnerregister’ then user is allowed to create an quotation. Validation against the GEMI-ticket presented in the call to the service.\nChoice of products wihin app regulates rules for creation/saving of quotation and/or price calculation.\nWhen channel is set to ÅterförsäljarePartner, channel_id =4 then Rally saves the quotation with an assigned “Last response date“, see business rule “Date regulations” \n\nSe ”Regelverk Betjäna externa kanaler” \nSee “Regulations, Employ external channels\nSe t ex ”F004 Offerera och nyteckna försäkring” för information om vidare hantering av försäkringen i Rally (förutom eventuella undantag som specificerats i ”Regelverk Betjäna externa kanaler” hanteras försäkringar som registrerats via extern kanal enligt samma principer som övriga försäkringar i Rally) \nSee, for example, “F004 Offerera och nyteckna försäkring” (F004 – Quote and sign new insurance policy) for information on further management of the insurance in Rally (apart from any exceptions specified in “Regelverk Betjäna externa kanaler”, insurances are handled as if registered via external channel according to the same principles as the other insurances in Rally)\n4 | Rally levererar resutatet till anropande kanal.\nRally delivers the results to the channel calling in.\nSe ”Regelverk Betjäna externa kanaler”, \nSee “Regulations, Employ external channels” \n6 | Användningsfallet avslutas\nThe use case is concluded\n\n\n”Regelverk Betjäna externa kanaler” \n”Regelverk Betjäna externa kanaler - Riskurvalsregler” \n”Regelverk F184 Betjäna Externa kanaler – Beräkna pris”\n”Datumregler” (Date regulations)\n\n\n\n\nDatum\nDate | Version\nVersion | Beskrivning\nDescription | Författare\nAuthor\n |  |  | \n |  |  | \n |  |  | \n |  |  | \n |  |  |",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 8,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "what documents will it create if a new offert is created",
+      "answer": "When a new **offert (quotation)** is created in Rally Försäkring via an external channel like the **ÅF-app**, the following documents and processes are triggered:\n\n---\n\n### **1. Quotation Document**\n   - A formal **quotation document** is created containing:\n     - Details about the offered insurance (e.g., coverage, price, terms).\n     - Customer and vehicle information (e.g., personal/corporate identity number, vehicle registration number, product selection).\n     - The **assigned \"Last Response Date\"**, as per the **Date Regulations**.\n\n---\n\n### **2. Logging in the \"Offerttabell\" (Quotation Table)**\n   - The quotation is saved in Rally's **quotation table (offerttabell)** for tracking and audit purposes.\n   - This record includes:\n     - Quotation details.\n     - Associated user/channel (e.g., ÅterförsäljarePartner).\n     - A timestamp for when the quotation was created.\n\n---\n\n### **3. Notification of Creation**\n   - If applicable, a **confirmation notification** is sent to the external channel or user, confirming the successful creation of the quotation.\n\n---\n\n### **4. Email (if Address Provided)**\n   - If a **valid email address** is provided during the process:\n     - The quotation is automatically sent to the customer via email.\n     - This step is executed only if all **validation criteria** are met.\n\n---\n\n### **5. Updated Price Information**\n   - If the pricing is based on updated **tariffs or business rules**, the relevant details are recorded and shared as part of the new quotation.\n\n---\n\n### **6. Logs for Compliance**\n   - All stages of the process are logged in the system, specifically in **RAFILogInfo**, for traceability, compliance, and auditing purposes.\n\n---\n\n### **Special Notes:**\n   - A detailed (technical) description of the service for creating quotations is available in the document **NyteckningService** (mentioned in the **context** under \"Särskilda krav\").\n   - The creation of this quotation adheres to the validation and regulatory requirements outlined in **\"Regelverk Betjäna externa kanaler\"**.\n\n---\n\n### **Documents Specifically Mentioned in the Context:**\n   - **Quotation Document**: The main document shared with the customer.\n   - **Log Entries (Quotation Table and RAFILogInfo)**: For internal use and compliance.\n   - **Email (Optional)**: If an address is provided and validation is successful.\n\nBy following these processes, the creation of a new quotation ensures compliance, accuracy, and transparency within the system.",
+      "timestamp": "2025-06-09T14:06:55.173020",
+      "sources": [
+        {
+          "content": "Referenser - References\nNedanstående dokument gäller allmänt vid skapande av offert. \nThe documents below apply in general in upon creating/saving a quotation.",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 3,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rubrik\nHeading | Text\nSammanfattning\nSummary | Användningsfallet beskriver Rally Försäkrings tjänst ’SkapaOffert’ via externa kanalers ”ÅF-app”. \nThis use case describes Rally Försäkring’s service for creating an quotation, ‘SkapaOffert’, in external channels “ÅF-app”.\nStatus | Utkast, Under arbete, Godkänt\nDraft, In progress, Approved\nAktörer \nActor | Extern kanal, ”ÅterförsäljarePartner” se ”Regelverk Betjäna externa kanaler \nExternal channels,  “ÅterförsäljarePartner” see “Regulations, Employ external channels\nStartvillkor\nStarting conditions | Prisuppgift har erhållits på en fordonsförsäkring\nAnropande extern kanal måste vara behörig att använda denna tjänst.\nPrice information on a vehicle insurance has been obtained\nThe external channel calling in must have the authority to use this service.\nÖnskat resultat\nDesired result | Offert har sparats och skickats via e-post om adress finns och valideringar har godkänts.\nQuotation has been saved and sent through email if the address is provided and validation criteras are met. \nSärskilda krav\nSpecial requirements | -\nInformationsbeskrivning | Detaljerad (teknisk) beskrivning av tjänsten finns i dokument NyteckningService.\nDetailed (technical) description of the service is found in the “NyteckningService” document.\nRegelverk | Regelverk som endast berör externa kanaler: \nRegulations only affecting external channels:\n”Regelverk Betjäna externa kanaler” (Regulations, Employ external channels)\n\nRegelverk Betjäna externa kanaler – Riskurvalregler (Regulations Employ external channels – Risc selection rules)\n\n”Rally på Internet-Spinloggen” (Rally on the Internet-Spin log)\n”Regelverk Säljarnummer RAFI” (Regulations, Sales person number RAFI)\n”Regelverk RAFI Bolagsinfo mail  tfn” (Regulations, RAFI Company info: mail, telephone)",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Fel- och varningsflöden - Error and warning flows\n\nRegelverk – Business rules\n\n\nHistoriserad revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2016-09-19 | pA1 | Utkast\nDraft | Lena Weingarth\n2016-10-28 | pA2 | Changes according to clarification tracker C004 | Lena Weingarth\n2016-10-28 | pA3 | Changes according to clarification tracker C004 | Lena Weingarth\n2017-02-06 | pA4 | Added alternative flow 3e | Lena Weingarth\n2017-05-22 | A | Baseline MAJ2017 | Lena Weingarth\n2017-08-28 | pB1 | CR443675 – Hantering av Tillhör säljare_ändring via internet | Lena Weingarth\n2017-11-22 | B | Baseline NOV2017 | Lena Weingarth\n2018-09-28 | pC2 | Feature 783059:Enable change of brand (Cash customer) policy on internet | Lena Weingarth\n2019-02-11 | C | Baseline LMF | Lena Weingarth\n2020-10-26 | pD1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen\n2020-12-08 | D | Baseline Nov 2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 1,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "If there is a valid modification quote linked to the insurance policy, it must be set to invalid.\n8f | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 18,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Fel- och varningsflöden - Error and warning flows\n\nRegelverk – Business rules\n\n\nHistoriserad revisionshistorik - Historicised revision history\n\n\nDatum | Datum | Version | Beskrivning | Författare\n2016-10-27\n | 2016-10-27\n | pA1 | Utkast\nDraft | Lena Weingarth\n2016-02-23 | 2016-02-23 | pA2 | Lagt till altflöde 10d\nAdded alternative flow 10d | Lena Weingarth\n2017-05-22 | 2017-05-22 | A | Baseline MAJ2017 | Lena Weingarth\n2017-08-28 | 2017-08-28 | pB1 | CR443675 – Hantering av Tillhör säljare_ändring via internet | Lena Weingarth\n2017-11-22 | 2017-11-22 | B | Baseline NOV2017 | Lena Weingarth\n2020-10-26 | pC1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen | Ilkka Rautiainen\n2020-12-08 | 2020-12-08 | C | Baseline Nov 2020 | Carina Rehnqvist\n |  |  |  |",
+          "metadata": {
+            "filename": "F189 Betjäna externa kanaler - Ändra försäkringdocx.docx",
+            "chunk_index": 1,
+            "total_chunks": 32,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg\nStep | Beskrivning\nDescription\n1 | Rally anropas från extern kanal, ÅterförsäljarePartner, för att prisberäkna en fordonsförsäkring. Anropet innehåller person- eller organisationsnummer, uppgift om fordon baserat på reg-nummer eller modell, produkt och omfattningsval. \nRally is called on from an external channel, ÅterförsäljarePartner (retailer partner) in order to price calculate a vehicle. The call contains a personal or corporate identity number, as well as information on vehicles based on reg-number or model and any product and coverage selection.\nSe ”Regelverk Betjäna externa kanaler”\n See “Regulations, Employ External Channel”\n2 | Rally utför prisberäkning och kontrollerar att angivna uppgifter är valida, enligt flödet i användningsfall ”F184 Betjäna externa kanaler - Beräkna pris” sektion 4 Huvudflödet. \nRally carries out a price calculation and checks that the indicated information is valid according to the flow in use case “F184 – Betjäna externa kanaler - Beräkna pris” (F184 – Employ external channels – Calculate price), section 4 Mainflow.\n3 | Om det rekommenderade valet av omfattning skiljer sig från den omfattning som kunden har valt meddelas en särskild text om detta. Se regelverk Betjäna externa kanaler.\nIf the recommended coverage not is the same as the coverage that the customer has choosen, information about that  (a special text  ) is delivered. See business rule Betjäna externa kanaler.\n4 | Är användaren en registrerad användare i Rallys ’Partnerregister’ tillåts användaren att skapa/spara en offert. Validering sker i den GEMI-ticket som skickas med i anropet.\nVal av produkt i appen styr regler för skapande/sparande av offert och/eller prisberäkning.\nNär kanal är = ÅterförsäljarePartner (kanal_id 4) sparar Rally en offert i Rally´s offerttabell med ett tilldelat ”Sista svarsdatum”, se regelverk ”Datumregler”",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 7,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Historiserad Revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2018-10-15 | pA1 | Nytt användningsfall (projekt LMF) / New Use case (project LMF) | Tobias Wijk\n2019-02-15 | A | Baseline LMF (Dec2018) | Tobias Wijk\n2019-02-20 | pB1 | Feature 837891:Allow creating quotes from App for vehicles not registered at partner\n | Lena Weingarth\n2019-03-25 | B | Baseline MARS | Lena Weingarth\n2019-04-04 | pC1 | LMF Phase 2: Feature Feature 854435 - IDD deviant recommendation in ÅF-app | Lena Weingarth\n2019-05-23 | C | Baseline MAJ2019 | Lena Weingarth\n2019-06-27 | pD1 | LMF Phase 2: Feature 881422 – LMF Culling of quote after 12 months in “ÅF-app” | Charlotte Bramstedt\n2019-09-18 | D | Baseline SEP2019 | Lena Weingarth\n2019-09-20 | pE1 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP \n | Vivi Hallman\n2019-11-25 | pE2 | LMF Feature 911206 Risc selection rules shall be moved from RAF to RAP , changed the link to the document betjäna externa kanaler\n | Vivi Hallman\n2019-11-25 | E | Baseline NOV2019 | Lena Weingarth\n2021-08-17 | pF1 | EN19416 Change ÅF App Create quotation service   | Carina Karlsson",
+          "metadata": {
+            "filename": "F190 Betjäna externa kanaler - Skapa offertdocx.docx",
+            "chunk_index": 4,
+            "total_chunks": 9,
+            "title": "F163 Betjäna externa kanaler",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "4f | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.  | Rally Försäkring skickar information om ändringen till Kundsystemet och underlag för fakturering, reskontra och bokföring till Rally Ekonomi. \nRally Försäkring sends information about the modification to Kundsystemet, and the documentation for billing, ledger accounting and accounting to Rally Ekonomi. \nDärefter skapas informationsunderlag till försäkringsbrev som hanteras vidare i F126.\nInformation documents for an insurance policy letter are thereafter created and handled further in F126.",
+          "metadata": {
+            "filename": "F188 Betjäna externa kanaler - Vagnskadeerbjudandedocx.docx",
+            "chunk_index": 12,
+            "total_chunks": 14,
+            "title": "F188 Betjäna externa kanaler - Vagnskadeeerbjudande",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Fel- och varningsflöden - Error and warning flows\n\nRegelverk – Business rules\n\n\nHistoriserad revisionshistorik - Historicised revision history\n\n\nDatum | Version | Beskrivning | Författare\n2016-04-01 | pA1 | Utkast\nDraft | Leif Funseth\n2016-04-29 | pA2 | Några ombearbetningar\nSome reworking | Lena Weingarth\n2016-06-14 | pA3 | Added some new requirements after internal review\nAll changes marked in yellow | Lena Weingarth\n2016-08-25 | pA4 | Some clarifications related to clarification tracker | Lena weingarth\n2016-08-30 | pA5 | Clarified alternative flow 3h | Lena Weingarth\n2016-09-21 | pA6 | Clarified alternative flow 3h again | Lena Weingarth\n2016-10-05 | pB1 | CR342513 Improvements in service Get insurance  | Lena Weingarth\n2016-11-18 | pB2 | Error text 3 is changed and error text 4 is removed | Lena Weingarth\n2017-05-22 | B | Baseline MAJ2017 | Lena Weingarth\n |  |  |",
+          "metadata": {
+            "filename": "F187 Betjäna externa kanaler - Hämta försäkringsinformationdocx.docx",
+            "chunk_index": 1,
+            "total_chunks": 8,
+            "title": "F172 Betjäna externa kanaler - Beräkna pris",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Special requirements | Användningsfallet bearbetar endast de kunder:\n- som uppkommit i Rally i samband med nyteckning/offert och som saknas i kundsystemet EttKund och som har referens till en försäkring\n- som vid hämtning av kunduppgifter saknar tillräcklig information i kundsystemet EttKund\nAnvändningsfallet ska kunna utföras när som helst under Rally Försäkrings öppettid.\nOfferter och försäkringar som har skapats med VTR som källa för kundens uppgifter, kommer att behålla sina prisgrundande uppgifter (som är relaterade till kunden) oavsett om EttKund har andra uppgifter om kunden än VTR (t ex LKFkod, adress etc).\n\nThis use case manages only those customers:\n- who appeared in Rally in connection with a new insurance policy/quotation, who are missing in the EttKund customer system, and who have references to an insurance\n- who, upon retrieval of customer information, are lacking sufficient information in the EttKund customer system\nThis use case may be carried out at any time during Rally Försäkring working hours.\nQuotations and insurances that have been created with VTR as the source for the customer’s information will retain their price-based information (related to the customer) regardless of whether EttKund has different information about the customer than VTR (for example, LKF code, address, etc). \nÖppna frågor\nOpen questions |",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifterdocx.docx",
+            "chunk_index": 5,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    }
+  ]
+}

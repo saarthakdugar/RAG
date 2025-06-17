@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "session_id": "81368794-2a70-4919-ac15-40dc6d147f3f",
+    "title": "give me steps whAT h",
+    "date": "2025-06-09T12:26:27.135498"
+  },
+  "messages": [
+    {
+      "query": "give me steps whAT happens in sync kundinfo batch",
+      "answer": "The synchronization (\"sync\") of customer information (kundinfo) within the batch process between Rally Försäkring and EttKund occurs as outlined in the documents. Below are the key steps detailed in the provided **[Context]**:\n\n---\n\n### **Key Steps in the Synchronization Process**\n1. **Compilation of Customer Records for Synchronization**:\n   - Rally Försäkring identifies and compiles the list of customers whose information needs to be synchronized with EttKund.\n   *Note*: Refer to special requirements for synchronization criteria.  \n\n2. **Request Customer Information from EttKund**:\n   - Rally Försäkring sends a query to EttKund for the information of each identified customer.  \n   *Note*: See info analysis 5.2.1 (“Query customer information”).\n\n3. **Comparison and Update**:\n   - EttKund responds with the customer's details.\n   - Rally Försäkring compares EttKund’s information for the customer with its own existing records. Any differences in properties (e.g., addresses, contact details) are updated to maintain consistency.  \n   *Note*: Management rule 5.3.1 defines priority rules for updates between Rally and EttKund.  \n\n4. **Synchronization of Quotations/Insurances**:\n   - Rally Försäkring compiles quotations or insurances that were newly added or updated and sends them as a response to EttKund.  \n   - Newly signed insurances are recorded in Rally Ekonomi.  \n   *Note*: Refer to info analysis 5.2.2 (“Send quotations/insurances as a response to EttKund”).\n\n5. **Mark and Log Synchronization Completion**:\n   - Rally Försäkring marks the current customer as synchronized in the system.\n   - A log entry is created to confirm that the synchronization process for the customer has been successfully completed.  \n   *Note*: See info analysis 5.2.4 (“Normal log”).\n\n6. **Handling Errors or Incompleteness**:\n   - If no customers are found for synchronization or a specific customer cannot be matched in EttKund:\n     - Rally Försäkring either adds a new customer to EttKund using stored information or logs an error if the addition fails.  \n     *Note*: See info analysis 5.2.3 (“Add customer in EttKund”) and notification texts for error scenarios.\n   - If the customer is found but cannot be updated (e.g., due to errors or mismatches), Rally Försäkring logs the issue and moves to the next customer in the batch.\n   - Similarly, if updating customer insurance holdings fails, an error log is created.\n   *Note*: Error handling includes notification messages like \"Error log – Update of customer information unsuccessful.\"\n\n---\n\n### **Alternate/Failure Flows**\n- **Customer Not Found in EttKund**:\n   Rally Försäkring adds the customer to EttKund if possible or logs the failure if unsuccessful.\n- **System Error or EttKund Unavailable**:\n   If the EttKund system is not responding, Rally terminates the synchronization process for the batch and logs the failure.\n\n---\n\nThis process repeats for all customers in the batch, ensuring data consistency across Rally Försäkring and EttKund systems.",
+      "timestamp": "2025-06-09T12:26:34.598875",
+      "sources": [
+        {
+          "content": "Rally Försäkring compiles the quotations and/or insurances that were added/updated and sends them as a response to EttKund. Newly signed insurances are recorded in Rally Ekonomi.\nNote: See info analysis 5.2.2 Send quotations/insurances as a response to EttKund\n5 | Rally Försäkring markerar aktuell kund som synkroniserad.\nRally Försäkring marks the customer in question as synchronized.\n6 | Rally Försäkring loggar att synkronisering av kunduppgifter skett.\nNot: Se infoanalys 5.2.4 Normal logg\nRally Försäkring logs that synchronization of customer information has taken place.\nNote: See info analysis 5.2.4, Normal log",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 7,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning | Beskrivning | Beskrivning | Beskrivning | Beskrivning\n1a | Inga kunder kan hittas för synkronisering\t\nNo customers can be found for synchronization | Inga kunder kan hittas för synkronisering\t\nNo customers can be found for synchronization | Inga kunder kan hittas för synkronisering\t\nNo customers can be found for synchronization | Inga kunder kan hittas för synkronisering\t\nNo customers can be found for synchronization | Inga kunder kan hittas för synkronisering\t\nNo customers can be found for synchronization\n | 1a1 | Användningsfallet avslutas\nThe use case is concluded | Användningsfallet avslutas\nThe use case is concluded | Användningsfallet avslutas\nThe use case is concluded | Användningsfallet avslutas\nThe use case is concluded\n2a | Kunden kan inte hittas i EttKund\nThe customer cannot be found in EttKund | Kunden kan inte hittas i EttKund\nThe customer cannot be found in EttKund | Kunden kan inte hittas i EttKund\nThe customer cannot be found in EttKund | Kunden kan inte hittas i EttKund\nThe customer cannot be found in EttKund | Kunden kan inte hittas i EttKund\nThe customer cannot be found in EttKund\n | 2a1 | Rally Försäkring lägger till en ny kund i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.3 Lägg till kund i EttKund\nRally Försäkring adds a new customer in EttKund with the information about the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.3, Add customer in EttKund | Rally Försäkring lägger till en ny kund i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.3 Lägg till kund i EttKund\nRally Försäkring adds a new customer in EttKund with the information about the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.3, Add customer in EttKund | Rally Försäkring lägger till en ny kund i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.3 Lägg till kund i EttKund",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 8,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning\n1 | Rally Försäkring sammanställer de kunder vars uppgifter skall synkroniseras med EttKund.\nNot: Se särskilda krav för kriterier för synkronisering\nRally Försäkring compiles the customers whose information is to be synchronized with EttKund.\nNote: See special requirements for synchronization criteria\nSteg 2-5 utförs för varje identifierad kund i ovan nämnda sammanställning\nSteps 2–5 are executed for every identified customer in the aforementioned compilation | Steg 2-5 utförs för varje identifierad kund i ovan nämnda sammanställning\nSteps 2–5 are executed for every identified customer in the aforementioned compilation\n2 | Rally Försäkring frågar EttKund efter kunduppgifter för identifierad kund\nNot: Se infoanalys 5.2.1 Fråga kunduppgifter\nRally Försäkring queries EttKund for customer information for the customer identified\nNote: See info analysis 5.2.1 Query customer information\n3 | EttKund svarar med kundens uppgifter och Rally Försäkring jämför EttKunds uppgifter om kunden med Rally Försäkrings befintliga uppgifter om kunden och uppdaterar de egenskaper som skiljer sig emellan systemen. \nNot: Se behandlingsregel 5.3.1 Prioritet kunduppgifter Rally-EttKund\nEttKund responds with the customer’s information; Rally Försäkring compares EttKund’s information on the customer with Rally Försäkring’s existing information on the customer and updates the properties that differ between the systems. \nNote: See management rule 5.3.1, Priority of customer information Rally–EttKund\n4 | Rally Försäkring sammanställer de offerter och/eller försäkringar som tillkommit/uppdaterats och replikerar dessa till EttKund. Nytecknade försäkringar registreras i Rally Ekonomi.\nNot: Se infoanalys 5.2.2 Replikera offerter/försäkringar till EttKund\nRally Försäkring compiles the quotations and/or insurances that were added/updated and sends them as a response to EttKund. Newly signed insurances are recorded in Rally Ekonomi.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 6,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Alternativflöden - Alternate flows\nReferenser - References\nVerksamhetsregler - Business rules\nDatabeskrivningar - Descriptions of data\nFråga kunduppgifter - Query customer information\nSe gränssnittsbeskrivning EttKund\nSee interface description, EttKund\nReplikera offerter/försäkringar till EttKund\nSend quotations/insurances as a response to EttKund\nSe gränssnittsbeskrivning EttKund\nSee interface description, EttKund\nLägg till kund i EttKund - Add customer in EttKund\nSe gränssnittsbeskrivning EttKund\nSee interface description, EttKund\nNormal logg - Normal log\nSynkronisering med EttKund utfördes <<tidsangivelse>>.\n<<antal kunder>> st kunder synkroniserades.\n<<antal engagemang>> st offerter/försäkringar uppdaterades.\n<<antal fel>> st fel inträffade.\nFörklaring: \t<<tidsangivelse>> = datum och tid då körningen avslutades \n\t<<antal kunder>> = antalet kunder som behandlades\n\t<<antal engagemang>> = antalet offert/försäkringar som behandlades\n\t<<antal fel>> = antalet fel som inträffade under körning\nSynchronization with EttKund executed <<time information>>.\n<<number of customers>> customers synchronized.\n<<number of customer insurance holdings>> quotations/insurances updated.\n<<number of errors>> errors occurred.\nExplanation: \t<<time information>> = date and time the run was completed \n\t<<number of customers>> = number of customers managed\n\t<<number of customer insurance holdings>> = number of quotations/insurances managed\n\t<<number of errors>> = number of errors that occurred during the run\nUppdatera kund i EttKund - Update customer in EttKund\nSe gränssnittsbeskrivning EttKund\nSee interface description, EttKund\nBehandlingsregler - Management rules\nPrioritet kunduppgifter Rally – EttKund - Priority of customer information Rally – EttKund\n<lägg till regler för uppdatering>\n<add rules for updating>\nMeddelandetexter - Notification texts\nFellogg Lägg till kund misslyckas - Error log – Add customer unsuccessful",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 1,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally Försäkring marks that the customer in question is not synchronized and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized and continues management with the next customer (if any) from Step 2.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 19,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "| 2a4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4\n2b | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199\n | 2b1 | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund\nRally Försäkring updates the customer in EttKund with the information on the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.5, Update customer in EttKund | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund\nRally Försäkring updates the customer in EttKund with the information on the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.5, Update customer in EttKund | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 11,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Not: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att kunden inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att kunden inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful\n | 3a2 | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 15,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "<lägg till regler för uppdatering>\n<add rules for updating>\nMeddelandetexter - Notification texts\nFellogg Lägg till kund misslyckas - Error log – Add customer unsuccessful\nKunden med identitet <<person- eller organisationnummer>> kunde inte läggas till i EttKund. Felet som rapporterades från EttKund var: <<felbeskrivning>>\nFörklaring: \t<<person- eller organisationnummer>> = aktuell kunds identitet\n\t<<felbeskrivning>> = teknisk felbeskrivning från tjänstegränsnitt\nThe customer with identity <<personal or corporate identity number>> could not be added in EttKund. The error reported from EttKund was: <<error description>>\nExplanation: \t<<personal or corporate identity number>> = identity of the customer in question\n\t<<error description>> = technical error description from service interface\nFellogg EttKund otillgängligt - Error log – EttKund unavailable\nSystemet EttKund svarar inte.\nSynkronisering med EttKund avbröts <<tidsangivelse>>\nFörklaring: \t<<tidsangivelse>> = datum och tid då körningen avslutades\nThe EttKund system is not responding.\nSynchronization with EttKund terminated <<time information>>\nExplanation: \t<<time information>> = date and time the run was completed\nFellogg Uppdatering av kunduppgifter misslyckas\nError log – Update of customer information unsuccessful\nUppdatering av kunden med identitet <<person- eller organisationnummer>>  i Rally kunde inte genomföras. Felet som rapporterades var: <<felbeskrivning>>\nFörklaring: \t<<person- eller organisationnummer>> = aktuell kunds identitet\n\t<<felbeskrivning>> = teknisk felbeskrivning\nUpdate of the customer with identity <<personal or corporate identity number>> in Rally could not be executed. The error reported was: <<error description>>\nExplanation: \t<<personal or corporate identity number>> = identity of the customer in question\n\t<<error description>> = technical description of error\nFellogg Uppdatering av kund i EttKund misslyckas\nUpdate of customer in EttKund unsuccessful",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 2,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring)\n | 4b4 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2.\n4a | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful\n | 4a1 | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 16,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    },
+    {
+      "query": "what happens if the file has instructions to delete kund details.. how rally behaves in such situation",
+      "answer": "If the file includes instructions to delete customer details (kunduppgifter), Rally Försäkring's behavior in such a situation is not explicitly outlined in the provided **[Context]**. However, the described synchronization process emphasizes handling customer updates, additions, or error logging, and there is no mention of a specific process or protocol for deleting customer information.\n\n---\n\n### **Key Considerations Based on the Context**\n1. **Error Logging and Process Continuation**:\n   - The synchronization process appears to focus on updating customer information, comparing records, and ensuring system consistency across Rally Försäkring and EttKund. For failed updates or synchronization errors, Rally logs the issue and proceeds with the next customer.\n   - If deletion were part of the process and failed (e.g., due to system unavailability or another issue), Rally would likely log the error and move to the next step in the batch.\n\n2. **Handling Special Scenarios**:\n   - If deletion instructions are part of the process, it would require specific rules or criteria for execution. Given that the **[Context]** does not explicitly address deletion, additional documentation or procedural rules might clarify how Rally Försäkring handles such scenarios (e.g., whether deletion is implemented at all or whether other system rules apply).\n\n3. **System Behavior in Unavailable or Error-Prone Scenarios**:\n   - If EttKund is unavailable or errors occur during processing, Rally Försäkring logs the issue and terminates the process—or, in some cases, continues with the next customer (as detailed in error handling for updates).\n\n---\n\n### **Conclusion**\nAs deletion instructions are not specified in the provided documents, it is possible that such functionality falls outside the scope of the current synchronization process or has its own separate protocol. If deletion is encountered, Rally Försäkring might handle it similarly to other error-prone scenarios, logging failures and proceeding with the next customer in the batch. For clarity, additional documentation or specific process rules would be needed to confirm the exact behavior in situations involving deletion.",
+      "timestamp": "2025-06-09T12:28:34.084434",
+      "sources": [
+        {
+          "content": "Not: Se infoanalys 5.2.5 Uppdatera kund i EttKund\nRally Försäkring updates the customer in EttKund with the information on the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.5, Update customer in EttKund | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund\nRally Försäkring updates the customer in EttKund with the information on the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.5, Update customer in EttKund\n |  | 2b1b | Uppdatering av kund i EttKund misslyckas\nUpdate of customer in EttKund unsuccessful | Uppdatering av kund i EttKund misslyckas\nUpdate of customer in EttKund unsuccessful | Uppdatering av kund i EttKund misslyckas\nUpdate of customer in EttKund unsuccessful\n |  |  | 2b1b1 | 2b1b1 | Rally Försäkring loggar att kunden inte kan uppdateras i EttKund, vilket fel som uppstått och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nNot: Se meddelandetext 5.4.4 Fellogg uppdatering av kund i EttKund misslyckas\nRally Försäkring logs that the customer cannot be updated in EttKund and which error arose, and continues management with the next customer (if any) from Step 2.\nNote: See notification text 5.4.4, Error log – update of customer in EttKund unsuccessful\n | 2b2 | Rally Försäkring lagrar kundens unika identitet i anslutning till kunduppgifter och eventuella offerter/försäkringar som är relaterade till kunden i Rally Försäkring.\nRally Försäkring stores the customer’s unique identity in connection with customer information and any quotations/insurances related to the customer in Rally Försäkring. | Rally Försäkring lagrar kundens unika identitet i anslutning till kunduppgifter och eventuella offerter/försäkringar som är relaterade till kunden i Rally Försäkring.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 12,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally Försäkring stores the customer’s unique identity in connection with customer information and any quotations/insurances related to the customer in Rally Försäkring. | Rally Försäkring lagrar kundens unika identitet i anslutning till kunduppgifter och eventuella offerter/försäkringar som är relaterade till kunden i Rally Försäkring.\nRally Försäkring stores the customer’s unique identity in connection with customer information and any quotations/insurances related to the customer in Rally Försäkring. | Rally Försäkring lagrar kundens unika identitet i anslutning till kunduppgifter och eventuella offerter/försäkringar som är relaterade till kunden i Rally Försäkring.\nRally Försäkring stores the customer’s unique identity in connection with customer information and any quotations/insurances related to the customer in Rally Försäkring.\n | 2b3 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4\n2c | EttKund är inte tillgängligt\nEttKund is not available | EttKund är inte tillgängligt\nEttKund is not available | EttKund är inte tillgängligt\nEttKund is not available | EttKund är inte tillgängligt\nEttKund is not available | EttKund är inte tillgängligt\nEttKund is not available\n | 2c1 | Rally Försäkring loggar att EttKund inte kan kontaktas, vilket fel som uppstått och avbryter utförandet av användningsfallet.\nNot: Se meddelandetext 5.4.2 Fellogg EttKund otillgängligt\nRally Försäkring logs that EttKund cannot be contacted and which error arose, and terminates execution of the use case.\nNote: See notification text 5.4.2, Error log – EttKund unavailable | Rally Försäkring loggar att EttKund inte kan kontaktas, vilket fel som uppstått och avbryter utförandet av användningsfallet.\nNot: Se meddelandetext 5.4.2 Fellogg EttKund otillgängligt",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 13,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally Försäkring marks that the customer in question is not synchronized and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized and continues management with the next customer (if any) from Step 2.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 19,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Special requirements | Användningsfallet bearbetar endast de kunder:\n- som uppkommit i Rally i samband med nyteckning/offert och som saknas i kundsystemet EttKund och som har referens till en försäkring\n- som vid hämtning av kunduppgifter saknar tillräcklig information i kundsystemet EttKund\nAnvändningsfallet ska kunna utföras när som helst under Rally Försäkrings öppettid.\nOfferter och försäkringar som har skapats med VTR som källa för kundens uppgifter, kommer att behålla sina prisgrundande uppgifter (som är relaterade till kunden) oavsett om EttKund har andra uppgifter om kunden än VTR (t ex LKFkod, adress etc).\n\nThis use case manages only those customers:\n- who appeared in Rally in connection with a new insurance policy/quotation, who are missing in the EttKund customer system, and who have references to an insurance\n- who, upon retrieval of customer information, are lacking sufficient information in the EttKund customer system\nThis use case may be carried out at any time during Rally Försäkring working hours.\nQuotations and insurances that have been created with VTR as the source for the customer’s information will retain their price-based information (related to the customer) regardless of whether EttKund has different information about the customer than VTR (for example, LKF code, address, etc). \nÖppna frågor\nOpen questions |",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 5,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "| 2a4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4 | Flödet återupptas i steg 4\nThe flow is resumed in step 4\n2b | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199 | Kunden hittas i EttKund men saknar bolagstillhörighet och har 0199 i LKkod\nThe customer found in EttKund but is lacking LF company affiliation and has LK code 199\n | 2b1 | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund\nRally Försäkring updates the customer in EttKund with the information on the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.5, Update customer in EttKund | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund\nRally Försäkring updates the customer in EttKund with the information on the customer that Rally Försäkring has stored.\nNote: See info analysis 5.2.5, Update customer in EttKund | Rally Försäkring uppdaterar kunden i EttKund med de uppgifter om kunden som Rally Försäkring har lagrat.\nNot: Se infoanalys 5.2.5 Uppdatera kund i EttKund",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 11,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Note: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful\n | 4a2 | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2.\n4b | Registrering av nytecknad försäkring i Rally Ekonomi misslyckas\nRegistration of newly-signed insurance in Rally Ekonomi unsuccessful | Registrering av nytecknad försäkring i Rally Ekonomi misslyckas",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 17,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2.\n4a | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful | Replikering av engagemang till EttKund misslyckas\nReplication of customer insurance holdings to EttKund unsuccessful\n | 4a1 | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer insurance holdings cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att engagemanget inte kan uppdateras och vilket fel som uppstått.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 16,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning\n1 | Rally Försäkring sammanställer de kunder vars uppgifter skall synkroniseras med EttKund.\nNot: Se särskilda krav för kriterier för synkronisering\nRally Försäkring compiles the customers whose information is to be synchronized with EttKund.\nNote: See special requirements for synchronization criteria\nSteg 2-5 utförs för varje identifierad kund i ovan nämnda sammanställning\nSteps 2–5 are executed for every identified customer in the aforementioned compilation | Steg 2-5 utförs för varje identifierad kund i ovan nämnda sammanställning\nSteps 2–5 are executed for every identified customer in the aforementioned compilation\n2 | Rally Försäkring frågar EttKund efter kunduppgifter för identifierad kund\nNot: Se infoanalys 5.2.1 Fråga kunduppgifter\nRally Försäkring queries EttKund for customer information for the customer identified\nNote: See info analysis 5.2.1 Query customer information\n3 | EttKund svarar med kundens uppgifter och Rally Försäkring jämför EttKunds uppgifter om kunden med Rally Försäkrings befintliga uppgifter om kunden och uppdaterar de egenskaper som skiljer sig emellan systemen. \nNot: Se behandlingsregel 5.3.1 Prioritet kunduppgifter Rally-EttKund\nEttKund responds with the customer’s information; Rally Försäkring compares EttKund’s information on the customer with Rally Försäkring’s existing information on the customer and updates the properties that differ between the systems. \nNote: See management rule 5.3.1, Priority of customer information Rally–EttKund\n4 | Rally Försäkring sammanställer de offerter och/eller försäkringar som tillkommit/uppdaterats och replikerar dessa till EttKund. Nytecknade försäkringar registreras i Rally Ekonomi.\nNot: Se infoanalys 5.2.2 Replikera offerter/försäkringar till EttKund\nRally Försäkring compiles the quotations and/or insurances that were added/updated and sends them as a response to EttKund. Newly signed insurances are recorded in Rally Ekonomi.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 6,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally Försäkring compiles the quotations and/or insurances that were added/updated and sends them as a response to EttKund. Newly signed insurances are recorded in Rally Ekonomi.\nNote: See info analysis 5.2.2 Send quotations/insurances as a response to EttKund\n5 | Rally Försäkring markerar aktuell kund som synkroniserad.\nRally Försäkring marks the customer in question as synchronized.\n6 | Rally Försäkring loggar att synkronisering av kunduppgifter skett.\nNot: Se infoanalys 5.2.4 Normal logg\nRally Försäkring logs that synchronization of customer information has taken place.\nNote: See info analysis 5.2.4, Normal log",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 7,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Not: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att kunden inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful | Rally Försäkring loggar att kunden inte kan uppdateras och vilket fel som uppstått.\nNot: Se meddelandetext 5.4.3 Fellogg Uppdatering av kunduppgifter misslyckas\nRally Försäkring logs that the customer cannot be updated, and which error arose.\nNote: See notification text 5.4.3, Error log – Update of customer information unsuccessful\n | 3a2 | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.\nRally Försäkring marks that the customer in question is not synchronized with EttKund, and continues management with the next customer (if any) from Step 2. | Rally Försäkring markerar att aktuell kund inte är synkroniserad med EttKund och fortsätter bearbetning med nästa kund (om någon) från steg 2.",
+          "metadata": {
+            "filename": "F003 Synkronisera kunduppgifter.docx",
+            "chunk_index": 15,
+            "total_chunks": 21,
+            "title": "F003 - Synkronisera kunduppgifter",
+            "author": "Patrik Kähäri"
+          }
+        }
+      ]
+    }
+  ]
+}

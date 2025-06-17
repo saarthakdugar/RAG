@@ -1,0 +1,389 @@
+{
+  "metadata": {
+    "session_id": "8ea9a956-1d43-4844-afd0-e628eacb14a4",
+    "title": "Explain a newby how ",
+    "date": "2025-06-09T12:03:57.994894"
+  },
+  "messages": [
+    {
+      "query": "Explain a newby how to create and sign a new policy",
+      "answer": "To create and sign a new insurance policy, here is a clear step-by-step explanation based on the process outlined in the **[Context]**:\n\n### Steps to Create and Sign a New Policy:\n\n1. **Identify the Customer:**\n   - The insurance agent (Försäkringshandläggaren) begins by identifying the customer in the Rally Försäkring system.\n   - The agent will input the customer's identification details such as a personal number or organization number.\n   - Rally Försäkring validates the provided information and retrieves the customer’s existing data stored in the system. This ensures the customer can be correctly identified.\n\n2. **Review Customer Information:**\n   - Once the customer is identified, Rally Försäkring presents detailed customer information to the agent. This data is used to confirm the customer’s identity and proceed with the policy setup.\n\n3. **Offer or Create a New Policy:**\n   - The insurance agent decides whether to proceed with offering a quote or directly signing a new policy (nyteckna en försäkring).\n   - Rally Försäkring compiles the necessary customer information required for this process, including generating price details or creating a draft offer.\n\n4. **Proceed with Policy Details:**\n   - If all necessary details are validated, the agent finalizes the quote (offert) or signs the new policy (nyteckning) based on the customer's consent.\n\n5. **Transition to the Next Process:**\n   - Once the above steps are completed, the process transitions to the subsequent workflow as defined in the Rally system's standard operational steps for managing policies. This includes saving customer information temporarily, as noted in alternative flows.\n\n6. **Optional Steps for Exceptions:**\n   - If there are issues such as the customer not being found, incorrect identity information, or special cases like confidential details, specific alternate actions (such as requesting additional data or escalating the case) are handled, as indicated in the context.\n\n### Notes for a New Agent:\n- **Customer Identification Format:** \n   Customer identity must follow specific formats such as \"[NN]NNNNNN[-]NNNN\" where \"N\" represents digits, and optional separators like a dash can be used.\n- **Interface:** The Rally Försäkring system provides a user-friendly GUI for managing entries and validations.\n- **Support Documents:** Key rule sets, validation procedures, and workflows are available for agents in predefined sections of the Rally documentation.\n\nBy following this procedure, a new insurance policy can be successfully created and signed in the system.",
+      "timestamp": "2025-06-09T12:04:05.779914",
+      "sources": [
+        {
+          "content": "Steg | Beskrivning\n1 | Försäkringshandläggaren väljer att identifiera en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\n2 | Rally Försäkring ger försäkringshandläggaren möjlighet att ange kundens identitet. \nNot: Se infoanalys 5.2.1 Ange kundidentitet\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet) \n3 | Försäkringshandläggaren anger kundens identitet och väljer att se kundens uppgifter.\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet)\n4 | Rally Försäkring validerar angiven kundidentitet, hämtar detaljerad information om kunden som finns lagrad sedan tidigare och presenterar vissa kunduppgifter för försäkringshandläggaren för att möjliggöra identifiering av kunden.\nNot: Se infoanalys 5.2.3 Visa kunduppgifter.\nNot: Se valideringsregler 5.3\n(vb:kundidentitet) (vb:försäkringshandläggare)\n5 | Försäkringshandläggaren väljer att offerera eller nyteckna en försäkring. Rally Försäkring sammanställer kunduppgifter nödvändiga för offerering eller nyteckning, för att sedan övergå i steg 2 i användningsfall F004.\nNot: Extend F004 – Offerera och nyteckna försäkring\nNot: Se infoanalys 5.2.4 Kunduppgifter för prisuppgift\n(vb:försäkringshandläggare) (vb:offerera) (vb:nyteckning) (vb:försäkring)(vb:prisuppgift)",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 3,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt\n\n\nDatum | Datum | Version | Beskrivning | Författare\n2004-11-22 | 2004-11-22 | pA1 | Första utkastet | Patrik Kähäri\n2004-11-25 | 2004-11-25 | pA2 | Bytt namn på användningsfall efter samråd med Maria Samuelsson och tog bort referenser till PartMaster | Patrik Kähäri\n2004-12-15 | 2004-12-15 | A | Granskat | Patrik Kähäri\n2005-01-11 | 2005-01-11 | B | Tog bort LKF kod från visa kunduppgifter efter samråd med Maria S.\nFörtydligade referens till behandlingsregel för 6991- och 6997-nummer.\nFlyttade meddelandetexter till avsett dokument. | Patrik Kähäri\n2005-01-14 | 2005-01-14 | B | Rättat aktörsnamn | Maria Samuelsson\n2005-08-26 | 2005-08-26 | B | Uppdaterade hänvisningar till felmeddelande efter ny numrering. | Patrik Kähäri\n2009-05-15 | 2009-05-15 | pC1 | CR 15655 - Rallys anslutning till G-VTR:\nBytt ut alla anrop till VTR till via G-VTR istället | Lena Weingarth\n2009-05-28 | 2009-05-28 | C | Godkänt efter granskning av Persson Kerstin  LFAB; Kähäri Patrik; Appelquist Johan; Alvåg Göran; Lindvall Bengt | Lena Weingarth\n2009-06-17 | 2009-06-17 | pD1 | CR21759 - Adresshantering:\nLagt till alternativflöde 4b1\n | Lena Weingarth\n2009-07-01 | 2009-07-01 | pD1 | Lagt till nytt användningsfalldiagram | Lena Weingarth\n2009-07-02 | 2009-07-02 | D | Godkänt efter justering efter granskning av Persson Kerstin  LFAB; Tyrland Olle; Dyrefors Björn; Alvåg Göran; Kähäri Patrik | Lena Weingarth\n2020-10-26 | pE1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen | Ilkka Rautiainen\n2020-12-08 | 2020-12-08 | E | Baseline Nov 2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 1,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring)\n | 4b4 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rubrik | Text\nSammanfattning | Användningsfallet utgör en del av en reservingång till Rally i de situationer då systemet EttKund (Siebel) är otillgängligt för försäkringshandläggare.\nFörsäkringshandläggaren identifierar en kund i Rally Försäkring och skapar en prisuppgift som kan resultera i en offert eller försäkring.\n(vb:försäkringshandläggare) (vb:kund) (vb:prisuppgift) (vb:offert) (vb:försäkring)\nSpårbarhet | \nStatus | Utkast, Under arbete, Granskat\nAktörer | Försäkringshandläggare, G-VTR, EttKund\nStartvillkor | Reservingången är öppen för användning. \nÖnskat resultat | Försäkringshandläggaren har identifierat en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\nSärskilda krav | Försäkringshandläggaren kan när som helst i flödet välja att avbryta ärendet.\n(vb:försäkringshandläggare) \nÖppna frågor |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 2,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally\n\nMallen innehåller fält. Använd menyvalet Arkiv/ Egenskaper för att sätta värden på fälten; Ämne, Titel, Chef, Nyckelord och Kommentar. Denna blå text syns inte i utskrift.\n\nFörsäkring\nAnvändningsfall\nF001 - Offerera och teckna försäkring via reservingång\nVersion E\n\nInnehållsförteckning\n1. Beskrivning av användningsfallet\t4\n2. Användningsfallsdiagram\t5\n3. Huvudflöde\t6\n4. Alternativflöden\t7\n5. Referenser\t9\n5.1 Verksamhetsregler\t9\n5.2 Databeskrivningar\t9\n5.3 Valideringsregler\t11\n5.4 Användargränssnitt\t11\n5.5 Övriga referenser\t11\n6. Särskilda Krav\t11\n7. Övrigt\t11\nFigurförteckning\nFigur 1 Användningsfallsdiagram\tError! Bookmark not defined.\nRevisionshistorik\n\nBeskrivning av användningsfallet\nAnvändningsfallsdiagram\n\nHuvudflöde\nOBS! Handläggaren kan välja att utföra steg 3-4 flera gånger.\nAlternativflöden\nSteg A1 kan inträffa i steg 2 eller 4 i huvudflödet. \nReferenser\nVerksamhetsregler\nDatabeskrivningar\nAnge kundidentitet\n(vb:kundidentitet) (vb:personnummer) (vb:organisationsnummer) (vb:sekel)\nVTR – Körkortsfråga (HP01)\nSe dokumentation VTR frågor.\n(vb:vägtrafikregistret) (vb:körkortsfråga) (vb:vtr-fråga)\nVisa kunduppgifter\n(vb:personnummer) (vb:organisationsnummer) (vb:kundidentitet) (vb:kundens namn) (vb:kundens adress) (vb:postnummer) (vb:postort)\nKunduppgifter för prisuppgift\n<<Komplettera med beskrivning av kundformat>>\n(vb:kund) (vb:prisuppgift)\nValideringsregler\nValidering av kundidentitet\nEndast formatvalidering sker i systemet.\nFormat:\n[NN]NNNNNN[-]NNNN\n[NN] = sekel valfritt\nNNNNNN = obligatoriskt id\n[N] = avskiljare valfritt\nNNNN = obligatoriska kontrollsiffror\n\n(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 0,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Nr | Beskrivning | Källa\n1 | Verksamhetsregel Skyddad personuppgift.doc | \n2 | Mejl_6991- och 6997-kunder i EttKund.rtf | \n3 | Mejl_6991- och 6997-kunder i EttKund_del2.rtf | \n\n\nFält | Format | Beskrivning\nPerson- eller organisations-nummer | Text\n[NN]NNNNNN[-]NNNN\n(där N=0-9)\nObligatorisk | Kundens identitet. \nSka kunna anges med eller utan sekel, och med eller utan bindestreck.\n\n\nFält | Format | Beskrivning\nPerson- eller organisationsnummer | Nummer\nLängd: 10 tkn | Kundens identitet.\nNamn | Text\nLängd: 36 tkn | Kundens namn\nAdress | Text\nLängd: 30 tkn | Kundens adress\nPostnummer | Nummer\nLängd: 5 tkn | Kundens postnummer\nPostort | Text\nLängd: 18 tkn | Kundens postort\n\n\nNr | Beskrivning | Källa\n1 | VTR Frågor gränssnittsspecifikation | \n2 | Fel- och varningstexter.xls | \n3 | Regelverk Förnyelsejusteringsfaktor (REF)\nRegulations, renewal adjustment factor (REF)\n |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 7,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  | \n | 4b2 | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga)\n |  | 4b2a | Kunden saknas  | Kunden saknas \n |  |  | 4b2a1 | Rally Försäkring meddelar försäkringshandläggaren att kunden inte finns \nNot: Se meddelandetext 60033\n(vb:vägtrafikregistret) (vb:kund) (vb:försäkringshandläggare)\n |  |  | 4b2a2 | Flödet avslutas\n |  | 4b2b | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter) | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b1 | Rally Försäkring meddelar försäkringshandläggaren att kunden har sekretessbelagda uppgifter\nNot: Se meddelandetext 60034\n(vb:försäkringshandläggare) (vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b2 | Flödet avslutas\n |  | 4b2c | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret) | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c1 | Rally Försäkring meddelar försäkringshandläggaren att kunden saknar församlingstillhörighet. \nNot: Se meddelandetext 60033\n(vb:försäkringshandläggare) (vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning | Beskrivning | Beskrivning | Beskrivning\nA1 | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd \n | A1a | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare) \n4a | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas\n | 4a1 | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet)\n | 4a2 | Flödet avslutas | Flödet avslutas | Flödet avslutas\n4b | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet\n | 4b1 | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund\n |  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 4,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Narendra likes to party. Sandeep plAYS football. Raj is a dancer. Leo loves to sing.",
+          "metadata": {
+            "filename": "Collegues.txt",
+            "chunk_index": 0,
+            "total_chunks": 1
+          }
+        }
+      ]
+    },
+    {
+      "query": "what are the rules for person nr",
+      "answer": "The rules for **personnummer** (personal number) in the context of Rally Försäkring are as follows:\n\n1. **Format:**\n   - The personal number can be entered in the format `[NN]NNNNNN[-]NNNN`, where:\n     - `NN` (optional) represents the century digits (e.g., 19 or 20).\n     - `NNNNNN` are the mandatory date digits for birth (e.g., YYMMDD).\n     - `[-]` is an optional separator (a dash `-` can be used but is not obligatory).\n     - `NNNN` are the mandatory control digits.\n\n2. **Validation:**\n   - Only **format validation** is performed within the Rally Försäkring system. For example:\n     - The number must be in correct length and formatting (as described above).\n     - No deeper content validation (e.g., checking if the provided numbers correspond to an actual person in national registries) is done within the system at this stage. \n\nThese format-specific rules ensure consistency and accuracy when processing personal information in the system.",
+      "timestamp": "2025-06-09T12:06:49.928360",
+      "sources": [
+        {
+          "content": "Nr | Beskrivning | Källa\n1 | Verksamhetsregel Skyddad personuppgift.doc | \n2 | Mejl_6991- och 6997-kunder i EttKund.rtf | \n3 | Mejl_6991- och 6997-kunder i EttKund_del2.rtf | \n\n\nFält | Format | Beskrivning\nPerson- eller organisations-nummer | Text\n[NN]NNNNNN[-]NNNN\n(där N=0-9)\nObligatorisk | Kundens identitet. \nSka kunna anges med eller utan sekel, och med eller utan bindestreck.\n\n\nFält | Format | Beskrivning\nPerson- eller organisationsnummer | Nummer\nLängd: 10 tkn | Kundens identitet.\nNamn | Text\nLängd: 36 tkn | Kundens namn\nAdress | Text\nLängd: 30 tkn | Kundens adress\nPostnummer | Nummer\nLängd: 5 tkn | Kundens postnummer\nPostort | Text\nLängd: 18 tkn | Kundens postort\n\n\nNr | Beskrivning | Källa\n1 | VTR Frågor gränssnittsspecifikation | \n2 | Fel- och varningstexter.xls | \n3 | Regelverk Förnyelsejusteringsfaktor (REF)\nRegulations, renewal adjustment factor (REF)\n |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 7,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt\n\n\nDatum | Datum | Version | Beskrivning | Författare\n2004-11-22 | 2004-11-22 | pA1 | Första utkastet | Patrik Kähäri\n2004-11-25 | 2004-11-25 | pA2 | Bytt namn på användningsfall efter samråd med Maria Samuelsson och tog bort referenser till PartMaster | Patrik Kähäri\n2004-12-15 | 2004-12-15 | A | Granskat | Patrik Kähäri\n2005-01-11 | 2005-01-11 | B | Tog bort LKF kod från visa kunduppgifter efter samråd med Maria S.\nFörtydligade referens till behandlingsregel för 6991- och 6997-nummer.\nFlyttade meddelandetexter till avsett dokument. | Patrik Kähäri\n2005-01-14 | 2005-01-14 | B | Rättat aktörsnamn | Maria Samuelsson\n2005-08-26 | 2005-08-26 | B | Uppdaterade hänvisningar till felmeddelande efter ny numrering. | Patrik Kähäri\n2009-05-15 | 2009-05-15 | pC1 | CR 15655 - Rallys anslutning till G-VTR:\nBytt ut alla anrop till VTR till via G-VTR istället | Lena Weingarth\n2009-05-28 | 2009-05-28 | C | Godkänt efter granskning av Persson Kerstin  LFAB; Kähäri Patrik; Appelquist Johan; Alvåg Göran; Lindvall Bengt | Lena Weingarth\n2009-06-17 | 2009-06-17 | pD1 | CR21759 - Adresshantering:\nLagt till alternativflöde 4b1\n | Lena Weingarth\n2009-07-01 | 2009-07-01 | pD1 | Lagt till nytt användningsfalldiagram | Lena Weingarth\n2009-07-02 | 2009-07-02 | D | Godkänt efter justering efter granskning av Persson Kerstin  LFAB; Tyrland Olle; Dyrefors Björn; Alvåg Göran; Kähäri Patrik | Lena Weingarth\n2020-10-26 | pE1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen | Ilkka Rautiainen\n2020-12-08 | 2020-12-08 | E | Baseline Nov 2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 1,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning\n1 | Försäkringshandläggaren väljer att identifiera en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\n2 | Rally Försäkring ger försäkringshandläggaren möjlighet att ange kundens identitet. \nNot: Se infoanalys 5.2.1 Ange kundidentitet\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet) \n3 | Försäkringshandläggaren anger kundens identitet och väljer att se kundens uppgifter.\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet)\n4 | Rally Försäkring validerar angiven kundidentitet, hämtar detaljerad information om kunden som finns lagrad sedan tidigare och presenterar vissa kunduppgifter för försäkringshandläggaren för att möjliggöra identifiering av kunden.\nNot: Se infoanalys 5.2.3 Visa kunduppgifter.\nNot: Se valideringsregler 5.3\n(vb:kundidentitet) (vb:försäkringshandläggare)\n5 | Försäkringshandläggaren väljer att offerera eller nyteckna en försäkring. Rally Försäkring sammanställer kunduppgifter nödvändiga för offerering eller nyteckning, för att sedan övergå i steg 2 i användningsfall F004.\nNot: Extend F004 – Offerera och nyteckna försäkring\nNot: Se infoanalys 5.2.4 Kunduppgifter för prisuppgift\n(vb:försäkringshandläggare) (vb:offerera) (vb:nyteckning) (vb:försäkring)(vb:prisuppgift)",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 3,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  | \n | 4b2 | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga)\n |  | 4b2a | Kunden saknas  | Kunden saknas \n |  |  | 4b2a1 | Rally Försäkring meddelar försäkringshandläggaren att kunden inte finns \nNot: Se meddelandetext 60033\n(vb:vägtrafikregistret) (vb:kund) (vb:försäkringshandläggare)\n |  |  | 4b2a2 | Flödet avslutas\n |  | 4b2b | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter) | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b1 | Rally Försäkring meddelar försäkringshandläggaren att kunden har sekretessbelagda uppgifter\nNot: Se meddelandetext 60034\n(vb:försäkringshandläggare) (vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b2 | Flödet avslutas\n |  | 4b2c | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret) | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c1 | Rally Försäkring meddelar försäkringshandläggaren att kunden saknar församlingstillhörighet. \nNot: Se meddelandetext 60033\n(vb:försäkringshandläggare) (vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally\n\nMallen innehåller fält. Använd menyvalet Arkiv/ Egenskaper för att sätta värden på fälten; Ämne, Titel, Chef, Nyckelord och Kommentar. Denna blå text syns inte i utskrift.\n\nFörsäkring\nAnvändningsfall\nF001 - Offerera och teckna försäkring via reservingång\nVersion E\n\nInnehållsförteckning\n1. Beskrivning av användningsfallet\t4\n2. Användningsfallsdiagram\t5\n3. Huvudflöde\t6\n4. Alternativflöden\t7\n5. Referenser\t9\n5.1 Verksamhetsregler\t9\n5.2 Databeskrivningar\t9\n5.3 Valideringsregler\t11\n5.4 Användargränssnitt\t11\n5.5 Övriga referenser\t11\n6. Särskilda Krav\t11\n7. Övrigt\t11\nFigurförteckning\nFigur 1 Användningsfallsdiagram\tError! Bookmark not defined.\nRevisionshistorik\n\nBeskrivning av användningsfallet\nAnvändningsfallsdiagram\n\nHuvudflöde\nOBS! Handläggaren kan välja att utföra steg 3-4 flera gånger.\nAlternativflöden\nSteg A1 kan inträffa i steg 2 eller 4 i huvudflödet. \nReferenser\nVerksamhetsregler\nDatabeskrivningar\nAnge kundidentitet\n(vb:kundidentitet) (vb:personnummer) (vb:organisationsnummer) (vb:sekel)\nVTR – Körkortsfråga (HP01)\nSe dokumentation VTR frågor.\n(vb:vägtrafikregistret) (vb:körkortsfråga) (vb:vtr-fråga)\nVisa kunduppgifter\n(vb:personnummer) (vb:organisationsnummer) (vb:kundidentitet) (vb:kundens namn) (vb:kundens adress) (vb:postnummer) (vb:postort)\nKunduppgifter för prisuppgift\n<<Komplettera med beskrivning av kundformat>>\n(vb:kund) (vb:prisuppgift)\nValideringsregler\nValidering av kundidentitet\nEndast formatvalidering sker i systemet.\nFormat:\n[NN]NNNNNN[-]NNNN\n[NN] = sekel valfritt\nNNNNNN = obligatoriskt id\n[N] = avskiljare valfritt\nNNNN = obligatoriska kontrollsiffror\n\n(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 0,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning | Beskrivning | Beskrivning | Beskrivning\nA1 | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd \n | A1a | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare) \n4a | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas\n | 4a1 | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet)\n | 4a2 | Flödet avslutas | Flödet avslutas | Flödet avslutas\n4b | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet\n | 4b1 | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund\n |  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 4,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring)\n | 4b4 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rubrik | Text\nSammanfattning | Användningsfallet utgör en del av en reservingång till Rally i de situationer då systemet EttKund (Siebel) är otillgängligt för försäkringshandläggare.\nFörsäkringshandläggaren identifierar en kund i Rally Försäkring och skapar en prisuppgift som kan resultera i en offert eller försäkring.\n(vb:försäkringshandläggare) (vb:kund) (vb:prisuppgift) (vb:offert) (vb:försäkring)\nSpårbarhet | \nStatus | Utkast, Under arbete, Granskat\nAktörer | Försäkringshandläggare, G-VTR, EttKund\nStartvillkor | Reservingången är öppen för användning. \nÖnskat resultat | Försäkringshandläggaren har identifierat en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\nSärskilda krav | Försäkringshandläggaren kan när som helst i flödet välja att avbryta ärendet.\n(vb:försäkringshandläggare) \nÖppna frågor |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 2,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Narendra likes to party. Sandeep plAYS football. Raj is a dancer. Leo loves to sing.",
+          "metadata": {
+            "filename": "Collegues.txt",
+            "chunk_index": 0,
+            "total_chunks": 1
+          }
+        }
+      ]
+    },
+    {
+      "query": "explain all the validations existing in the system",
+      "answer": "The **Rally Försäkring** system performs the following validations according to the provided documentation:\n\n### 1. **Validation of Customer Identity**\n   - **Format Validation:**\n     - The system validates customer identity based on specific formatting rules.\n     - For **personnummer** (personal number) or **organisationsnummer** (organization number), the format follows:\n       - `[NN]NNNNNN[-]NNNN`\n         - `[NN]`: Optional century digits (e.g., 19 or 20).\n         - `NNNNNN`: Mandatory 6-digit birth date or organizational identifier.\n         - `[-]`: Optional separator/dash between date and control digits.\n         - `NNNN`: Mandatory control digits.\n     - No content verification or cross-referencing with external registries occurs during this step; it is limited to ensuring the structure matches the required format.\n\n### 2. **Validation in Use Case Flows**\n   - During the customer identification and insurance process, validations act at different points:\n     - **Step 4 of Main Flow:**\n       - The system validates the provided customer identity to retrieve associated details.\n       - If validation fails, specific error messages are shown, including:\n         - **Meddelandetext 60037:** Indicates that the customer identity validation failed.\n         - Flows can terminate if this step is unsuccessful.\n     - **Step 4 of Alternative Flow (4a, 4b):**\n       - If the customer cannot be found or has confidential details (e.g., **sekretessbelagda uppgifter**), specific alternate validations occur:\n         - The system queries external systems, such as G-VTR (vägtrafikregistret) for driving license information.\n\n### 3. **Validation of Confidential Data**\n   - If **sekretessbelagda uppgifter** (confidential information) is detected:\n     - The system generates a message (**Meddelandetext 60034**) to notify the insurance agent that the customer has confidential details.\n     - The flow is terminated, and no further information is displayed.\n\n### 4. **Validation of Missing Customer Details**\n   - When a customer identity is not found in the system:\n     - The system attempts to retrieve information from G-VTR (for road traffic registry details).\n     - Messaging and flow adjustments occur based on the case:\n       - **Customer Missing:** A message (**Meddelandetext 60033**) informs the agent, and the flow terminates.\n       - **Customer Missing Parish Membership:** If a customer lacks parish affiliation details, the system informs the agent via a similar notification.\n\n### 5. **Validation of Customer Data for Pricing**\n   - When preparing price offers, the system ensures:\n     - Required customer data is present and formatted correctly to generate an accurate insurance quote.\n\n### 6. **Formatting Rules for Other Fields**\n   - Additional fields used during the process, including:\n     - **Name:** Must not exceed 36 characters.\n     - **Address:** Must not exceed 30 characters.\n     - **Postcode:** Must be a 5-digit number.\n     - **City (Postort):** Must not exceed 18 characters.\n   - These rules ensure data remains consistent and is stored in the required structure.\n\n### 7. **External System Integration and Rules**\n   - For driving license or road-related details, the system interfaces with **G-VTR** and adheres to specific validation steps for:\n     - Querying information based on customer details.\n     - Handling and managing confidential records with appropriate termination messaging.\n\n### In Summary:\nThe validations in the system focus on:\n   1. Ensuring consistent **format rules** for all input fields (e.g., personal numbers, addresses).\n   2. **Error handling** when customer identity validation fails or external information is missing.\n   3. **Confidential data protection** by notifying relevant outcomes to agents.\n   4. Data consistency during quoting and signing processes.\n\nThese validations are specifically designed to maintain the system's operational integrity and ensure compliance with customer data standards.",
+      "timestamp": "2025-06-09T12:07:28.918016",
+      "sources": [
+        {
+          "content": "Rally\n\nMallen innehåller fält. Använd menyvalet Arkiv/ Egenskaper för att sätta värden på fälten; Ämne, Titel, Chef, Nyckelord och Kommentar. Denna blå text syns inte i utskrift.\n\nFörsäkring\nAnvändningsfall\nF001 - Offerera och teckna försäkring via reservingång\nVersion E\n\nInnehållsförteckning\n1. Beskrivning av användningsfallet\t4\n2. Användningsfallsdiagram\t5\n3. Huvudflöde\t6\n4. Alternativflöden\t7\n5. Referenser\t9\n5.1 Verksamhetsregler\t9\n5.2 Databeskrivningar\t9\n5.3 Valideringsregler\t11\n5.4 Användargränssnitt\t11\n5.5 Övriga referenser\t11\n6. Särskilda Krav\t11\n7. Övrigt\t11\nFigurförteckning\nFigur 1 Användningsfallsdiagram\tError! Bookmark not defined.\nRevisionshistorik\n\nBeskrivning av användningsfallet\nAnvändningsfallsdiagram\n\nHuvudflöde\nOBS! Handläggaren kan välja att utföra steg 3-4 flera gånger.\nAlternativflöden\nSteg A1 kan inträffa i steg 2 eller 4 i huvudflödet. \nReferenser\nVerksamhetsregler\nDatabeskrivningar\nAnge kundidentitet\n(vb:kundidentitet) (vb:personnummer) (vb:organisationsnummer) (vb:sekel)\nVTR – Körkortsfråga (HP01)\nSe dokumentation VTR frågor.\n(vb:vägtrafikregistret) (vb:körkortsfråga) (vb:vtr-fråga)\nVisa kunduppgifter\n(vb:personnummer) (vb:organisationsnummer) (vb:kundidentitet) (vb:kundens namn) (vb:kundens adress) (vb:postnummer) (vb:postort)\nKunduppgifter för prisuppgift\n<<Komplettera med beskrivning av kundformat>>\n(vb:kund) (vb:prisuppgift)\nValideringsregler\nValidering av kundidentitet\nEndast formatvalidering sker i systemet.\nFormat:\n[NN]NNNNNN[-]NNNN\n[NN] = sekel valfritt\nNNNNNN = obligatoriskt id\n[N] = avskiljare valfritt\nNNNN = obligatoriska kontrollsiffror\n\n(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 0,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Nr | Beskrivning | Källa\n1 | Verksamhetsregel Skyddad personuppgift.doc | \n2 | Mejl_6991- och 6997-kunder i EttKund.rtf | \n3 | Mejl_6991- och 6997-kunder i EttKund_del2.rtf | \n\n\nFält | Format | Beskrivning\nPerson- eller organisations-nummer | Text\n[NN]NNNNNN[-]NNNN\n(där N=0-9)\nObligatorisk | Kundens identitet. \nSka kunna anges med eller utan sekel, och med eller utan bindestreck.\n\n\nFält | Format | Beskrivning\nPerson- eller organisationsnummer | Nummer\nLängd: 10 tkn | Kundens identitet.\nNamn | Text\nLängd: 36 tkn | Kundens namn\nAdress | Text\nLängd: 30 tkn | Kundens adress\nPostnummer | Nummer\nLängd: 5 tkn | Kundens postnummer\nPostort | Text\nLängd: 18 tkn | Kundens postort\n\n\nNr | Beskrivning | Källa\n1 | VTR Frågor gränssnittsspecifikation | \n2 | Fel- och varningstexter.xls | \n3 | Regelverk Förnyelsejusteringsfaktor (REF)\nRegulations, renewal adjustment factor (REF)\n |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 7,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning | Beskrivning | Beskrivning | Beskrivning\nA1 | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd \n | A1a | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare) \n4a | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas\n | 4a1 | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet)\n | 4a2 | Flödet avslutas | Flödet avslutas | Flödet avslutas\n4b | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet\n | 4b1 | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund\n |  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 4,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt\n\n\nDatum | Datum | Version | Beskrivning | Författare\n2004-11-22 | 2004-11-22 | pA1 | Första utkastet | Patrik Kähäri\n2004-11-25 | 2004-11-25 | pA2 | Bytt namn på användningsfall efter samråd med Maria Samuelsson och tog bort referenser till PartMaster | Patrik Kähäri\n2004-12-15 | 2004-12-15 | A | Granskat | Patrik Kähäri\n2005-01-11 | 2005-01-11 | B | Tog bort LKF kod från visa kunduppgifter efter samråd med Maria S.\nFörtydligade referens till behandlingsregel för 6991- och 6997-nummer.\nFlyttade meddelandetexter till avsett dokument. | Patrik Kähäri\n2005-01-14 | 2005-01-14 | B | Rättat aktörsnamn | Maria Samuelsson\n2005-08-26 | 2005-08-26 | B | Uppdaterade hänvisningar till felmeddelande efter ny numrering. | Patrik Kähäri\n2009-05-15 | 2009-05-15 | pC1 | CR 15655 - Rallys anslutning till G-VTR:\nBytt ut alla anrop till VTR till via G-VTR istället | Lena Weingarth\n2009-05-28 | 2009-05-28 | C | Godkänt efter granskning av Persson Kerstin  LFAB; Kähäri Patrik; Appelquist Johan; Alvåg Göran; Lindvall Bengt | Lena Weingarth\n2009-06-17 | 2009-06-17 | pD1 | CR21759 - Adresshantering:\nLagt till alternativflöde 4b1\n | Lena Weingarth\n2009-07-01 | 2009-07-01 | pD1 | Lagt till nytt användningsfalldiagram | Lena Weingarth\n2009-07-02 | 2009-07-02 | D | Godkänt efter justering efter granskning av Persson Kerstin  LFAB; Tyrland Olle; Dyrefors Björn; Alvåg Göran; Kähäri Patrik | Lena Weingarth\n2020-10-26 | pE1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen | Ilkka Rautiainen\n2020-12-08 | 2020-12-08 | E | Baseline Nov 2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 1,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning\n1 | Försäkringshandläggaren väljer att identifiera en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\n2 | Rally Försäkring ger försäkringshandläggaren möjlighet att ange kundens identitet. \nNot: Se infoanalys 5.2.1 Ange kundidentitet\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet) \n3 | Försäkringshandläggaren anger kundens identitet och väljer att se kundens uppgifter.\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet)\n4 | Rally Försäkring validerar angiven kundidentitet, hämtar detaljerad information om kunden som finns lagrad sedan tidigare och presenterar vissa kunduppgifter för försäkringshandläggaren för att möjliggöra identifiering av kunden.\nNot: Se infoanalys 5.2.3 Visa kunduppgifter.\nNot: Se valideringsregler 5.3\n(vb:kundidentitet) (vb:försäkringshandläggare)\n5 | Försäkringshandläggaren väljer att offerera eller nyteckna en försäkring. Rally Försäkring sammanställer kunduppgifter nödvändiga för offerering eller nyteckning, för att sedan övergå i steg 2 i användningsfall F004.\nNot: Extend F004 – Offerera och nyteckna försäkring\nNot: Se infoanalys 5.2.4 Kunduppgifter för prisuppgift\n(vb:försäkringshandläggare) (vb:offerera) (vb:nyteckning) (vb:försäkring)(vb:prisuppgift)",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 3,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring)\n | 4b4 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rubrik | Text\nSammanfattning | Användningsfallet utgör en del av en reservingång till Rally i de situationer då systemet EttKund (Siebel) är otillgängligt för försäkringshandläggare.\nFörsäkringshandläggaren identifierar en kund i Rally Försäkring och skapar en prisuppgift som kan resultera i en offert eller försäkring.\n(vb:försäkringshandläggare) (vb:kund) (vb:prisuppgift) (vb:offert) (vb:försäkring)\nSpårbarhet | \nStatus | Utkast, Under arbete, Granskat\nAktörer | Försäkringshandläggare, G-VTR, EttKund\nStartvillkor | Reservingången är öppen för användning. \nÖnskat resultat | Försäkringshandläggaren har identifierat en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\nSärskilda krav | Försäkringshandläggaren kan när som helst i flödet välja att avbryta ärendet.\n(vb:försäkringshandläggare) \nÖppna frågor |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 2,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  | \n | 4b2 | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga)\n |  | 4b2a | Kunden saknas  | Kunden saknas \n |  |  | 4b2a1 | Rally Försäkring meddelar försäkringshandläggaren att kunden inte finns \nNot: Se meddelandetext 60033\n(vb:vägtrafikregistret) (vb:kund) (vb:försäkringshandläggare)\n |  |  | 4b2a2 | Flödet avslutas\n |  | 4b2b | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter) | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b1 | Rally Försäkring meddelar försäkringshandläggaren att kunden har sekretessbelagda uppgifter\nNot: Se meddelandetext 60034\n(vb:försäkringshandläggare) (vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b2 | Flödet avslutas\n |  | 4b2c | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret) | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c1 | Rally Försäkring meddelar försäkringshandläggaren att kunden saknar församlingstillhörighet. \nNot: Se meddelandetext 60033\n(vb:försäkringshandläggare) (vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Narendra likes to party. Sandeep plAYS football. Raj is a dancer. Leo loves to sing.",
+          "metadata": {
+            "filename": "Collegues.txt",
+            "chunk_index": 0,
+            "total_chunks": 1
+          }
+        }
+      ]
+    },
+    {
+      "query": "what happens when validation of kund indenty fails?",
+      "answer": "When the validation of **kundidentitet** (customer identity) fails in the Rally Försäkring system, the following actions occur:\n\n1. **System Notification:**\n   - A message is generated to alert the insurance agent (försäkringshandläggaren) about the failure.\n   - The specific message displayed is identified as **Meddelandetext 60037**, which states that the validation of the customer identity has failed.\n\n2. **Termination of the Flow:**\n   - If the identity validation fails, the process flow is terminated immediately. There is no further action or progression in the workflow for that case.\n\n3. **Customer Assistance:**\n   - The insurance agent or system user is unable to proceed with retrieving customer information or creating/offering a new policy due to invalid or unverified customer identity.\n\n### Additional Notes:\n- This validation process ensures that the system does not store or proceed with incorrect, incomplete, or improperly formatted customer data.\n- If the error occurs repeatedly, the agent may need to manually cross-check the input details for accuracy or seek further assistance to resolve the issue.\n\nThis strict validation measure helps maintain data integrity and avoid errors downstream in the insurance process.",
+      "timestamp": "2025-06-09T12:09:30.851232",
+      "sources": [
+        {
+          "content": "Steg | Beskrivning | Beskrivning | Beskrivning | Beskrivning\nA1 | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd  | Reservingång är stängd \n | A1a | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare)  | Rally Försäkring meddelar försäkringshandläggaren om att funktionen är stängd och att systemet EttKund skall användas för att få tillträde till Rally.\nNot: Se meddelandetext 60039\n(vb:försäkringshandläggare) \n4a | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas | Validering av kundens identitet misslyckas\n | 4a1 | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet) | Rally Försäkring meddelar att valideringen av kundidentiteten misslyckats\nNot: Se meddelandetext 60037\n(vb:kundidentitet)\n | 4a2 | Flödet avslutas | Flödet avslutas | Flödet avslutas\n4b | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet | Kunden kan inte hittas i systemet\n | 4b1 | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund | Rally Försäkring frågar efter uppgifter om kunden i EttKund\n |  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 4,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rally\n\nMallen innehåller fält. Använd menyvalet Arkiv/ Egenskaper för att sätta värden på fälten; Ämne, Titel, Chef, Nyckelord och Kommentar. Denna blå text syns inte i utskrift.\n\nFörsäkring\nAnvändningsfall\nF001 - Offerera och teckna försäkring via reservingång\nVersion E\n\nInnehållsförteckning\n1. Beskrivning av användningsfallet\t4\n2. Användningsfallsdiagram\t5\n3. Huvudflöde\t6\n4. Alternativflöden\t7\n5. Referenser\t9\n5.1 Verksamhetsregler\t9\n5.2 Databeskrivningar\t9\n5.3 Valideringsregler\t11\n5.4 Användargränssnitt\t11\n5.5 Övriga referenser\t11\n6. Särskilda Krav\t11\n7. Övrigt\t11\nFigurförteckning\nFigur 1 Användningsfallsdiagram\tError! Bookmark not defined.\nRevisionshistorik\n\nBeskrivning av användningsfallet\nAnvändningsfallsdiagram\n\nHuvudflöde\nOBS! Handläggaren kan välja att utföra steg 3-4 flera gånger.\nAlternativflöden\nSteg A1 kan inträffa i steg 2 eller 4 i huvudflödet. \nReferenser\nVerksamhetsregler\nDatabeskrivningar\nAnge kundidentitet\n(vb:kundidentitet) (vb:personnummer) (vb:organisationsnummer) (vb:sekel)\nVTR – Körkortsfråga (HP01)\nSe dokumentation VTR frågor.\n(vb:vägtrafikregistret) (vb:körkortsfråga) (vb:vtr-fråga)\nVisa kunduppgifter\n(vb:personnummer) (vb:organisationsnummer) (vb:kundidentitet) (vb:kundens namn) (vb:kundens adress) (vb:postnummer) (vb:postort)\nKunduppgifter för prisuppgift\n<<Komplettera med beskrivning av kundformat>>\n(vb:kund) (vb:prisuppgift)\nValideringsregler\nValidering av kundidentitet\nEndast formatvalidering sker i systemet.\nFormat:\n[NN]NNNNNN[-]NNNN\n[NN] = sekel valfritt\nNNNNNN = obligatoriskt id\n[N] = avskiljare valfritt\nNNNN = obligatoriska kontrollsiffror\n\n(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 0,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "(vb:kundidentitet) (vb:sekel)\nAnvändargränssnitt\nSe GUI-info specifikation Reservingång\nÖvriga referenser\nSärskilda Krav\nSe under 1. Beskrivning av användningsfall\nÖvrigt\n\n\nDatum | Datum | Version | Beskrivning | Författare\n2004-11-22 | 2004-11-22 | pA1 | Första utkastet | Patrik Kähäri\n2004-11-25 | 2004-11-25 | pA2 | Bytt namn på användningsfall efter samråd med Maria Samuelsson och tog bort referenser till PartMaster | Patrik Kähäri\n2004-12-15 | 2004-12-15 | A | Granskat | Patrik Kähäri\n2005-01-11 | 2005-01-11 | B | Tog bort LKF kod från visa kunduppgifter efter samråd med Maria S.\nFörtydligade referens till behandlingsregel för 6991- och 6997-nummer.\nFlyttade meddelandetexter till avsett dokument. | Patrik Kähäri\n2005-01-14 | 2005-01-14 | B | Rättat aktörsnamn | Maria Samuelsson\n2005-08-26 | 2005-08-26 | B | Uppdaterade hänvisningar till felmeddelande efter ny numrering. | Patrik Kähäri\n2009-05-15 | 2009-05-15 | pC1 | CR 15655 - Rallys anslutning till G-VTR:\nBytt ut alla anrop till VTR till via G-VTR istället | Lena Weingarth\n2009-05-28 | 2009-05-28 | C | Godkänt efter granskning av Persson Kerstin  LFAB; Kähäri Patrik; Appelquist Johan; Alvåg Göran; Lindvall Bengt | Lena Weingarth\n2009-06-17 | 2009-06-17 | pD1 | CR21759 - Adresshantering:\nLagt till alternativflöde 4b1\n | Lena Weingarth\n2009-07-01 | 2009-07-01 | pD1 | Lagt till nytt användningsfalldiagram | Lena Weingarth\n2009-07-02 | 2009-07-02 | D | Godkänt efter justering efter granskning av Persson Kerstin  LFAB; Tyrland Olle; Dyrefors Björn; Alvåg Göran; Kähäri Patrik | Lena Weingarth\n2020-10-26 | pE1 | Feature 3999 – Premiejustering on renewal of motorförsäkring | Ilkka Rautiainen | Ilkka Rautiainen\n2020-12-08 | 2020-12-08 | E | Baseline Nov 2020 | Carina Rehnqvist",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 1,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Steg | Beskrivning\n1 | Försäkringshandläggaren väljer att identifiera en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\n2 | Rally Försäkring ger försäkringshandläggaren möjlighet att ange kundens identitet. \nNot: Se infoanalys 5.2.1 Ange kundidentitet\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet) \n3 | Försäkringshandläggaren anger kundens identitet och väljer att se kundens uppgifter.\n(vb:försäkringshandläggare) (vb:kund) (vb:kundidentitet)\n4 | Rally Försäkring validerar angiven kundidentitet, hämtar detaljerad information om kunden som finns lagrad sedan tidigare och presenterar vissa kunduppgifter för försäkringshandläggaren för att möjliggöra identifiering av kunden.\nNot: Se infoanalys 5.2.3 Visa kunduppgifter.\nNot: Se valideringsregler 5.3\n(vb:kundidentitet) (vb:försäkringshandläggare)\n5 | Försäkringshandläggaren väljer att offerera eller nyteckna en försäkring. Rally Försäkring sammanställer kunduppgifter nödvändiga för offerering eller nyteckning, för att sedan övergå i steg 2 i användningsfall F004.\nNot: Extend F004 – Offerera och nyteckna försäkring\nNot: Se infoanalys 5.2.4 Kunduppgifter för prisuppgift\n(vb:försäkringshandläggare) (vb:offerera) (vb:nyteckning) (vb:försäkring)(vb:prisuppgift)",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 3,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  | 4b1a | Om kunden saknas fortsätter flödet i steg 4b2 | Om kunden saknas fortsätter flödet i steg 4b2\n |  | 4b1b | Flödet fortsätter i steg 4b3 | Flödet fortsätter i steg 4b3\n |  |  |  | \n | 4b2 | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga) | Rally Försäkring frågar efter uppgifter om kunden i VTR via G-VTR\n(vb:vägtrafikregistret) (vb:vägtrafikregistret) (vb:körkortsfråga)\n |  | 4b2a | Kunden saknas  | Kunden saknas \n |  |  | 4b2a1 | Rally Försäkring meddelar försäkringshandläggaren att kunden inte finns \nNot: Se meddelandetext 60033\n(vb:vägtrafikregistret) (vb:kund) (vb:försäkringshandläggare)\n |  |  | 4b2a2 | Flödet avslutas\n |  | 4b2b | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter) | Kunden har sekretessbelagda uppgifter\n(vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b1 | Rally Försäkring meddelar försäkringshandläggaren att kunden har sekretessbelagda uppgifter\nNot: Se meddelandetext 60034\n(vb:försäkringshandläggare) (vb:vägtrafikregistret) (vb:kund) (vb:sekretessbelagda uppgifter)\n |  |  | 4b2b2 | Flödet avslutas\n |  | 4b2c | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret) | Kunden saknar församlingstillhörighet \n(vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c1 | Rally Försäkring meddelar försäkringshandläggaren att kunden saknar församlingstillhörighet. \nNot: Se meddelandetext 60033\n(vb:försäkringshandläggare) (vb:kund) (vb:församlingstillhörighet) (vb:vägtrafikregistret)\n |  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 5,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Rubrik | Text\nSammanfattning | Användningsfallet utgör en del av en reservingång till Rally i de situationer då systemet EttKund (Siebel) är otillgängligt för försäkringshandläggare.\nFörsäkringshandläggaren identifierar en kund i Rally Försäkring och skapar en prisuppgift som kan resultera i en offert eller försäkring.\n(vb:försäkringshandläggare) (vb:kund) (vb:prisuppgift) (vb:offert) (vb:försäkring)\nSpårbarhet | \nStatus | Utkast, Under arbete, Granskat\nAktörer | Försäkringshandläggare, G-VTR, EttKund\nStartvillkor | Reservingången är öppen för användning. \nÖnskat resultat | Försäkringshandläggaren har identifierat en kund i Rally Försäkring.\n(vb:försäkringshandläggare) (vb:kund)\nSärskilda krav | Försäkringshandläggaren kan när som helst i flödet välja att avbryta ärendet.\n(vb:försäkringshandläggare) \nÖppna frågor |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 2,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "|  |  | 4b2c2 | Flödet återupptas i steg 5\n | 4b3 | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring) | Rally Försäkring presenterar vissa kunduppgifter för försäkringshandläggaren i syfte att möjliggöra identifiering av kunden.\nKunduppgifter sparas temporärt i syfte att kunna offerera eller nyteckna försäkringar i ett senare skede. \nNot: Se infoanalys 5.2.3 Visa kunduppgifter\n(vb:kund) (vb:försäkringshandläggare) (vb:offerera) (vb:nyteckna) (vb:försäkring)\n | 4b4 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5 | Flödet återupptas i steg 5",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 6,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Nr | Beskrivning | Källa\n1 | Verksamhetsregel Skyddad personuppgift.doc | \n2 | Mejl_6991- och 6997-kunder i EttKund.rtf | \n3 | Mejl_6991- och 6997-kunder i EttKund_del2.rtf | \n\n\nFält | Format | Beskrivning\nPerson- eller organisations-nummer | Text\n[NN]NNNNNN[-]NNNN\n(där N=0-9)\nObligatorisk | Kundens identitet. \nSka kunna anges med eller utan sekel, och med eller utan bindestreck.\n\n\nFält | Format | Beskrivning\nPerson- eller organisationsnummer | Nummer\nLängd: 10 tkn | Kundens identitet.\nNamn | Text\nLängd: 36 tkn | Kundens namn\nAdress | Text\nLängd: 30 tkn | Kundens adress\nPostnummer | Nummer\nLängd: 5 tkn | Kundens postnummer\nPostort | Text\nLängd: 18 tkn | Kundens postort\n\n\nNr | Beskrivning | Källa\n1 | VTR Frågor gränssnittsspecifikation | \n2 | Fel- och varningstexter.xls | \n3 | Regelverk Förnyelsejusteringsfaktor (REF)\nRegulations, renewal adjustment factor (REF)\n |",
+          "metadata": {
+            "filename": "F001 Offerera och teckna försäkring via reservingång.docx",
+            "chunk_index": 7,
+            "total_chunks": 8,
+            "title": "F001 - Offerera och teckna försäkring via reservingång",
+            "author": "Patrik Kähäri"
+          }
+        },
+        {
+          "content": "Narendra likes to party. Sandeep plAYS football. Raj is a dancer. Leo loves to sing.",
+          "metadata": {
+            "filename": "Collegues.txt",
+            "chunk_index": 0,
+            "total_chunks": 1
+          }
+        }
+      ]
+    }
+  ]
+}
