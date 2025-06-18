@@ -37,7 +37,7 @@ EMBEDDING_DIMENSIONS = 1536  # text-embedding-3-small dimensions
 RETRIEVED_CHUNK_LIMIT = 10  # Number of chunks to retrieve from vector store
 
 # Server configurations
-API_PORT = 1090  # default port (8000)
+API_PORT = 1092  # default port (8000)
 
 # Include source documents in chat history
 SOURCE_IN_HISTORY = True  # Set to True to include retrieved source chunks in history
